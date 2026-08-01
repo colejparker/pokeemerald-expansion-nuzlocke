@@ -2249,13 +2249,12 @@ u8 GetMonAilment(struct Pokemon *mon)
 {
     u8 ailment;
 
-    if (GetMonData(mon, MON_DATA_HP) == 0)
+    // Permanently fainted (nuzlocke tracker) mons always show as fainted, even after healing.
+    if (IsMonPermanentlyFainted(mon) || GetMonData(mon, MON_DATA_HP) == 0)
         return AILMENT_FNT;
     ailment = GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS));
     if (ailment != AILMENT_NONE)
         return ailment;
-    if (ShouldPokemonShowActivePokerus(mon))
-        return AILMENT_PKRS;
     return AILMENT_NONE;
 }
 

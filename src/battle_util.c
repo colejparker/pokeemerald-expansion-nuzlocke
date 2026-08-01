@@ -15,6 +15,7 @@
 #include "config_changes.h"
 #include "party_menu.h"
 #include "pokemon.h"
+#include "pokerus.h"
 #include "international_string_util.h"
 #include "item.h"
 #include "util.h"
@@ -3499,6 +3500,14 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 gEffectBattler = gBattlerAbility = battler;
                 SetStatChange(battler, stat, 1);
                 BattleScriptCall(BattleScript_AbilityStatChange);
+                effect++;
+            }
+            break;
+        case ABILITY_INNARDS_OUT:
+            if (shouldAbilityTrigger)
+            {
+                gEffectBattler = gBattlerAbility = battler;
+                BattleScriptCall(BattleScript_AbilityPopUp);
                 effect++;
             }
             break;
@@ -11007,6 +11016,7 @@ void SetValuesOnFaint(enum BattlerId battler)
         if (gBattleResults.playerFaintCounter < 255)
             gBattleResults.playerFaintCounter++;
         AdjustFriendshipOnBattleFaint(battler);
+        MarkMonPermanentlyFainted(GetBattlerMon(battler));
         gSideTimers[B_SIDE_PLAYER].retaliateTimer = 2;
     }
     else
