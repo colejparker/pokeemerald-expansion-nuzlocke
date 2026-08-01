@@ -38,6 +38,7 @@ DesertRuins_EventScript_ShowRegirock::
 
 DesertRuins_EventScript_CaveEntranceMiddle::
 	lockall
+	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, DesertRuins_EventScript_RegiEntranceSealed
 	goto_if_set FLAG_SYS_REGIROCK_PUZZLE_COMPLETED, DesertRuins_EventScript_BigHoleInWall
 	braillemsgbox DesertRuins_Braille_UseRockSmash
 	releaseall
@@ -50,7 +51,13 @@ DesertRuins_EventScript_BigHoleInWall::
 
 DesertRuins_EventScript_CaveEntranceSide::
 	lockall
+	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, DesertRuins_EventScript_RegiEntranceSealed
 	braillemsgbox DesertRuins_Braille_UseRockSmash
+	releaseall
+	end
+
+DesertRuins_EventScript_RegiEntranceSealed::
+	msgbox gText_RegiEntranceSealed, MSGBOX_DEFAULT
 	releaseall
 	end
 

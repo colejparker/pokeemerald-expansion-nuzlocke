@@ -1479,6 +1479,11 @@ gText_DoorOpenedFarAway::
 gText_BigHoleInTheWall::
 	.string "There is a big hole in the wall.$"
 
+gText_RegiEntranceSealed::
+	.string "A mysterious power is sealing this\n"
+	.string "chamber. Something out there must\l"
+	.string "still be disturbing the land.$"
+
 gText_SorryWirelessClubAdjustments::
 	.string "I'm terribly sorry.\n"
 	.string "The POKéMON WIRELESS CLUB is\l"

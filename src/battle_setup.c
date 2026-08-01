@@ -961,10 +961,15 @@ void ChooseStarter(void)
 static void CB2_GiveStarter(void)
 {
     u16 starterMon;
+    struct Pokemon mon;
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
-    ScriptGiveMon(starterMon, 5, ITEM_NONE);
+    CreateMonWithIVs(&mon, starterMon, 5, Random32(), OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    SetBoxMonPerfectIVs(&mon.box, 5);
+    CalculateMonStats(&mon);
+    GiveMonInitialMoveset(&mon);
+    GiveScriptedMonToPlayer(&mon, PARTY_SIZE);
     ResetTasks();
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);

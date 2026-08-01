@@ -38,6 +38,7 @@ AncientTomb_EventScript_HideRegiEntrance::
 
 AncientTomb_EventScript_CaveEntranceMiddle::
 	lockall
+	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, AncientTomb_EventScript_RegiEntranceSealed
 	goto_if_set FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED, AncientTomb_EventScript_BigHoleInWall
 	braillemsgbox AncientTomb_Braille_ShineInTheMiddle
 	releaseall
@@ -50,7 +51,13 @@ AncientTomb_EventScript_BigHoleInWall::
 
 AncientTomb_EventScript_CaveEntranceSide::
 	lockall
+	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, AncientTomb_EventScript_RegiEntranceSealed
 	braillemsgbox AncientTomb_Braille_ShineInTheMiddle
+	releaseall
+	end
+
+AncientTomb_EventScript_RegiEntranceSealed::
+	msgbox gText_RegiEntranceSealed, MSGBOX_DEFAULT
 	releaseall
 	end
 
