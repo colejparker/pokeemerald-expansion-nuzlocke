@@ -16,6 +16,7 @@
 #include "pokeblock.h"
 #include "pokemon.h"
 #include "random.h"
+#include "randomizer.h"
 #include "roamer.h"
 #include "safari_zone.h"
 #include "script.h"
@@ -532,6 +533,7 @@ bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPok
 {
     u8 wildMonIndex = 0;
     u8 level;
+    u16 species;
 
     switch (area)
     {
@@ -582,14 +584,17 @@ bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPok
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    species = RandomizeWildEncounter(wildMonInfo->wildPokemon[wildMonIndex].species,
+        gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, area, wildMonIndex);
+    CreateWildMon(species, level);
     return TRUE;
 }
 
 static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 rod)
 {
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
-    enum Species wildMonSpecies = wildMonInfo->wildPokemon[wildMonIndex].species;
+    enum Species wildMonSpecies = RandomizeWildEncounter(wildMonInfo->wildPokemon[wildMonIndex].species,
+        gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, WILD_AREA_FISHING, wildMonIndex);
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
@@ -986,7 +991,8 @@ void FishingWildEncounter(u8 rod)
     {
         u8 level = ChooseWildMonLevel(&gWildFeebas, 0, WILD_AREA_FISHING);
 
-        species = gWildFeebas.species;
+        species = RandomizeWildEncounter(gWildFeebas.species,
+            gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, WILD_AREA_FISHING, 0xFE);
         CreateWildMon(species, level);
     }
     else
@@ -1004,6 +1010,7 @@ void FishingWildEncounter(u8 rod)
 u16 GetLocalWildMon(bool8 *isWaterMon)
 {
     u32 headerId;
+    u8 index;
     enum TimeOfDay timeOfDay;
     const struct WildPokemonInfo *landMonsInfo;
     const struct WildPokemonInfo *waterMonsInfo;
@@ -1024,22 +1031,32 @@ u16 GetLocalWildMon(bool8 *isWaterMon)
         return SPECIES_NONE;
     // Land Pokémon
     else if (landMonsInfo != NULL && waterMonsInfo == NULL)
-        return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
+    {
+        index = ChooseWildMonIndex_Land();
+        return RandomizeWildEncounter(landMonsInfo->wildPokemon[index].species,
+            gWildMonHeaders[headerId].mapNum, gWildMonHeaders[headerId].mapGroup, WILD_AREA_LAND, index);
+    }
     // Water Pokémon
     else if (landMonsInfo == NULL && waterMonsInfo != NULL)
     {
         *isWaterMon = TRUE;
-        return waterMonsInfo->wildPokemon[ChooseWildMonIndex_Water()].species;
+        index = ChooseWildMonIndex_Water();
+        return RandomizeWildEncounter(waterMonsInfo->wildPokemon[index].species,
+            gWildMonHeaders[headerId].mapNum, gWildMonHeaders[headerId].mapGroup, WILD_AREA_WATER, index);
     }
     // Either land or water Pokémon
     if ((Random() % 100) < 80)
     {
-        return landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species;
+        index = ChooseWildMonIndex_Land();
+        return RandomizeWildEncounter(landMonsInfo->wildPokemon[index].species,
+            gWildMonHeaders[headerId].mapNum, gWildMonHeaders[headerId].mapGroup, WILD_AREA_LAND, index);
     }
     else
     {
         *isWaterMon = TRUE;
-        return waterMonsInfo->wildPokemon[ChooseWildMonIndex_Water()].species;
+        index = ChooseWildMonIndex_Water();
+        return RandomizeWildEncounter(waterMonsInfo->wildPokemon[index].species,
+            gWildMonHeaders[headerId].mapNum, gWildMonHeaders[headerId].mapGroup, WILD_AREA_WATER, index);
     }
 }
 
@@ -1055,7 +1072,11 @@ u16 GetLocalWaterMon(void)
         const struct WildPokemonInfo *waterMonsInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].waterMonsInfo;
 
         if (waterMonsInfo)
-            return waterMonsInfo->wildPokemon[ChooseWildMonIndex_Water()].species;
+        {
+            u8 index = ChooseWildMonIndex_Water();
+            return RandomizeWildEncounter(waterMonsInfo->wildPokemon[index].species,
+                gWildMonHeaders[headerId].mapNum, gWildMonHeaders[headerId].mapGroup, WILD_AREA_WATER, index);
+        }
     }
     return SPECIES_NONE;
 }

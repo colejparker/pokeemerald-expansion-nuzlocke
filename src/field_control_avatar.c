@@ -27,6 +27,7 @@
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "randomizer.h"
 #include "safari_zone.h"
 #include "script.h"
 #include "secret_base.h"
@@ -457,7 +458,8 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
         if (bgEvent->bgUnion.hiddenItem.underfoot == TRUE)
             return NULL;
         gSpecialVar_0x8004 = bgEvent->bgUnion.hiddenItem.hiddenItemId + FLAG_HIDDEN_ITEMS_START;
-        gSpecialVar_0x8005 = bgEvent->bgUnion.hiddenItem.item;
+        gSpecialVar_0x8005 = RandomizeFieldItem(bgEvent->bgUnion.hiddenItem.item,
+            gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, bgEvent->bgUnion.hiddenItem.hiddenItemId);
         gSpecialVar_0x8009 = bgEvent->bgUnion.hiddenItem.quantity;
         if (FlagGet(gSpecialVar_0x8004) == TRUE)
             return NULL;

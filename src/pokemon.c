@@ -42,6 +42,7 @@
 #include "pokemon_storage_system.h"
 #include "pokerus.h"
 #include "random.h"
+#include "randomizer.h"
 #include "recorded_battle.h"
 #include "regions.h"
 #include "rtc.h"
@@ -3259,7 +3260,12 @@ enum Type GetSpeciesType(enum Species species, u8 slot)
 
 enum Ability GetSpeciesAbility(enum Species species, u8 slot)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].abilities[slot];
+    species = SanitizeSpeciesId(species);
+#if RANDOMIZER_AVAILABLE == TRUE
+    return RandomizeAbility(species, slot, gSpeciesInfo[species].abilities[slot]);
+#else
+    return gSpeciesInfo[species].abilities[slot];
+#endif
 }
 
 u32 GetSpeciesBaseHP(enum Species species)
