@@ -1052,6 +1052,12 @@ enum __attribute__((packed)) Item
     ITEM_TATSUGIRINITE = 872,
     ITEM_GLIMMORANITE = 873,
 
+    // QOL key-item kit, given by Mom in place of Running Shoes (see gameplan.md)
+    ITEM_INFINITE_REPEL = 874,
+    ITEM_PORTA_HEAL = 875,
+    ITEM_ENDLESS_RARE_CANDY = 876,
+    ITEM_CAP_CANDY = 877,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

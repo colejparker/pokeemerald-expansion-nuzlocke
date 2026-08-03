@@ -2,5 +2,6 @@
 #define GUARD_ITEM_BALL_H
 
 void GetItemBallIdAndAmountFromTemplate(void);
+void RandomizeGivenItem(void);
 
 #endif //GUARD_ITEM_BALL_H

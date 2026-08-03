@@ -56,49 +56,49 @@
 #define FLAG_RANDOMIZER_STARTER_AND_GIFT_MON 0x22 // Randomizer: starter/gift mons
 #define FLAG_RANDOMIZER_FIELD_ITEMS         0x23 // Randomizer: field items
 #define FLAG_RANDOMIZER_ABILITIES           0x24 // Randomizer: abilities
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+#define FLAG_RANDOMIZER_TM_MOVES            0x25 // Randomizer: which move each TM teaches
+#define FLAG_RANDOMIZER_MOVESETS            0x26 // Randomizer: level-up learnsets
+#define FLAG_INFINITE_REPEL_ACTIVE          0x27 // QOL kit: Infinite Repel toggled on
+#define FLAG_ITEM_BERRY_TREE_ROUTE_102_ORAN          0x28 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_102_PECHA         0x29 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_103_CHERI_1       0x2A // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_103_LEPPA         0x2B // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_103_CHERI_2       0x2C // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_CHERI_1       0x2D // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_SOIL_2        0x2E // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_LEPPA         0x2F // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_ORAN_2        0x30 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_SOIL_3        0x31 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_PECHA         0x32 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_SOIL_1        0x33 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_ORAN_1        0x34 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_SOIL_4        0x35 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_104_CHERI_2       0x36 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_110_NANAB_1       0x37 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_110_NANAB_2       0x38 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_110_NANAB_3       0x39 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_111_RAZZ_1        0x3A // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_111_RAZZ_2        0x3B // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_111_ORAN_1        0x3C // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_111_ORAN_2        0x3D // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_112_RAWST_2       0x3E // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_112_PECHA_2       0x3F // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_112_PECHA_1       0x40 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_112_RAWST_1       0x41 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_114_PERSIM_2      0x42 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_114_PERSIM_3      0x43 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_114_PERSIM_1      0x44 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_115_KELPSY_1      0x45 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_115_KELPSY_2      0x46 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_115_KELPSY_3      0x47 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_115_BLUK_1        0x48 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_115_BLUK_2        0x49 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_116_PINAP_1       0x4A // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_116_CHESTO_1      0x4B // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_116_CHESTO_2      0x4C // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_116_PINAP_2       0x4D // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_117_WEPEAR_3      0x4E // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_117_WEPEAR_2      0x4F // Berry tree -> item ball conversion (gameplan.md)
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -106,8 +106,8 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
-#define FLAG_UNUSED_0x055                    0x55  // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_117_WEPEAR_1      0x54 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_118_SITRUS_1      0x55 // Berry tree -> item ball conversion (gameplan.md)
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
 #define FLAG_MET_RIVAL_MOM                   0x57
@@ -128,7 +128,7 @@
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
 
-#define FLAG_UNUSED_0x068                    0x68  // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_118_SOIL          0x68 // Berry tree -> item ball conversion (gameplan.md)
 
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER     0x69
 #define FLAG_RECEIVED_HM_STRENGTH            0x6A
@@ -263,7 +263,7 @@
 #define FLAG_RECEIVED_TM_ROAR                0xE7
 #define FLAG_RECEIVED_TM_GIGA_DRAIN          0xE8
 
-#define FLAG_UNUSED_0x0E9                    0xE9 // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_118_SITRUS_2      0xE9 // Berry tree -> item ball conversion (gameplan.md)
 
 #define FLAG_RECEIVED_TM_REST                0xEA
 #define FLAG_RECEIVED_TM_ATTRACT             0xEB
@@ -468,8 +468,8 @@
 #define FLAG_REGISTERED_DRAKE                (TRAINER_REGISTERED_FLAGS_START + REMATCH_DRAKE)
 #define FLAG_REGISTERED_WALLACE              (TRAINER_REGISTERED_FLAGS_START + REMATCH_WALLACE)
 
-#define FLAG_UNUSED_0x1AA                    0x1AA // Unused Flag
-#define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_POMEG_1       0x1AA // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_POMEG_2       0x1AB // Berry tree -> item ball conversion (gameplan.md)
 
 #define FLAG_DEFEATED_DEOXYS                 0x1AC
 #define FLAG_BATTLED_DEOXYS                  0x1AD
@@ -518,18 +518,18 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_POMEG_3       0x1DA // Berry tree -> item ball conversion (gameplan.md)
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_HONDEW_1      0x1DE // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_HONDEW_2      0x1DF // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_SITRUS        0x1E0 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_119_LEPPA         0x1E1 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_WEPEAR        0x1E2 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_PINAP         0x1E3 // Berry tree -> item ball conversion (gameplan.md)
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
@@ -664,41 +664,41 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
-#define FLAG_UNUSED_0x285  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_NANAB         0x264 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_RAZZ          0x265 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_ASPEAR_1      0x266 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_ASPEAR_2      0x267 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_ASPEAR_3      0x268 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_PECHA_1       0x269 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_PECHA_2       0x26A // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_120_PECHA_3       0x26B // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_PERSIM        0x26C // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_ASPEAR        0x26D // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_RAWST         0x26E // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_CHESTO        0x26F // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_SOIL_1        0x270 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_NANAB_1       0x271 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_NANAB_2       0x272 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_121_SOIL_2        0x273 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_POMEG_3       0x274 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_POMEG_4       0x275 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_GREPA_1       0x276 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_GREPA_2       0x277 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_LEPPA_1       0x278 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_SOIL          0x279 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_LEPPA_2       0x27A // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_GREPA_3       0x27B // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_GREPA_4       0x27C // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_QUALOT_2      0x27D // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_QUALOT_3      0x27E // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_QUALOT_4      0x27F // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_QUALOT_1      0x280 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_POMEG_1       0x281 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_POMEG_2       0x282 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_PECHA         0x283 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_SITRUS        0x284 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_123_RAWST         0x285 // Berry tree -> item ball conversion (gameplan.md)
+#define FLAG_ITEM_BERRY_TREE_ROUTE_130_LIECHI        0x286 // Berry tree -> item ball conversion (gameplan.md)
 #define FLAG_UNUSED_0x287  0x287 // Unused Flag
 #define FLAG_UNUSED_0x288  0x288 // Unused Flag
 #define FLAG_UNUSED_0x289  0x289 // Unused Flag

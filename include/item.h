@@ -9,6 +9,7 @@
 #include "constants/berries.h"
 #include "constants/item_effects.h"
 #include "constants/hold_effects.h"
+#include "randomizer.h"
 
 /* Each of these TM_HM enums corresponds an index in the list of TMs + HMs item ids in
  * gTMHMItemMoveIds. The index for an item can be retrieved with GetItemTMHMIndex below.
@@ -131,7 +132,7 @@ static inline enum TMHMIndex GetItemTMHMIndex(enum Item item)
     }
 }
 
-static inline enum Move GetItemTMHMMoveId(enum Item item)
+static inline enum Move GetItemTMHMMoveId_Raw(enum Item item)
 {
     switch (item)
     {
@@ -148,7 +149,7 @@ static inline enum Move GetItemTMHMMoveId(enum Item item)
     }
 }
 
-static inline enum Item GetTMHMItemIdFromMoveId(enum Move move)
+static inline enum Item GetTMHMItemIdFromMoveId_Raw(enum Move move)
 {
     switch (move)
     {
@@ -163,6 +164,29 @@ static inline enum Item GetTMHMItemIdFromMoveId(enum Move move)
     default:
         return ITEM_NONE;
     }
+}
+
+// These two wrap the raw (compile-time-fixed) lookups above with the TM-move
+// randomizer, so every caller in the game - teaching a TM, describing what a
+// TM teaches, CanLearnTeachableMove's "is this move mapped to some TM/HM
+// slot" check - sees the shuffled mapping automatically with no changes of
+// their own. HMs are untouched; only ITEM_TM01-ITEM_TM50 ever get remapped.
+static inline enum Move GetItemTMHMMoveId(enum Item item)
+{
+    enum Move move = GetItemTMHMMoveId_Raw(item);
+#if RANDOMIZER_AVAILABLE == TRUE
+    move = RandomizeTMMove(item, move);
+#endif
+    return move;
+}
+
+static inline enum Item GetTMHMItemIdFromMoveId(enum Move move)
+{
+    enum Item item = GetTMHMItemIdFromMoveId_Raw(move);
+#if RANDOMIZER_AVAILABLE == TRUE
+    item = RandomizeTMItemForMove(move, item);
+#endif
+    return item;
 }
 
 #undef UNPACK_ITEM_TO_TM_INDEX

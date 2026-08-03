@@ -112,6 +112,8 @@ enum FlagsVarsDebugMenu
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_STARTER,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ITEM,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ABILITY,
+    DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_TM,
+    DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_MOVESET,
 };
 
 enum DebugBattleType
@@ -342,6 +344,8 @@ static void DebugAction_FlagsVars_RandomizerTrainerOnOff(u8 taskId);
 static void DebugAction_FlagsVars_RandomizerStarterOnOff(u8 taskId);
 static void DebugAction_FlagsVars_RandomizerItemOnOff(u8 taskId);
 static void DebugAction_FlagsVars_RandomizerAbilityOnOff(u8 taskId);
+static void DebugAction_FlagsVars_RandomizerTMOnOff(u8 taskId);
+static void DebugAction_FlagsVars_RandomizerMovesetOnOff(u8 taskId);
 static void DebugAction_FlagsVars_CatchingOnOff(u8 taskId);
 static void DebugAction_FlagsVars_RunningShoes(u8 taskId);
 
@@ -739,11 +743,13 @@ static const struct DebugMenuOption sDebugMenu_Actions_Flags[] =
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_TRAINER_SEE]   = { COMPOUND_STRING("Toggle {STR_VAR_1}Trainer See OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_TrainerSeeOnOff },
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_CATCHING]      = { COMPOUND_STRING("Toggle {STR_VAR_1}Catching OFF"),    DebugAction_ToggleFlag, DebugAction_FlagsVars_CatchingOnOff },
     [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BAG_USE]       = { COMPOUND_STRING("Toggle {STR_VAR_1}Bag Use OFF"),     DebugAction_ToggleFlag, DebugAction_FlagsVars_BagUseOnOff },
-    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_WILD] = { COMPOUND_STRING("Toggle {STR_VAR_1}Wild Randomizer OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerWildOnOff },
-    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_TRAINER] = { COMPOUND_STRING("Toggle {STR_VAR_1}Trainer Randomizer OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerTrainerOnOff },
-    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_STARTER] = { COMPOUND_STRING("Toggle {STR_VAR_1}Starter Randomizer OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerStarterOnOff },
-    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ITEM]    = { COMPOUND_STRING("Toggle {STR_VAR_1}Item Randomizer OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerItemOnOff },
-    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ABILITY] = { COMPOUND_STRING("Toggle {STR_VAR_1}Ability Randomizer OFF"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerAbilityOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_WILD] = { COMPOUND_STRING("Toggle {STR_VAR_1}Wild RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerWildOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_TRAINER] = { COMPOUND_STRING("Toggle {STR_VAR_1}Trainer RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerTrainerOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_STARTER] = { COMPOUND_STRING("Toggle {STR_VAR_1}Starter RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerStarterOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ITEM]    = { COMPOUND_STRING("Toggle {STR_VAR_1}Item RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerItemOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ABILITY] = { COMPOUND_STRING("Toggle {STR_VAR_1}Ability RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerAbilityOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_TM]      = { COMPOUND_STRING("Toggle {STR_VAR_1}TM Move RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerTMOnOff },
+    [DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_MOVESET] = { COMPOUND_STRING("Toggle {STR_VAR_1}Moveset RNG"), DebugAction_ToggleFlag, DebugAction_FlagsVars_RandomizerMovesetOnOff },
     { NULL }
 };
 
@@ -1287,6 +1293,12 @@ static u32 Debug_CheckToggleFlags(u8 id)
         break;
     case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_ABILITY:
         result = FlagGet(RANDOMIZER_FLAG_ABILITIES);
+        break;
+    case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_TM:
+        result = FlagGet(RANDOMIZER_FLAG_TM_MOVES);
+        break;
+    case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RANDOMIZER_MOVESET:
+        result = FlagGet(RANDOMIZER_FLAG_MOVESETS);
         break;
     case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_TRAINER_SEE:
         result = OW_FLAG_NO_TRAINER_SEE ? FlagGet(OW_FLAG_NO_TRAINER_SEE) : DEBUG_OPTION_CANT_BE_TOGGLED;
@@ -2650,6 +2662,24 @@ static void DebugAction_FlagsVars_RandomizerAbilityOnOff(u8 taskId)
     else
         PlaySE(SE_PC_LOGIN);
     FlagToggle(RANDOMIZER_FLAG_ABILITIES);
+}
+
+static void DebugAction_FlagsVars_RandomizerTMOnOff(u8 taskId)
+{
+    if (FlagGet(RANDOMIZER_FLAG_TM_MOVES))
+        PlaySE(SE_PC_OFF);
+    else
+        PlaySE(SE_PC_LOGIN);
+    FlagToggle(RANDOMIZER_FLAG_TM_MOVES);
+}
+
+static void DebugAction_FlagsVars_RandomizerMovesetOnOff(u8 taskId)
+{
+    if (FlagGet(RANDOMIZER_FLAG_MOVESETS))
+        PlaySE(SE_PC_OFF);
+    else
+        PlaySE(SE_PC_LOGIN);
+    FlagToggle(RANDOMIZER_FLAG_MOVESETS);
 }
 
 static void DebugAction_FlagsVars_TrainerSeeOnOff(u8 taskId)

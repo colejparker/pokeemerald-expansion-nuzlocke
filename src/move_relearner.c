@@ -866,37 +866,13 @@ static bool32 IsTmAvailable(enum Item item)
     return CheckBagHasItem(item, 1);
 }
 
+// gameplan.md: Move Relearner is turned off entirely. Special_HasMoveToRelearn
+// and the Fallarbor NPC script call into this relearn type directly by state,
+// bypassing IsLevelUpMoveRelearnerActive()'s FALSE, so it has to report
+// "nothing to teach" here too rather than just at the isActive() gate.
 static u32 GetRelearnerLevelUpMoves(struct BoxPokemon *mon, u16 *moves)
 {
-    enum Species species = GetBoxMonData(mon, MON_DATA_SPECIES);
-    u32 level = (P_ENABLE_ALL_LEVEL_UP_MOVES ? MAX_LEVEL : GetLevelFromBoxMonExp(mon));
-    u32 numMoves = 0;
-    do
-    {
-        const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
-
-        for (u32 i = 0; i < MAX_LEVEL_UP_MOVES && learnset[i].move != LEVEL_UP_MOVE_END; i++)
-        {
-            if (learnset[i].level > level)
-                break;
-
-            if (BoxMonKnowsMove(mon, learnset[i].move))
-                continue;
-
-            bool32 alreadyInList = FALSE;
-            for (u32 j = 0; j < numMoves; j++)
-            {
-                if (learnset[i].move == moves[j])
-                    alreadyInList = TRUE;
-            }
-            if (!alreadyInList)
-                moves[numMoves++] = learnset[i].move;
-        }
-
-        species = (P_PRE_EVO_MOVES ? GetSpeciesPreEvolution(species) : SPECIES_NONE);
-    } while (species != SPECIES_NONE);
-
-    return numMoves;
+    return 0;
 }
 
 static u32 GetRelearnerEggMoves(struct BoxPokemon *mon, u16 *moves)
@@ -1002,28 +978,10 @@ bool32 HasMoveToRelearn(struct BoxPokemon *boxMon, enum MoveRelearnerStates stat
     return sRelearnTypes[state].hasMoveToRelearn(boxMon);
 }
 
+// See GetRelearnerLevelUpMoves: Move Relearner is turned off entirely, and
+// this is reached directly by state, bypassing the isActive() gate.
 static bool32 HasRelearnerLevelUpMoves(struct BoxPokemon *boxMon)
 {
-    enum Species species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
-    u32 level = (P_ENABLE_ALL_LEVEL_UP_MOVES == TRUE) ? MAX_LEVEL : GetLevelFromBoxMonExp(boxMon);
-
-    do
-    {
-        const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
-
-        for (u32 i = 0; i < MAX_LEVEL_UP_MOVES && learnset[i].move != LEVEL_UP_MOVE_END; i++)
-        {
-            if (learnset[i].level > level)
-                break;
-
-            if (!BoxMonKnowsMove(boxMon, learnset[i].move))
-                return TRUE;
-        }
-
-        species = (P_PRE_EVO_MOVES ? GetSpeciesPreEvolution(species) : SPECIES_NONE);
-
-    } while (species != SPECIES_NONE);
-
     return FALSE;
 }
 
@@ -1091,7 +1049,7 @@ static bool32 HasRelearnerTutorMoves(struct BoxPokemon *boxMon)
 
 static bool32 IsLevelUpMoveRelearnerActive(void)
 {
-    return TRUE;
+    return FALSE;
 }
 
 static bool32 IsEggMoveRelearnerActive(void)

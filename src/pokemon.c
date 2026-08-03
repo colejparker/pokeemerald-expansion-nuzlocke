@@ -92,6 +92,8 @@ static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 perso
 static void EncryptBoxMon(struct BoxPokemon *boxMon);
 static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
+static enum Ability GetRawSpeciesAbility(enum Species species, u8 slot);
+static enum Ability GetUnrandomizedAbilityBySpecies(enum Species species, u8 abilityNum);
 void TrySpecialOverworldEvo();
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
@@ -2279,6 +2281,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_ABILITY_NUM:
             retVal = GetSubstruct3(boxMon)->abilityNum;
             break;
+        case MON_DATA_CANT_RANDOMIZE_ABILITY:
+            retVal = GetSubstruct3(boxMon)->cantRandomizeAbility;
+            break;
         case MON_DATA_COOL_RIBBON:
             retVal = GetSubstruct3(boxMon)->coolRibbon;
             break;
@@ -2795,6 +2800,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_ABILITY_NUM:
             SET8(GetSubstruct3(boxMon)->abilityNum);
             break;
+        case MON_DATA_CANT_RANDOMIZE_ABILITY:
+            SET8(GetSubstruct3(boxMon)->cantRandomizeAbility);
+            break;
         case MON_DATA_COOL_RIBBON:
             SET8(GetSubstruct3(boxMon)->coolRibbon);
             break;
@@ -3149,6 +3157,8 @@ enum Ability GetMonAbility(struct Pokemon *mon)
 {
     enum Species species = GetMonData(mon, MON_DATA_SPECIES);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+    if (GetMonData(mon, MON_DATA_CANT_RANDOMIZE_ABILITY))
+        return GetUnrandomizedAbilityBySpecies(species, abilityNum);
     return GetAbilityBySpecies(species, abilityNum);
 }
 
@@ -3255,17 +3265,53 @@ u32 GetSpeciesWeight(enum Species species)
 
 enum Type GetSpeciesType(enum Species species, u8 slot)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].types[slot];
+    species = SanitizeSpeciesId(species);
+#if RANDOMIZER_AVAILABLE == TRUE
+    return RandomizeSpeciesType(species, slot, gSpeciesInfo[species].types[slot]);
+#else
+    return gSpeciesInfo[species].types[slot];
+#endif
+}
+
+static enum Ability GetRawSpeciesAbility(enum Species species, u8 slot)
+{
+    return gSpeciesInfo[SanitizeSpeciesId(species)].abilities[slot];
 }
 
 enum Ability GetSpeciesAbility(enum Species species, u8 slot)
 {
     species = SanitizeSpeciesId(species);
 #if RANDOMIZER_AVAILABLE == TRUE
-    return RandomizeAbility(species, slot, gSpeciesInfo[species].abilities[slot]);
+    return RandomizeAbility(species, slot, GetRawSpeciesAbility(species, slot));
 #else
-    return gSpeciesInfo[species].abilities[slot];
+    return GetRawSpeciesAbility(species, slot);
 #endif
+}
+
+// Same fallback search as GetAbilityBySpecies (empty hidden-ability slot falls
+// back to another hidden slot, then to any non-empty slot), but reading the
+// species' true, un-randomized ability table - for mons individually locked
+// via MON_DATA_CANT_RANDOMIZE_ABILITY (e.g. a Gym Leader's fixed ace).
+static enum Ability GetUnrandomizedAbilityBySpecies(enum Species species, u8 abilityNum)
+{
+    int i;
+    enum Ability ability;
+
+    if (abilityNum < NUM_ABILITY_SLOTS)
+        ability = GetRawSpeciesAbility(species, abilityNum);
+    else
+        ability = ABILITY_NONE;
+
+    if (abilityNum >= NUM_NORMAL_ABILITY_SLOTS)
+    {
+        for (i = NUM_NORMAL_ABILITY_SLOTS; i < NUM_ABILITY_SLOTS && ability == ABILITY_NONE; i++)
+            ability = GetRawSpeciesAbility(species, i);
+    }
+
+    for (i = 0; i < NUM_ABILITY_SLOTS && ability == ABILITY_NONE; i++)
+        ability = GetRawSpeciesAbility(species, i);
+
+    return ability;
 }
 
 u32 GetSpeciesBaseHP(enum Species species)
@@ -3330,9 +3376,15 @@ u32 GetSpeciesBaseStatTotal(enum Species species)
 
 const struct LevelUpMove *GetSpeciesLevelUpLearnset(enum Species species)
 {
-    const struct LevelUpMove *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].levelUpLearnset;
+    const struct LevelUpMove *learnset;
+
+    species = SanitizeSpeciesId(species);
+    learnset = gSpeciesInfo[species].levelUpLearnset;
     if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].levelUpLearnset;
+        learnset = gSpeciesInfo[SPECIES_NONE].levelUpLearnset;
+#if RANDOMIZER_AVAILABLE == TRUE
+    learnset = RandomizeLevelUpLearnset(species, learnset);
+#endif
     return learnset;
 }
 
@@ -3438,7 +3490,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     dst->types[2] = TYPE_MYSTERY;
     dst->isShiny = IsMonShiny(src);
     dst->affectionHearts = GetMonAffectionHearts(src);
-    dst->ability = GetAbilityBySpecies(dst->species, dst->abilityNum);
+    dst->ability = GetMonAbility(src);
     GetMonData(src, MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(dst->nickname, nickname);
     GetMonData(src, MON_DATA_OT_NAME, dst->otName);
@@ -6782,8 +6834,8 @@ void SavePlayerPartyMon(u32 index, struct Pokemon *mon)
 
 bool32 IsSpeciesOfType(enum Species species, enum Type type)
 {
-    if (gSpeciesInfo[species].types[0] == type
-     || gSpeciesInfo[species].types[1] == type)
+    if (GetSpeciesType(species, 0) == type
+     || GetSpeciesType(species, 1) == type)
         return TRUE;
     return FALSE;
 }

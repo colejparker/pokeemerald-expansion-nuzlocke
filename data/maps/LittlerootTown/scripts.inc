@@ -894,9 +894,10 @@ LittlerootTown_EventScript_SetReceivedRunningShoes::
 
 LittlerootTown_EventScript_GiveRunningShoes::
 	msgbox LittlerootTown_Text_WearTheseRunningShoes, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_Text_SwitchShoesWithRunningShoes
-	waitfanfare
+	giveitem ITEM_INFINITE_REPEL
+	giveitem ITEM_PORTA_HEAL
+	giveitem ITEM_ENDLESS_RARE_CANDY
+	giveitem ITEM_CAP_CANDY
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	msgbox LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
@@ -926,21 +927,17 @@ LittlerootTown_Text_WearTheseRunningShoes:
 	.string "You got it from PROF. BIRCH. How nice!\p"
 	.string "You're your father's child, all right.\n"
 	.string "You look good together with POKéMON!\p"
-	.string "Here, honey! If you're going out on an\n"
-	.string "adventure, wear these RUNNING SHOES.\p"
-	.string "They'll put a zip in your step!$"
-
-LittlerootTown_Text_SwitchShoesWithRunningShoes:
-	.string "{PLAYER} switched shoes with the\n"
-	.string "RUNNING SHOES.$"
+	.string "Here, honey! Before you go, I put\n"
+	.string "together a little kit for you.$"
 
 LittlerootTown_Text_ExplainRunningShoes:
-	.string "MOM: {PLAYER}, those shoes came with\n"
-	.string "instructions.\p"
-	.string "“Press the B Button while wearing these\n"
-	.string "RUNNING SHOES to run extra-fast!\p"
-	.string "“Slip on these RUNNING SHOES and race\n"
-	.string "in the great outdoors!”$"
+	.string "MOM: That kit has an INFINITE REPEL,\n"
+	.string "a PORTA HEAL, an ENDLESS CANDY, and\l"
+	.string "a CAP CANDY in it.\p"
+	.string "They won't ever run out, so use them\n"
+	.string "as much as you need out there!\p"
+	.string "Just… don't lose them, okay? If anything\n"
+	.string "ever happens to you, they're gone too.$"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"

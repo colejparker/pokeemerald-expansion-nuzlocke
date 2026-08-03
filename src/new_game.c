@@ -2,6 +2,7 @@
 #include "clock.h"
 #include "new_game.h"
 #include "random.h"
+#include "randomizer.h"
 #include "pokemon.h"
 #include "roamer.h"
 #include "pokemon_size_record.h"
@@ -102,7 +103,9 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
     gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
+    // Battle Style is fixed to SET (gameplan.md) - the Options menu entry for
+    // it was removed (src/option_menu.c) so this is the only place it's set.
+    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
 }
@@ -190,6 +193,20 @@ void NewGameInitData(void)
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 750000);
     VarSet(B_VAR_NO_BAG_USE, NO_BAG_AGAINST_TRAINER);
+#if RANDOMIZER_AVAILABLE == TRUE
+    // All randomizer features are on by default; the debug menu can still toggle them off.
+    FlagSet(RANDOMIZER_FLAG_WILD_MON);
+    FlagSet(RANDOMIZER_FLAG_TRAINER_MON);
+    FlagSet(RANDOMIZER_FLAG_STARTER_AND_GIFT_MON);
+    FlagSet(RANDOMIZER_FLAG_FIELD_ITEMS);
+    FlagSet(RANDOMIZER_FLAG_ABILITIES);
+    FlagSet(RANDOMIZER_FLAG_TM_MOVES);
+    FlagSet(RANDOMIZER_FLAG_MOVESETS);
+#endif
+    // Players start with the ability to run (gameplan.md QOL kit) - the
+    // existing debug menu "Toggle Running Shoes" entry (FLAG_SYS_B_DASH)
+    // can still turn this off.
+    FlagSet(FLAG_SYS_B_DASH);
     SetCoins(0);
     ResetLinkContestBoolean();
     ResetGameStats();
