@@ -490,6 +490,8 @@ static bool32 IsAbilityRandomizable(u16 ability)
     case ABILITY_TERA_SHIFT:
     case ABILITY_TERAFORM_ZERO:
     case ABILITY_ZERO_TO_HERO:
+    case ABILITY_FIRE_MANE:
+    case ABILITY_EELEVATE:
         return FALSE;
     default:
         return TRUE;
@@ -524,7 +526,7 @@ static const u16 sRandomizerStrongAbilityWhitelist[] =
     ABILITY_DAUNTLESS_SHIELD, ABILITY_COTTON_DOWN, ABILITY_UNSEEN_FIST, ABILITY_WELL_BAKED_BODY,
     ABILITY_PROTOSYNTHESIS, ABILITY_QUARK_DRIVE, ABILITY_GOOD_AS_GOLD, ABILITY_ORICHALCUM_PULSE,
     ABILITY_HADRON_ENGINE, ABILITY_SUPREME_OVERLORD, ABILITY_EARTH_EATER, ABILITY_PIERCING_DRILL,
-    ABILITY_EELEVATE, ABILITY_MEGA_SOL, ABILITY_FIRE_MANE, ABILITY_SPICY_SPRAY 
+    ABILITY_MEGA_SOL, ABILITY_SPICY_SPRAY 
 };
 
 // Walks pre-evolutions back to the root of the family (e.g. Charizard -> Charmeleon
@@ -605,7 +607,7 @@ static bool32 IsMoveEligibleForTM(u16 move)
 {
     if (move == MOVE_NONE || move >= MOVES_COUNT)
         return FALSE;
-    if (move == MOVE_STRUGGLE)
+    if (move == MOVE_STRUGGLE || move == MOVE_SPORE)
         return FALSE;
     if (IsHMMove(move))
         return FALSE;
@@ -741,7 +743,7 @@ static bool32 IsMoveEligibleForLearnset(u16 move)
 {
     if (move == MOVE_NONE || move >= MOVES_COUNT)
         return FALSE;
-    if (move == MOVE_STRUGGLE)
+    if (move == MOVE_STRUGGLE || move == MOVE_SPORE)
         return FALSE;
     return TRUE;
 }
