@@ -154,6 +154,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	call DewfordTown_Gym_EventScript_GiveBulkUp
+	call DewfordTown_Gym_EventScript_GiveFlashTool
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -173,6 +174,19 @@ DewfordTown_Gym_EventScript_GiveBulkUp::
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_BULK_UP
 	return
+
+DewfordTown_Gym_EventScript_GiveFlashTool::
+	giveitem ITEM_HM_FLASH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HM_FLASH
+	msgbox DewfordTown_Gym_Text_ExplainFlashTool, MSGBOX_DEFAULT
+	return
+
+DewfordTown_Gym_Text_ExplainFlashTool:
+	.string "Here, take this FLASH TOOL, too!\n"
+	.string "It'll light up dark caves for you\l"
+	.string "anytime. You won't need a move\l"
+	.string "for it.$"
 
 DewfordTown_Gym_EventScript_GiveBulkUp2:
 	giveitem ITEM_TM_BULK_UP

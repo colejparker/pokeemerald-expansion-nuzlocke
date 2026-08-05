@@ -1897,8 +1897,14 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 abilityNum = 0;
             u16 species = partyData[monIndex].species;
             bool32 speciesWasRandomized = FALSE;
-            // Gym Leaders keep their last party slot - species-fixed, and (below) ability-fixed too
-            bool32 isGymLeaderAce = (trainer->trainerClass == TRAINER_CLASS_LEADER && i == monsCount - 1);
+            // Gym Leaders keep their last party slot(s) fixed - species-fixed,
+            // and (below) ability-fixed too. Tate & Liza (Conrad & Neal) are
+            // Hoenn's only double-battle Gym Leader fight, so both mons sent
+            // out at the end (the last two slots) stay fixed instead of just
+            // one, per your call.
+            bool32 isDoubleBattleLeader = (trainer->trainerClass == TRAINER_CLASS_LEADER && trainer->battleType != TRAINER_BATTLE_TYPE_SINGLES);
+            s32 fixedAceSlots = (isDoubleBattleLeader && monsCount >= 2) ? 2 : 1;
+            bool32 isGymLeaderAce = (trainer->trainerClass == TRAINER_CLASS_LEADER && i >= (s32)monsCount - fixedAceSlots);
 
             if (!isGymLeaderAce)
             {

@@ -388,6 +388,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	call PetalburgCity_Gym_EventScript_UnlockAllDoors
 	special DrawWholeMapView
 	call PetalburgCity_Gym_EventScript_GiveFacade
+	call PetalburgCity_Gym_EventScript_GiveSurfTool
 	delay 30
 	msgbox PetalburgCity_Gym_Text_DadHappyAndSad, MSGBOX_DEFAULT
 	closemessage
@@ -407,6 +408,18 @@ PetalburgCity_Gym_EventScript_GiveFacade::
 	setflag FLAG_RECEIVED_TM_FACADE
 	msgbox PetalburgCity_Gym_Text_ExplainFacade, MSGBOX_DEFAULT
 	return
+
+PetalburgCity_Gym_EventScript_GiveSurfTool::
+	giveitem ITEM_HM_SURF
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HM_SURF
+	msgbox PetalburgCity_Gym_Text_ExplainSurfTool, MSGBOX_DEFAULT
+	return
+
+PetalburgCity_Gym_Text_ExplainSurfTool:
+	.string "Here, take this SURF TOOL as well.\n"
+	.string "It'll let you surf across the\l"
+	.string "water anytime.$"
 
 PetalburgCity_Gym_EventScript_WallysDadArrivesNorth::
 	setvar VAR_0x8008, 1

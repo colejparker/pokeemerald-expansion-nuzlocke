@@ -36,6 +36,7 @@ FortreeCity_Gym_EventScript_WinonaDefeated::
 	setvar VAR_0x8008, 6
 	call Common_EventScript_SetGymTrainers
 	call FortreeCity_Gym_EventScript_GiveAerialAce
+	call FortreeCity_Gym_EventScript_GiveFlyTool
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -63,6 +64,18 @@ FortreeCity_Gym_EventScript_GiveAerialAce::
 	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_AERIAL_ACE
 	return
+
+FortreeCity_Gym_EventScript_GiveFlyTool::
+	giveitem ITEM_HM_FLY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HM_FLY
+	msgbox FortreeCity_Gym_Text_ExplainFlyTool, MSGBOX_DEFAULT
+	return
+
+FortreeCity_Gym_Text_ExplainFlyTool:
+	.string "And take this FLY TOOL, too!\n"
+	.string "It'll let you fly to any town\l"
+	.string "you've visited, anytime.$"
 
 FortreeCity_Gym_EventScript_WinonaRematch::
 	trainerbattle_rematch_double TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaPreRematch, FortreeCity_Gym_Text_WinonaRematchDefeat, FortreeCity_Gym_Text_WinonaRematchNeedTwoMons

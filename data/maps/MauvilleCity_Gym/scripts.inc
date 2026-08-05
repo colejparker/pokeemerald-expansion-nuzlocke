@@ -100,6 +100,7 @@ MauvilleCity_Gym_EventScript_WattsonDefeated::
 	special DrawWholeMapView
 	playse SE_UNLOCK
 	call MauvilleCity_Gym_EventScript_GiveShockWave
+	call MauvilleCity_Gym_EventScript_GiveSmashTool
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -125,6 +126,19 @@ MauvilleCity_Gym_EventScript_GiveShockWave::
 	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
 	return
+
+MauvilleCity_Gym_EventScript_GiveSmashTool::
+	giveitem ITEM_HM_ROCK_SMASH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
+	msgbox MauvilleCity_Gym_Text_ExplainSmashTool, MSGBOX_DEFAULT
+	return
+
+MauvilleCity_Gym_Text_ExplainSmashTool:
+	.string "Take this SMASH TOOL, too!\n"
+	.string "It'll let you smash through\l"
+	.string "cracked rocks anytime.$"
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville::
 	msgbox MauvilleCity_Gym_Text_WattsonGoForthAndEndeavor, MSGBOX_DEFAULT

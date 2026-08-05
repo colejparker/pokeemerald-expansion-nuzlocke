@@ -23,6 +23,7 @@ void ItemUseOutOfBattle_PPUp(u8 taskId);
 void ItemUseOutOfBattle_RareCandy(u8 taskId);
 void ItemUseOutOfBattle_DynamaxCandy(u8 taskId);
 void ItemUseOutOfBattle_TMHM(u8 taskId);
+void ItemUseOutOfBattle_FlyTool(u8 taskId);
 void ItemUseOutOfBattle_Repel(u8 taskId);
 void ItemUseOutOfBattle_Lure(u8 taskId);
 void ItemUseOutOfBattle_EscapeRope(u8 taskId);

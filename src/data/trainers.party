@@ -4791,7 +4791,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Crunch
 
 === TRAINER_ROXANNE_1 ===
-Name: ROXANNE
+Name: EMILY
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
@@ -4808,7 +4808,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rock Throw
 - Rock Tomb
 
-Geodude
+Bellsprout
 Level: 12
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Tackle
@@ -4816,16 +4816,17 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rock Throw
 - Rock Tomb
 
-Nosepass @ Oran Berry
+Tinkatuff @ Oran Berry
 Level: 15
+Ability: Technician
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Block
-- Harden
-- Tackle
-- Rock Tomb
+- Draining Kiss
+- Thunder Wave
+- Snap Trap
+- Baby-Doll Eyes
 
 === TRAINER_BRAWLY_1 ===
-Name: BRAWLY
+Name: ROBERT
 Class: Leader
 Pic: Leader Brawly
 Gender: Male
@@ -4850,16 +4851,17 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Reflect
 - Bulk Up
 
-Makuhita @ Sitrus Berry
+Carbink @ Sitrus Berry
+Ability: Solid Rock
 Level: 19
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
+- Crabhammer
+- Rock Slide
+- Misty Explosion
+- Power Split
 
 === TRAINER_WATTSON_1 ===
-Name: WATTSON
+Name: SAFEER
 Class: Leader
 Pic: Leader Wattson
 Gender: Male
@@ -4892,20 +4894,21 @@ IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 - Thunder Wave
 - Sonic Boom
 
-Manectric @ Sitrus Berry
+Morpeko @ Sitrus Berry
+Ability: Power of Alchemy
 Level: 24
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+- Spicy Extract
+- Foul Play
+- Aura Wheel
+- Flame Charge
 
 === TRAINER_FLANNERY_1 ===
-Name: FLANNERY
+Name: KIRAN
 Class: Leader
 Pic: Leader Flannery
-Gender: Female
-Music: Female
+Gender: Male
+Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
@@ -4934,20 +4937,21 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Sunny Day
 - Attract
 
-Torkoal @ White Herb
+Leafeon @ Sitrus Berry
+Ability: Grassy Surge
 Level: 29
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
-- Sunny Day
-- Body Slam
-- Attract
+- Swords Dance
+- Grassy Glide
+- Floral Healing
+- Knock Off
 
 === TRAINER_NORMAN_1 ===
-Name: NORMAN
+Name: REIN
 Class: Leader
 Pic: Leader Norman
-Gender: Male
-Music: Male
+Gender: Female
+Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
@@ -4976,16 +4980,17 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Facade
 - Headbutt
 
-Slaking @ Sitrus Berry
+Snorlax @ Leftovers
+Ability: Analytic
 Level: 31
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
-- Facade
-- Feint Attack
+- Curse
+- Body Slam
+- Rest
+- Sleep Talk
 
 === TRAINER_WINONA_1 ===
-Name: WINONA
+Name: ROBYN
 Class: Leader
 Pic: Leader Winona
 Gender: Female
@@ -5026,20 +5031,21 @@ IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 - Steel Wing
 - Aerial Ace
 
-Altaria @ Oran Berry
+Swanna @ Sitrus Berry
+Ability: Lightning Rod
 Level: 33
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Dragon Breath
-- Dragon Dance
-- Aerial Ace
+- Steam Eruption
+- Aeroblast
+- Esper Wing
+- Matcha Gotcha
 
 === TRAINER_TATE_AND_LIZA_1 ===
-Name: TATE&LIZA
+Name: CONRADNEAL
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
-Music: Female
+Music: Male
 Items: Hyper Potion / Hyper Potion / Hyper Potion / Hyper Potion
 Double Battle: Yes
 AI: Basic Trainer
@@ -5060,21 +5066,23 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Confuse Ray
 - Calm Mind
 
-Lunatone @ Sitrus Berry
+Gengar @ Sitrus Berry
+Ability: Minus
 Level: 42
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Light Screen
-- Psychic
-- Hypnosis
-- Calm Mind
+- Bitter Malice
+- Acid Spray
+- Sing
+- Destiny Bond
 
-Solrock @ Sitrus Berry
+Clefable @ Sitrus Berry
+Ability: Plus
 Level: 42
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Sunny Day
-- Solar Beam
-- Psychic
-- Flamethrower
+- Helping Hand
+- Fleur Cannon
+- Sing
+- Destiny Bond
 
 === TRAINER_JUAN_1 ===
 Name: JUAN
@@ -5087,7 +5095,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Luvdisc
-Level: 41
+Level: 46
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Water Pulse
 - Attract
@@ -5095,7 +5103,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Flail
 
 Whiscash
-Level: 41
+Level: 46
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Rain Dance
 - Water Pulse
@@ -5103,7 +5111,7 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Earthquake
 
 Sealeo
-Level: 43
+Level: 46
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Encore
 - Body Slam
@@ -5111,20 +5119,21 @@ IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Water Pulse
 
 Crawdaunt
-Level: 43
+Level: 47
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Water Pulse
 - Crabhammer
 - Taunt
 - Leer
 
-Kingdra @ Chesto Berry
-Level: 46
+Crabominable @ Crabominite
+Ability: Well-Baked Body
+Level: 50
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Water Pulse
-- Double Team
-- Ice Beam
-- Rest
+- Body Press
+- Trick Room
+- Ice Hammer
+- Diamond Storm
 
 === TRAINER_JERRY_1 ===
 Name: JERRY
@@ -14158,7 +14167,7 @@ Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_ROXANNE_2 ===
-Name: ROXANNE
+Name: EMILY
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
@@ -14200,7 +14209,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 
 === TRAINER_ROXANNE_3 ===
-Name: ROXANNE
+Name: EMILY
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
@@ -14250,7 +14259,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 
 === TRAINER_ROXANNE_4 ===
-Name: ROXANNE
+Name: EMILY
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female
@@ -14300,7 +14309,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 
 === TRAINER_ROXANNE_5 ===
-Name: ROXANNE
+Name: EMILY
 Class: Leader
 Pic: Leader Roxanne
 Gender: Female

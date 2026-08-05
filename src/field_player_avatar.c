@@ -11,6 +11,7 @@
 #include "field_player_avatar.h"
 #include "fieldmap.h"
 #include "follower_npc.h"
+#include "item.h"
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "oras_dowse.h"
@@ -1619,19 +1620,7 @@ enum Gender GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
 
 bool8 PartyHasMonWithSurf(void)
 {
-    u8 i;
-
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-    {
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) == SPECIES_NONE)
-                break;
-            if (MonKnowsMove(&gParties[B_TRAINER_PLAYER][i], MOVE_SURF))
-                return TRUE;
-        }
-    }
-    return FALSE;
+    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && CheckBagHasItem(ITEM_HM_SURF, 1);
 }
 
 bool8 IsPlayerSurfingNorth(void)
