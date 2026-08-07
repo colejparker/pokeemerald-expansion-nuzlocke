@@ -87,6 +87,10 @@ static const u16 sRestrictedLegendarySpecies[] =
     SPECIES_REGIGIGAS,
     SPECIES_KORAIDON,
     SPECIES_MIRAIDON,
+    SPECIES_COSMOG,
+    SPECIES_COSMOEM,
+    SPECIES_SLAKOTH,
+    SPECIES_VIGOROTH,
 };
 
 static bool32 IsRestrictedLegendary(u16 species)
@@ -107,6 +111,181 @@ static bool32 IsRestrictedLegendary(u16 species)
     return FALSE;
 }
 
+struct CosmeticFormFamily
+{
+    const u16 *members;
+    u16 count;
+};
+
+static const u16 sAlcremieForms[] = {
+    // Matches the same 7 "Vanilla Cream" flavor-base forms Milcery's own
+    // evolution already randomizes between (gen_8_families.h) - kept in sync
+    // rather than exposing all ~63 flavor/swirl combinations here too.
+    SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM, SPECIES_ALCREMIE_BERRY_VANILLA_CREAM,
+    SPECIES_ALCREMIE_LOVE_VANILLA_CREAM, SPECIES_ALCREMIE_STAR_VANILLA_CREAM,
+    SPECIES_ALCREMIE_CLOVER_VANILLA_CREAM, SPECIES_ALCREMIE_FLOWER_VANILLA_CREAM,
+    SPECIES_ALCREMIE_RIBBON_VANILLA_CREAM,
+};
+
+static const u16 sUnownForms[] = {
+    SPECIES_UNOWN, SPECIES_UNOWN_B, SPECIES_UNOWN_C, SPECIES_UNOWN_D, SPECIES_UNOWN_E,
+    SPECIES_UNOWN_F, SPECIES_UNOWN_G, SPECIES_UNOWN_H, SPECIES_UNOWN_I, SPECIES_UNOWN_J,
+    SPECIES_UNOWN_K, SPECIES_UNOWN_L, SPECIES_UNOWN_M, SPECIES_UNOWN_N, SPECIES_UNOWN_O,
+    SPECIES_UNOWN_P, SPECIES_UNOWN_Q, SPECIES_UNOWN_R, SPECIES_UNOWN_S, SPECIES_UNOWN_T,
+    SPECIES_UNOWN_U, SPECIES_UNOWN_V, SPECIES_UNOWN_W, SPECIES_UNOWN_X, SPECIES_UNOWN_Y,
+    SPECIES_UNOWN_Z, SPECIES_UNOWN_EXCLAMATION, SPECIES_UNOWN_QUESTION,
+};
+
+static const u16 sScatterbugForms[] = {
+    SPECIES_SCATTERBUG_ICY_SNOW, SPECIES_SCATTERBUG_POLAR, SPECIES_SCATTERBUG_TUNDRA,
+    SPECIES_SCATTERBUG_CONTINENTAL, SPECIES_SCATTERBUG_GARDEN, SPECIES_SCATTERBUG_ELEGANT,
+    SPECIES_SCATTERBUG_MEADOW, SPECIES_SCATTERBUG_MODERN, SPECIES_SCATTERBUG_MARINE,
+    SPECIES_SCATTERBUG_ARCHIPELAGO, SPECIES_SCATTERBUG_HIGH_PLAINS, SPECIES_SCATTERBUG_SANDSTORM,
+    SPECIES_SCATTERBUG_RIVER, SPECIES_SCATTERBUG_MONSOON, SPECIES_SCATTERBUG_SAVANNA,
+    SPECIES_SCATTERBUG_SUN, SPECIES_SCATTERBUG_OCEAN, SPECIES_SCATTERBUG_JUNGLE,
+    SPECIES_SCATTERBUG_FANCY, SPECIES_SCATTERBUG_POKEBALL,
+};
+
+static const u16 sSpewpaForms[] = {
+    SPECIES_SPEWPA_ICY_SNOW, SPECIES_SPEWPA_POLAR, SPECIES_SPEWPA_TUNDRA,
+    SPECIES_SPEWPA_CONTINENTAL, SPECIES_SPEWPA_GARDEN, SPECIES_SPEWPA_ELEGANT,
+    SPECIES_SPEWPA_MEADOW, SPECIES_SPEWPA_MODERN, SPECIES_SPEWPA_MARINE,
+    SPECIES_SPEWPA_ARCHIPELAGO, SPECIES_SPEWPA_HIGH_PLAINS, SPECIES_SPEWPA_SANDSTORM,
+    SPECIES_SPEWPA_RIVER, SPECIES_SPEWPA_MONSOON, SPECIES_SPEWPA_SAVANNA,
+    SPECIES_SPEWPA_SUN, SPECIES_SPEWPA_OCEAN, SPECIES_SPEWPA_JUNGLE,
+    SPECIES_SPEWPA_FANCY, SPECIES_SPEWPA_POKEBALL,
+};
+
+static const u16 sVivillonForms[] = {
+    SPECIES_VIVILLON_ICY_SNOW, SPECIES_VIVILLON_POLAR, SPECIES_VIVILLON_TUNDRA,
+    SPECIES_VIVILLON_CONTINENTAL, SPECIES_VIVILLON_GARDEN, SPECIES_VIVILLON_ELEGANT,
+    SPECIES_VIVILLON_MEADOW, SPECIES_VIVILLON_MODERN, SPECIES_VIVILLON_MARINE,
+    SPECIES_VIVILLON_ARCHIPELAGO, SPECIES_VIVILLON_HIGH_PLAINS, SPECIES_VIVILLON_SANDSTORM,
+    SPECIES_VIVILLON_RIVER, SPECIES_VIVILLON_MONSOON, SPECIES_VIVILLON_SAVANNA,
+    SPECIES_VIVILLON_SUN, SPECIES_VIVILLON_OCEAN, SPECIES_VIVILLON_JUNGLE,
+    SPECIES_VIVILLON_FANCY, SPECIES_VIVILLON_POKEBALL,
+};
+
+static const u16 sPikachuCosmeticForms[] = {
+    SPECIES_PIKACHU, SPECIES_PIKACHU_ORIGINAL, SPECIES_PIKACHU_HOENN, SPECIES_PIKACHU_SINNOH,
+    SPECIES_PIKACHU_UNOVA, SPECIES_PIKACHU_KALOS, SPECIES_PIKACHU_ALOLA, SPECIES_PIKACHU_PARTNER,
+    SPECIES_PIKACHU_WORLD, SPECIES_PIKACHU_COSPLAY, SPECIES_PIKACHU_ROCK_STAR, SPECIES_PIKACHU_BELLE,
+    SPECIES_PIKACHU_POP_STAR, SPECIES_PIKACHU_PHD, SPECIES_PIKACHU_LIBRE,
+};
+
+static const u16 sFurfrouForms[] = {
+    SPECIES_FURFROU_NATURAL, SPECIES_FURFROU_HEART, SPECIES_FURFROU_STAR, SPECIES_FURFROU_DIAMOND,
+    SPECIES_FURFROU_DEBUTANTE, SPECIES_FURFROU_MATRON, SPECIES_FURFROU_DANDY, SPECIES_FURFROU_LA_REINE,
+    SPECIES_FURFROU_KABUKI, SPECIES_FURFROU_PHARAOH,
+};
+
+static const u16 sFlabebeForms[] = {
+    SPECIES_FLABEBE_RED, SPECIES_FLABEBE_YELLOW, SPECIES_FLABEBE_ORANGE, SPECIES_FLABEBE_BLUE, SPECIES_FLABEBE_WHITE,
+};
+static const u16 sFloetteForms[] = {
+    SPECIES_FLOETTE_RED, SPECIES_FLOETTE_YELLOW, SPECIES_FLOETTE_ORANGE, SPECIES_FLOETTE_BLUE, SPECIES_FLOETTE_WHITE,
+};
+static const u16 sFlorgesForms[] = {
+    SPECIES_FLORGES_RED, SPECIES_FLORGES_YELLOW, SPECIES_FLORGES_ORANGE, SPECIES_FLORGES_BLUE, SPECIES_FLORGES_WHITE,
+};
+
+static const u16 sDeerlingForms[] = {
+    SPECIES_DEERLING_SPRING, SPECIES_DEERLING_SUMMER, SPECIES_DEERLING_AUTUMN, SPECIES_DEERLING_WINTER,
+};
+static const u16 sSawsbuckForms[] = {
+    SPECIES_SAWSBUCK_SPRING, SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_AUTUMN, SPECIES_SAWSBUCK_WINTER,
+};
+
+static const u16 sBurmyForms[] = { SPECIES_BURMY_PLANT, SPECIES_BURMY_SANDY, SPECIES_BURMY_TRASH };
+static const u16 sMothimForms[] = { SPECIES_MOTHIM_PLANT, SPECIES_MOTHIM_SANDY, SPECIES_MOTHIM_TRASH };
+
+static const u16 sGenesectForms[] = {
+    SPECIES_GENESECT, SPECIES_GENESECT_DOUSE, SPECIES_GENESECT_SHOCK, SPECIES_GENESECT_BURN, SPECIES_GENESECT_CHILL,
+};
+
+static const u16 sShellosForms[] = { SPECIES_SHELLOS_WEST, SPECIES_SHELLOS_EAST };
+static const u16 sGastrodonForms[] = { SPECIES_GASTRODON_WEST, SPECIES_GASTRODON_EAST };
+
+static const u16 sTatsugiriForms[] = { SPECIES_TATSUGIRI_CURLY, SPECIES_TATSUGIRI_DROOPY, SPECIES_TATSUGIRI_STRETCHY };
+
+static const u16 sMiniorMeteorForms[] = {
+    SPECIES_MINIOR_METEOR_RED, SPECIES_MINIOR_METEOR_ORANGE, SPECIES_MINIOR_METEOR_YELLOW,
+    SPECIES_MINIOR_METEOR_GREEN, SPECIES_MINIOR_METEOR_BLUE, SPECIES_MINIOR_METEOR_INDIGO,
+    SPECIES_MINIOR_METEOR_VIOLET,
+};
+static const u16 sMiniorCoreForms[] = {
+    SPECIES_MINIOR_CORE_RED, SPECIES_MINIOR_CORE_ORANGE, SPECIES_MINIOR_CORE_YELLOW,
+    SPECIES_MINIOR_CORE_GREEN, SPECIES_MINIOR_CORE_BLUE, SPECIES_MINIOR_CORE_INDIGO,
+    SPECIES_MINIOR_CORE_VIOLET,
+};
+
+static const struct CosmeticFormFamily sCosmeticFormFamilies[] =
+{
+    { sAlcremieForms, ARRAY_COUNT(sAlcremieForms) },
+    { sUnownForms, ARRAY_COUNT(sUnownForms) },
+    { sScatterbugForms, ARRAY_COUNT(sScatterbugForms) },
+    { sSpewpaForms, ARRAY_COUNT(sSpewpaForms) },
+    { sVivillonForms, ARRAY_COUNT(sVivillonForms) },
+    { sPikachuCosmeticForms, ARRAY_COUNT(sPikachuCosmeticForms) },
+    { sFurfrouForms, ARRAY_COUNT(sFurfrouForms) },
+    { sFlabebeForms, ARRAY_COUNT(sFlabebeForms) },
+    { sFloetteForms, ARRAY_COUNT(sFloetteForms) },
+    { sFlorgesForms, ARRAY_COUNT(sFlorgesForms) },
+    { sDeerlingForms, ARRAY_COUNT(sDeerlingForms) },
+    { sSawsbuckForms, ARRAY_COUNT(sSawsbuckForms) },
+    { sBurmyForms, ARRAY_COUNT(sBurmyForms) },
+    { sMothimForms, ARRAY_COUNT(sMothimForms) },
+    { sGenesectForms, ARRAY_COUNT(sGenesectForms) },
+    { sShellosForms, ARRAY_COUNT(sShellosForms) },
+    { sGastrodonForms, ARRAY_COUNT(sGastrodonForms) },
+    { sTatsugiriForms, ARRAY_COUNT(sTatsugiriForms) },
+    { sMiniorMeteorForms, ARRAY_COUNT(sMiniorMeteorForms) },
+    { sMiniorCoreForms, ARRAY_COUNT(sMiniorCoreForms) },
+};
+
+static const struct CosmeticFormFamily *GetCosmeticFormFamily(u16 species)
+{
+    u32 i, j;
+    for (i = 0; i < ARRAY_COUNT(sCosmeticFormFamilies); i++)
+    {
+        const struct CosmeticFormFamily *family = &sCosmeticFormFamilies[i];
+        for (j = 0; j < family->count; j++)
+        {
+            if (family->members[j] == species)
+                return family;
+        }
+    }
+    return NULL;
+}
+
+static bool32 IsCosmeticFormDuplicate(u16 species)
+{
+    const struct CosmeticFormFamily *family = GetCosmeticFormFamily(species);
+    return family != NULL && family->members[0] != species;
+}
+
+static const u16 sExcludedTransientForms[] =
+{
+    SPECIES_MIMIKYU_BUSTED, SPECIES_MIMIKYU_BUSTED_TOTEM, SPECIES_MIMIKYU_TOTEM_DISGUISED,
+    SPECIES_CRAMORANT_GULPING, SPECIES_CRAMORANT_GORGING,
+    SPECIES_CHERRIM_SUNSHINE,
+    SPECIES_KELDEO_RESOLUTE,
+    SPECIES_XERNEAS_ACTIVE,
+    SPECIES_ZARUDE_DADA,
+    SPECIES_MAGEARNA_ORIGINAL,
+};
+
+static bool32 IsExcludedTransientForm(u16 species)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(sExcludedTransientForms); i++)
+    {
+        if (sExcludedTransientForms[i] == species)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 bool32 IsSpeciesRandomizable(u16 species)
 {
     const struct SpeciesInfo *info;
@@ -121,6 +300,12 @@ bool32 IsSpeciesRandomizable(u16 species)
         return FALSE;
 
     if (IsRestrictedLegendary(species))
+        return FALSE;
+
+    if (species != SPECIES_SILVALLY_NORMAL && GET_BASE_SPECIES_ID(species) == SPECIES_SILVALLY_NORMAL)
+        return FALSE;
+
+    if (IsCosmeticFormDuplicate(species) || IsExcludedTransientForm(species))
         return FALSE;
 
     return TRUE;
@@ -259,6 +444,8 @@ u16 GetRandomizedSpecies(enum RandomizerContext context, u32 data1, u32 data2, u
     rng_value_t rng;
     u32 bst, minBst, maxBst;
     u16 rangeStart, rangeEnd, rangeCount;
+    u16 chosenSpecies;
+    const struct CosmeticFormFamily *family;
 
     if (!IsSpeciesRandomizable(species))
         return species;
@@ -279,7 +466,17 @@ u16 GetRandomizedSpecies(enum RandomizerContext context, u32 data1, u32 data2, u
         return species;
 
     rng = GetRandomizerSeed(context, data1, data2 ^ species);
-    return sBstTable[rangeStart + (LocalRandom32(&rng) % rangeCount)].species;
+    chosenSpecies = sBstTable[rangeStart + (LocalRandom32(&rng) % rangeCount)].species;
+
+    // The BST table only ever holds one (canonical) member per cosmetic form
+    // family - see sCosmeticFormFamilies. If that's what got picked, draw
+    // once more from the same RNG stream to decide which specific cosmetic
+    // variant actually shows up, so it isn't always the same palette/pattern.
+    family = GetCosmeticFormFamily(chosenSpecies);
+    if (family != NULL)
+        chosenSpecies = family->members[LocalRandom32(&rng) % family->count];
+
+    return chosenSpecies;
 }
 
 u16 RandomizeWildEncounter(u16 species, u32 mapNum, u32 mapGroup, enum WildPokemonArea area, u32 slot)
@@ -344,6 +541,79 @@ u16 RandomizeUniqueMonList(u32 slot, const u16 *originalSpecies, u32 count)
     }
 
     return results[slot];
+}
+
+// Every species with at least one Mega Evolution, paired with the Mega
+// Stone that triggers it (the first FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM
+// entry found for that species - species with two Mega forms, e.g.
+// Charizard X/Y, just get whichever one their form change table lists
+// first). Built once and cached, same pattern as sBstTable/sMegaStoneSubset.
+struct MegaCapableSpecies
+{
+    u16 species;
+    u16 item;
+};
+
+#define MAX_MEGA_CAPABLE_SPECIES 100
+
+EWRAM_DATA static struct MegaCapableSpecies sMegaCapableSpecies[MAX_MEGA_CAPABLE_SPECIES] = {0};
+EWRAM_DATA static u16 sMegaCapableSpeciesCount = 0;
+EWRAM_DATA static bool8 sMegaCapableSpeciesBuilt = FALSE;
+
+static void BuildMegaCapableSpeciesList(void)
+{
+    u16 species;
+
+    sMegaCapableSpeciesCount = 0;
+    for (species = 1; species < NUM_SPECIES && sMegaCapableSpeciesCount < MAX_MEGA_CAPABLE_SPECIES; species++)
+    {
+        const struct FormChange *formChanges;
+        u32 i;
+
+        if (!IsSpeciesRandomizable(species))
+            continue;
+
+        formChanges = GetSpeciesFormChanges(species);
+        if (formChanges == NULL)
+            continue;
+
+        for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+        {
+            if (formChanges[i].method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM)
+            {
+                sMegaCapableSpecies[sMegaCapableSpeciesCount].species = species;
+                sMegaCapableSpecies[sMegaCapableSpeciesCount].item = formChanges[i].param1;
+                sMegaCapableSpeciesCount++;
+                break;
+            }
+        }
+    }
+
+    sMegaCapableSpeciesBuilt = TRUE;
+}
+
+u16 RandomizeEliteFourAce(const void *trainerIdentity, u32 slot, u16 originalSpecies, u16 *outHeldItem)
+{
+    rng_value_t rng;
+    u32 seedData1, pick;
+
+    *outHeldItem = ITEM_NONE;
+
+    if (!IsTrainerRandomizerEnabled())
+        return originalSpecies;
+
+    if (!sMegaCapableSpeciesBuilt)
+        BuildMegaCapableSpeciesList();
+
+    if (sMegaCapableSpeciesCount == 0)
+        return originalSpecies;
+
+    seedData1 = (u32)(uintptr_t)trainerIdentity;
+    rng = GetRandomizerSeed(RANDOMIZER_CONTEXT_ELITE_FOUR_ACE, seedData1, slot);
+    pick = LocalRandom32(&rng) % sMegaCapableSpeciesCount;
+
+    *outHeldItem = sMegaCapableSpecies[pick].item;
+    return sMegaCapableSpecies[pick].species;
 }
 
 static bool32 IsItemRandomizable(u16 itemId)
@@ -694,6 +964,12 @@ static const u8 sMovesetLevelCurve[RANDOMIZER_MOVESET_SIZE] =
 
 #define MOVESET_CATEGORY_SIZE (RANDOMIZER_MOVESET_SIZE / 3)
 
+// Of the MOVESET_CATEGORY_SIZE status-move slots, at most this many are
+// filled with moves matching the species' own type(s) - the rest always come
+// from the non-matching pool (if available), so a learnset never ends up
+// entirely same-type status moves.
+#define MOVESET_STATUS_TYPE_MATCH_CAP 5
+
 struct MoveReservoir
 {
     u16 moves[MOVESET_CATEGORY_SIZE];
@@ -755,10 +1031,11 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
     rng_value_t rng;
     struct MoveReservoir stabMoves = {0};
     struct MoveReservoir nonStabMoves = {0};
-    struct MoveReservoir statusMoves = {0};
+    struct MoveReservoir statusMatchingMoves = {0};
+    struct MoveReservoir statusOtherMoves = {0};
     enum Type type1, type2;
     u16 move;
-    u32 stabIndex = 0, nonStabIndex = 0, statusIndex = 0;
+    u32 stabIndex = 0, nonStabIndex = 0, statusMatchingIndex = 0, statusOtherIndex = 0;
     u32 slot;
 
     if (!IsMovesetRandomizerEnabled() || !IsSpeciesRandomizable(species))
@@ -775,7 +1052,12 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
             continue;
 
         if (GetMoveCategory(move) == DAMAGE_CATEGORY_STATUS)
-            ReservoirAdd(&statusMoves, move, &rng);
+        {
+            if (GetMoveType(move) == type1 || GetMoveType(move) == type2)
+                ReservoirAdd(&statusMatchingMoves, move, &rng);
+            else
+                ReservoirAdd(&statusOtherMoves, move, &rng);
+        }
         else if (GetMoveType(move) == type1 || GetMoveType(move) == type2)
             ReservoirAdd(&stabMoves, move, &rng);
         else
@@ -800,8 +1082,12 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
                 ? nonStabMoves.moves[nonStabIndex++] : MOVE_NONE;
             break;
         default:
-            chosenMove = (statusIndex < statusMoves.count && statusIndex < MOVESET_CATEGORY_SIZE)
-                ? statusMoves.moves[statusIndex++] : MOVE_NONE;
+            if (statusMatchingIndex < statusMatchingMoves.count && statusMatchingIndex < MOVESET_STATUS_TYPE_MATCH_CAP)
+                chosenMove = statusMatchingMoves.moves[statusMatchingIndex++];
+            else if (statusOtherIndex < statusOtherMoves.count && statusOtherIndex < MOVESET_CATEGORY_SIZE)
+                chosenMove = statusOtherMoves.moves[statusOtherIndex++];
+            else
+                chosenMove = MOVE_NONE;
             break;
         }
 

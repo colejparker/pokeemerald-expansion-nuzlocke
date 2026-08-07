@@ -2286,7 +2286,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brawly = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wattson = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SAFEER,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -2304,7 +2304,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wattson = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Flannery = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_KIRAN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

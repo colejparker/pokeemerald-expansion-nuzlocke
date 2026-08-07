@@ -13516,6 +13516,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_FLY] =
@@ -13530,6 +13532,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_FlyTool,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_SURF] =
@@ -13544,6 +13548,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_STRENGTH] =
@@ -13558,6 +13564,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_FLASH] =
@@ -13572,6 +13580,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_ROCK_SMASH] =
@@ -13586,6 +13596,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_WATERFALL] =
@@ -13600,6 +13612,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
     [ITEM_HM_DIVE] =
@@ -13614,6 +13628,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
 

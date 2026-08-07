@@ -26,6 +26,7 @@ enum RandomizerContext
     RANDOMIZER_CONTEXT_SPECIES_TYPE,
     RANDOMIZER_CONTEXT_NPC_GIFT_ITEM,
     RANDOMIZER_CONTEXT_MEGA_STONE_SUBSET,
+    RANDOMIZER_CONTEXT_ELITE_FOUR_ACE,
 };
 
 bool32 IsWildRandomizerEnabled(void);
@@ -60,6 +61,14 @@ u16 RandomizeTrainerMon(const void *trainerIdentity, u32 slot, u32 totalMons, u1
 // (bounded by RANDOMIZER_MAX_UNIQUE_LIST_SIZE) since this recomputes the
 // whole list's rolls on every call rather than caching them.
 u16 RandomizeUniqueMonList(u32 slot, const u16 *originalSpecies, u32 count);
+
+// Picks a random Mega-Evolution-capable species (and the Mega Stone that
+// triggers it) for the Elite Four/Champion's ace slot, deterministic per
+// save/trainer/slot like every other randomizer roll. `originalSpecies` is
+// returned unchanged (and `*outHeldItem` set to ITEM_NONE) if the trainer
+// randomizer is off or no Mega-capable species could be found, so the caller
+// can always fall back to the trainer's authored held item in that case.
+u16 RandomizeEliteFourAce(const void *trainerIdentity, u32 slot, u16 originalSpecies, u16 *outHeldItem);
 
 // Randomizes a field item (visible item ball or hidden item) given to the
 // player. HMs and key items are never touched (unwinnable-run protection).

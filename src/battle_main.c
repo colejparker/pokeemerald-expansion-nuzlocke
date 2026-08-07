@@ -1887,6 +1887,21 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         u32 monIndices[monsCount];
         DoTrainerPartyPool(trainer, monIndices, monsCount, battleTypeFlags);
 
+        s32 eliteFourAceSlot = -1;
+        if (trainer->trainerClass == TRAINER_CLASS_ELITE_FOUR || trainer->trainerClass == TRAINER_CLASS_CHAMPION)
+        {
+            u32 maxLevel = 0;
+            for (s32 j = 0; j < monsCount; j++)
+            {
+                u32 lvl = trainer->party[monIndices[j]].lvl;
+                if (lvl >= maxLevel)
+                {
+                    maxLevel = lvl;
+                    eliteFourAceSlot = j;
+                }
+            }
+        }
+
         for (s32 i = 0; i < monsCount; i++)
         {
             u32 monIndex = monIndices[i];
@@ -1905,10 +1920,15 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             bool32 isDoubleBattleLeader = (trainer->trainerClass == TRAINER_CLASS_LEADER && trainer->battleType != TRAINER_BATTLE_TYPE_SINGLES);
             s32 fixedAceSlots = (isDoubleBattleLeader && monsCount >= 2) ? 2 : 1;
             bool32 isGymLeaderAce = (trainer->trainerClass == TRAINER_CLASS_LEADER && i >= (s32)monsCount - fixedAceSlots);
+            bool32 isEliteFourAce = (i == eliteFourAceSlot);
+            u16 eliteFourAceHeldItem = ITEM_NONE;
 
             if (!isGymLeaderAce)
             {
-                species = RandomizeTrainerMon(trainer, i, monsCount, species);
+                if (isEliteFourAce)
+                    species = RandomizeEliteFourAce(trainer, i, species, &eliteFourAceHeldItem);
+                else
+                    species = RandomizeTrainerMon(trainer, i, monsCount, species);
                 speciesWasRandomized = (species != partyData[monIndex].species);
             }
 
@@ -1933,7 +1953,8 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otId.value = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
             CreateMon(&party[i], species, partyData[monIndex].lvl, personalityValue, otId);
-            SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
+            u16 heldItem = (eliteFourAceHeldItem != ITEM_NONE) ? eliteFourAceHeldItem : partyData[monIndex].heldItem;
+            SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);
             SetMonData(&party[i], MON_DATA_IVS, &(partyData[monIndex].iv));

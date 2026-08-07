@@ -5080,9 +5080,9 @@ void MonGainEVs(struct Pokemon *mon, enum Species defeatedSpecies)
             break;
 
         if (CheckMonHasHadPokerus(mon))
-            multiplier = 2;
+            multiplier = 2 * GYM_BATTLE_EV_MULTIPLIER;
         else
-            multiplier = 1;
+            multiplier = GYM_BATTLE_EV_MULTIPLIER;
 
         switch (i)
         {

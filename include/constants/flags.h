@@ -699,7 +699,7 @@
 #define FLAG_ITEM_BERRY_TREE_ROUTE_123_SITRUS        0x284 // Berry tree -> item ball conversion (gameplan.md)
 #define FLAG_ITEM_BERRY_TREE_ROUTE_123_RAWST         0x285 // Berry tree -> item ball conversion (gameplan.md)
 #define FLAG_ITEM_BERRY_TREE_ROUTE_130_LIECHI        0x286 // Berry tree -> item ball conversion (gameplan.md)
-#define FLAG_UNUSED_0x287  0x287 // Unused Flag
+#define FLAG_RECEIVED_MEGA_RING  0x287 // Set when the player receives the Mega Ring from Kiran after defeating the Lavaridge Gym
 #define FLAG_UNUSED_0x288  0x288 // Unused Flag
 #define FLAG_UNUSED_0x289  0x289 // Unused Flag
 #define FLAG_UNUSED_0x28A  0x28A // Unused Flag

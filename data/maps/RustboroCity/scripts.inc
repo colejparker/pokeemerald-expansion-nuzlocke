@@ -1043,10 +1043,10 @@ RustboroCity_Text_YoureNewAroundHere:
 
 RustboroCity_Text_GymLeaderIsntEasyWithFire:
 	.string "I challenged the GYM LEADER, but…\p"
-	.string "It's not going to be easy winning with\n"
+	.string "It should've been easy winning with\n"
 	.string "my FIRE-type POKéMON…\p"
-	.string "FIRE-type POKéMON don't match up\n"
-	.string "well against ROCK-type POKéMON…$"
+	.string "FIRE-type POKéMON match up\n"
+	.string "well against TINKATUFF…$"
 
 RustboroCity_Text_MrBrineyWalksInTheTunnel:
 	.string "The old sailor MR. BRINEY lives in\n"

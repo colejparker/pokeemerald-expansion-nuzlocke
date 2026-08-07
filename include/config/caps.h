@@ -30,4 +30,6 @@
 
 #define B_EV_ITEMS_CAP                  FALSE // If set to true, EV-boosting items can't be used to go over the EV cap
 
+#define GYM_BATTLE_EV_MULTIPLIER        8 // EVs earned from defeating a Gym Leader's Pokemon are multiplied by this (stacks with the Pokerus doubling)
+
 #endif /* GUARD_CONFIG_CAPS_H */
