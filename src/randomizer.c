@@ -51,8 +51,6 @@ bool32 IsMovesetRandomizerEnabled(void)
     return FlagGet(RANDOMIZER_FLAG_MOVESETS);
 }
 
-// Whole species families excluded regardless of which form is passed in.
-// gameplan.md lists these by family name with no form qualifier.
 static const u16 sRestrictedLegendaryFamilies[] =
 {
     SPECIES_ARCEUS_NORMAL,
@@ -66,8 +64,6 @@ static const u16 sRestrictedLegendaryFamilies[] =
     SPECIES_SLAKING,
 };
 
-// Specific species/forms excluded; other forms in the same family (if any,
-// e.g. base Calyrex, Hoopa Confined) are left randomizable.
 static const u16 sRestrictedLegendarySpecies[] =
 {
     SPECIES_ETERNATUS,
@@ -118,9 +114,6 @@ struct CosmeticFormFamily
 };
 
 static const u16 sAlcremieForms[] = {
-    // Matches the same 7 "Vanilla Cream" flavor-base forms Milcery's own
-    // evolution already randomizes between (gen_8_families.h) - kept in sync
-    // rather than exposing all ~63 flavor/swirl combinations here too.
     SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM, SPECIES_ALCREMIE_BERRY_VANILLA_CREAM,
     SPECIES_ALCREMIE_LOVE_VANILLA_CREAM, SPECIES_ALCREMIE_STAR_VANILLA_CREAM,
     SPECIES_ALCREMIE_CLOVER_VANILLA_CREAM, SPECIES_ALCREMIE_FLOWER_VANILLA_CREAM,
@@ -164,13 +157,6 @@ static const u16 sVivillonForms[] = {
     SPECIES_VIVILLON_RIVER, SPECIES_VIVILLON_MONSOON, SPECIES_VIVILLON_SAVANNA,
     SPECIES_VIVILLON_SUN, SPECIES_VIVILLON_OCEAN, SPECIES_VIVILLON_JUNGLE,
     SPECIES_VIVILLON_FANCY, SPECIES_VIVILLON_POKEBALL,
-};
-
-static const u16 sPikachuCosmeticForms[] = {
-    SPECIES_PIKACHU, SPECIES_PIKACHU_ORIGINAL, SPECIES_PIKACHU_HOENN, SPECIES_PIKACHU_SINNOH,
-    SPECIES_PIKACHU_UNOVA, SPECIES_PIKACHU_KALOS, SPECIES_PIKACHU_ALOLA, SPECIES_PIKACHU_PARTNER,
-    SPECIES_PIKACHU_WORLD, SPECIES_PIKACHU_COSPLAY, SPECIES_PIKACHU_ROCK_STAR, SPECIES_PIKACHU_BELLE,
-    SPECIES_PIKACHU_POP_STAR, SPECIES_PIKACHU_PHD, SPECIES_PIKACHU_LIBRE,
 };
 
 static const u16 sFurfrouForms[] = {
@@ -226,7 +212,6 @@ static const struct CosmeticFormFamily sCosmeticFormFamilies[] =
     { sScatterbugForms, ARRAY_COUNT(sScatterbugForms) },
     { sSpewpaForms, ARRAY_COUNT(sSpewpaForms) },
     { sVivillonForms, ARRAY_COUNT(sVivillonForms) },
-    { sPikachuCosmeticForms, ARRAY_COUNT(sPikachuCosmeticForms) },
     { sFurfrouForms, ARRAY_COUNT(sFurfrouForms) },
     { sFlabebeForms, ARRAY_COUNT(sFlabebeForms) },
     { sFloetteForms, ARRAY_COUNT(sFloetteForms) },
@@ -264,7 +249,7 @@ static bool32 IsCosmeticFormDuplicate(u16 species)
     return family != NULL && family->members[0] != species;
 }
 
-static const u16 sExcludedTransientForms[] =
+static const u16 sExcludedAltForms[] =
 {
     SPECIES_MIMIKYU_BUSTED, SPECIES_MIMIKYU_BUSTED_TOTEM, SPECIES_MIMIKYU_TOTEM_DISGUISED,
     SPECIES_CRAMORANT_GULPING, SPECIES_CRAMORANT_GORGING,
@@ -273,14 +258,19 @@ static const u16 sExcludedTransientForms[] =
     SPECIES_XERNEAS_ACTIVE,
     SPECIES_ZARUDE_DADA,
     SPECIES_MAGEARNA_ORIGINAL,
+    SPECIES_PICHU_SPIKY_EARED,
+    SPECIES_PIKACHU_ORIGINAL, SPECIES_PIKACHU_HOENN, SPECIES_PIKACHU_SINNOH, SPECIES_PIKACHU_UNOVA,
+    SPECIES_PIKACHU_KALOS, SPECIES_PIKACHU_ALOLA, SPECIES_PIKACHU_PARTNER, SPECIES_PIKACHU_WORLD,
+    SPECIES_PIKACHU_COSPLAY, SPECIES_PIKACHU_ROCK_STAR, SPECIES_PIKACHU_BELLE, SPECIES_PIKACHU_POP_STAR,
+    SPECIES_PIKACHU_PHD, SPECIES_PIKACHU_LIBRE,
 };
 
-static bool32 IsExcludedTransientForm(u16 species)
+static bool32 IsExcludedAltForm(u16 species)
 {
     u32 i;
-    for (i = 0; i < ARRAY_COUNT(sExcludedTransientForms); i++)
+    for (i = 0; i < ARRAY_COUNT(sExcludedAltForms); i++)
     {
-        if (sExcludedTransientForms[i] == species)
+        if (sExcludedAltForms[i] == species)
             return TRUE;
     }
     return FALSE;
@@ -305,16 +295,12 @@ bool32 IsSpeciesRandomizable(u16 species)
     if (species != SPECIES_SILVALLY_NORMAL && GET_BASE_SPECIES_ID(species) == SPECIES_SILVALLY_NORMAL)
         return FALSE;
 
-    if (IsCosmeticFormDuplicate(species) || IsExcludedTransientForm(species))
+    if (IsCosmeticFormDuplicate(species) || IsExcludedAltForm(species))
         return FALSE;
 
     return TRUE;
 }
 
-// Every randomizer roll is seeded from the save's OT id (visible + secret,
-// giving a stable per-save seed with no extra save data needed) mixed with a
-// context tag and caller-supplied data, so the same input always resolves the
-// same way on a given save.
 static rng_value_t GetRandomizerSeed(enum RandomizerContext context, u32 data1, u32 data2)
 {
     u32 seed = GetTrainerId(gSaveBlock2Ptr->playerTrainerId);
@@ -324,11 +310,6 @@ static rng_value_t GetRandomizerSeed(enum RandomizerContext context, u32 data1, 
     return LocalRandomSeed(seed);
 }
 
-// BST-similarity species table: every randomizable species, sorted ascending
-// by base stat total, built once and cached for the rest of the session.
-// Sorting (rather than a linear scan per roll) keeps "find every species
-// within +/-10% BST" a pair of O(log n) binary searches instead of an O(n)
-// scan on every single encounter/trainer mon/item pickup.
 struct BstTableEntry
 {
     u16 species;
@@ -351,9 +332,6 @@ static inline u16 LeftChildIndex(u16 index)
     return 2 * index + 1;
 }
 
-// Standard heap sort. Needed instead of a simpler insertion sort because this
-// runs over every randomizable species (a four-digit count once forms are
-// counted) and an O(n^2) sort would be a very noticeable hitch on GBA hardware.
 static void HeapSortBstTable(void)
 {
     u16 start, end, root;
@@ -410,7 +388,6 @@ static void BuildBstTable(void)
     sBstTableBuilt = TRUE;
 }
 
-// Finds [*start, *end) in sBstTable covering every entry with bst in [minBst, maxBst].
 static void GetBstRangeIndices(u16 minBst, u16 maxBst, u16 *start, u16 *end)
 {
     u16 index, leftBound, rightBound;
@@ -468,10 +445,6 @@ u16 GetRandomizedSpecies(enum RandomizerContext context, u32 data1, u32 data2, u
     rng = GetRandomizerSeed(context, data1, data2 ^ species);
     chosenSpecies = sBstTable[rangeStart + (LocalRandom32(&rng) % rangeCount)].species;
 
-    // The BST table only ever holds one (canonical) member per cosmetic form
-    // family - see sCosmeticFormFamilies. If that's what got picked, draw
-    // once more from the same RNG stream to decide which specific cosmetic
-    // variant actually shows up, so it isn't always the same palette/pattern.
     family = GetCosmeticFormFamily(chosenSpecies);
     if (family != NULL)
         chosenSpecies = family->members[LocalRandom32(&rng) % family->count];
@@ -543,11 +516,6 @@ u16 RandomizeUniqueMonList(u32 slot, const u16 *originalSpecies, u32 count)
     return results[slot];
 }
 
-// Every species with at least one Mega Evolution, paired with the Mega
-// Stone that triggers it (the first FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM
-// entry found for that species - species with two Mega forms, e.g.
-// Charizard X/Y, just get whichever one their form change table lists
-// first). Built once and cached, same pattern as sBstTable/sMegaStoneSubset.
 struct MegaCapableSpecies
 {
     u16 species;
@@ -632,18 +600,9 @@ static bool32 IsItemRandomizable(u16 itemId)
 
 #include "data/randomizer/item_whitelist.h"
 
-// TM01-TM50 (the Gen 3/4 TM range) are folded into the same pool as the
-// curated whitelist, so a TM can turn into any regular item and any regular
-// item pickup can turn into a TM - which move that TM slot teaches is a
-// separate roll (BuildRandomizedTmMoves), unaffected by this.
 #define TM_POOL_SIZE (ITEM_TM50 - ITEM_TM01 + 1)
 #define COMBINED_ITEM_POOL_SIZE (ITEM_WHITELIST_SIZE + TM_POOL_SIZE + RANDOMIZER_MEGA_STONE_POOL_SIZE)
 
-// Every Mega Stone in the game is a valid *candidate*, but only
-// RANDOMIZER_MEGA_STONE_POOL_SIZE of them are ever actually obtainable on a
-// given save - picked once via reservoir sampling (Algorithm R), same
-// technique as the moveset randomizer, so the full ~90-item Mega Stone list
-// never needs to be held in memory at once.
 EWRAM_DATA static u16 sMegaStoneSubset[RANDOMIZER_MEGA_STONE_POOL_SIZE] = {0};
 EWRAM_DATA static bool8 sMegaStoneSubsetBuilt = FALSE;
 
@@ -729,12 +688,6 @@ u16 RandomizeNpcGiftItem(u16 itemId, u32 mapNum, u32 mapGroup)
     return RandomizeItemFromSeed(rng, itemId);
 }
 
-// Abilities tightly coupled to a specific species' form-change machinery
-// (battle-form triggers, Ditto's transform, Shedinja's HP=1 gimmick) rather
-// than being a generic combat ability. Placing these on an unrelated species
-// wouldn't just be "weird", the form-change code backing them typically
-// assumes a specific species/form table and can misbehave. Excluded from the
-// random pool regardless of the broad-whitelist philosophy elsewhere.
 static bool32 IsAbilityRandomizable(u16 ability)
 {
     switch (ability)
@@ -799,8 +752,6 @@ static const u16 sRandomizerStrongAbilityWhitelist[] =
     ABILITY_MEGA_SOL, ABILITY_SPICY_SPRAY 
 };
 
-// Walks pre-evolutions back to the root of the family (e.g. Charizard -> Charmeleon
-// -> Charmander), so every stage can be seeded identically for a given ability slot.
 static u16 GetBaseEvolutionSpecies(u16 species)
 {
     u16 preEvo;
@@ -832,8 +783,6 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
 
     if (gSpeciesInfo[species].isMegaEvolution)
     {
-        // Mega abilities roll independently per Mega, not shared with the base
-        // species' family, from the smaller "stronger" pool.
         rng = GetRandomizerSeed(RANDOMIZER_CONTEXT_ABILITY, species, slot);
         for (tries = 0; tries < 30; tries++)
         {
@@ -855,12 +804,6 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
     return originalAbility;
 }
 
-// TM moves are drawn from every move in the game, not just the original 50 TM
-// moves - so e.g. TM17 could end up teaching Dragon Dance, something that was
-// never TM-teachable before. HM moves are the one carve-out: they stay
-// exclusively HM-taught (gameplan.md: "HM's are kept the same"), otherwise
-// the same move could become reachable through two different items and the
-// reverse lookup below wouldn't have a single correct answer.
 static bool32 IsHMMove(u16 move)
 {
     switch (move)
@@ -935,28 +878,15 @@ u16 RandomizeTMItemForMove(u16 move, u16 originalItem)
     if (!sTmMovesBuilt)
         BuildRandomizedTmMoves();
 
-    // Check the randomized pool first (a formerly non-TM move may have been
-    // assigned a slot this save), regardless of what it originally mapped to.
     for (i = 0; i < NUM_TECHNICAL_MACHINES; i++)
     {
         if (sRandomizedTmMoves[i] == move)
             return ITEM_TM01 + i;
     }
 
-    // Not in this save's TM pool. HM moves are untouched, so keep whatever
-    // the raw lookup found (its own HM item, or ITEM_NONE for anything else).
     return originalItem;
 }
 
-// --- Moveset randomizer ---
-// Every randomizable species gets a synthesized RANDOMIZER_MOVESET_SIZE-move
-// level-up learnset: 7 STAB-eligible damaging moves, 7 non-STAB damaging
-// moves, and 7 status moves, picked via reservoir sampling (so this never
-// needs to hold the full ~900-move candidate list in memory, just up to 7 per
-// category at a time) and interleaved across a fixed level curve so power
-// increases with level, per gameplan.md.
-
-// 21 levels from 1 to 63, spaced as evenly as 21 slots allow.
 static const u8 sMovesetLevelCurve[RANDOMIZER_MOVESET_SIZE] =
 {
     1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 63,
@@ -964,10 +894,6 @@ static const u8 sMovesetLevelCurve[RANDOMIZER_MOVESET_SIZE] =
 
 #define MOVESET_CATEGORY_SIZE (RANDOMIZER_MOVESET_SIZE / 3)
 
-// Of the MOVESET_CATEGORY_SIZE status-move slots, at most this many are
-// filled with moves matching the species' own type(s) - the rest always come
-// from the non-matching pool (if available), so a learnset never ends up
-// entirely same-type status moves.
 #define MOVESET_STATUS_TYPE_MATCH_CAP 5
 
 struct MoveReservoir
@@ -976,9 +902,6 @@ struct MoveReservoir
     u32 count;
 };
 
-// Algorithm R reservoir sampling: gives a uniformly random, unique subset of
-// up to MOVESET_CATEGORY_SIZE moves from a stream of unknown total length,
-// in a single pass, without storing every candidate seen.
 static void ReservoirAdd(struct MoveReservoir *reservoir, u16 move, rng_value_t *rng)
 {
     if (reservoir->count < MOVESET_CATEGORY_SIZE)
@@ -994,8 +917,6 @@ static void ReservoirAdd(struct MoveReservoir *reservoir, u16 move, rng_value_t 
     reservoir->count++;
 }
 
-// Ascending by power, so weaker moves land at the earlier (lower level)
-// slots and stronger moves at later ones.
 static void SortReservoirByPower(struct MoveReservoir *reservoir)
 {
     u32 count = (reservoir->count < MOVESET_CATEGORY_SIZE) ? reservoir->count : MOVESET_CATEGORY_SIZE;
@@ -1105,8 +1026,6 @@ static enum Type PickRandomMonType(rng_value_t *rng)
 {
     enum Type type;
 
-    // TYPE_MYSTERY sits in the middle of the real 1-19 type range (it's a
-    // leftover placeholder, not a real typing) - reroll if it comes up.
     do
     {
         type = TYPE_NORMAL + (LocalRandom32(rng) % (TYPE_FAIRY - TYPE_NORMAL + 1));
@@ -1119,7 +1038,6 @@ u16 RandomizeSpeciesType(u16 species, u8 slot, u16 originalType)
 {
     rng_value_t rng;
 
-    // Scoped to Shedinja only - not a general type randomizer.
     if (!IsAbilityRandomizerEnabled() || species != SPECIES_SHEDINJA)
         return originalType;
 

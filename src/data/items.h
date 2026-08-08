@@ -7241,9 +7241,6 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_Glimmoranite,
     },
 
-// QOL key-item kit (gameplan.md: "Players are given key items for QOL"), given
-// by Mom in place of Running Shoes. Never consumed - none of the four are
-// removed by RemoveBagItem on use, only by whiting out.
     [ITEM_INFINITE_REPEL] =
     {
         .name = ITEM_NAME("Infinite Repel"),
@@ -13515,7 +13512,7 @@ const struct ItemInfo gItemsInfo[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_FlashTool,
         .iconPic = gItemIcon_HM,
         .iconPalette = gItemIconPalette_NormalTMHM,
     },
@@ -13563,7 +13560,7 @@ const struct ItemInfo gItemsInfo[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Strength has a boulder to push - object interaction handles this one
         .iconPic = gItemIcon_HM,
         .iconPalette = gItemIconPalette_NormalTMHM,
     },
@@ -13579,7 +13576,7 @@ const struct ItemInfo gItemsInfo[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_FlashTool,
         .iconPic = gItemIcon_HM,
         .iconPalette = gItemIconPalette_NormalTMHM,
     },

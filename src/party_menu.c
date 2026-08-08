@@ -2249,7 +2249,6 @@ u8 GetMonAilment(struct Pokemon *mon)
 {
     u8 ailment;
 
-    // Permanently fainted (nuzlocke tracker) mons always show as fainted, even after healing.
     if (IsMonPermanentlyFainted(mon) || GetMonData(mon, MON_DATA_HP) == 0)
         return AILMENT_FNT;
     ailment = GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS));
@@ -5626,18 +5625,6 @@ static void Task_LearnNextMoveOrClosePartyMenu(u8 taskId)
 {
     if (IsFanfareTaskInactive() && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
     {
-        // Whether there are more levels left to walk through (and so more
-        // moves/evolution still to check) for a level-up item that granted
-        // more than one level at once (Cap Candy, Exp Candy). sFinalLevel is
-        // reset to 0 once that walk legitimately finishes (see
-        // PartyMenuTryEvolution), so this is 0 for a plain single-move
-        // teach (TM, move tutor, move relearner) outside that context.
-        // Previously checked `gPartyMenu.data1 == 1`, but data1 holds the
-        // move that was just learned/replaced at this point (see
-        // DisplayMonLearnedMove/DisplayMonNeedsToReplaceMove) - since a
-        // learned move's id is essentially never literally 1, that always
-        // took the else branch, silently abandoning the walk (and the
-        // evolution check) the instant any level in the jump taught a move.
         if (sFinalLevel != 0 && sInitialLevel <= sFinalLevel)
         {
             Task_TryLearningNextMove(taskId);
@@ -5829,11 +5816,6 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     u16 *itemPtr = &gSpecialVar_ItemId;
     bool8 cannotUseEffect;
     u8 holdEffectParam = GetItemHoldEffectParam(*itemPtr);
-    // Cap Candy and Endless Rare Candy are the QOL key-item kit (gameplan.md)
-    // - reusing this whole function rather than duplicating it, since they're
-    // otherwise identical to Rare Candy (including the "still in bag, loop
-    // back to the party menu after an evolution" behavior in
-    // PartyMenuTryEvolution, keyed off this same fieldUseFunc).
     bool32 isCapCandy = (*itemPtr == ITEM_CAP_CANDY);
     bool32 isReusableCandy = (*itemPtr == ITEM_ENDLESS_RARE_CANDY || *itemPtr == ITEM_CAP_CANDY);
 
@@ -5847,12 +5829,6 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         }
         else
         {
-            // Jumps straight to the level cap's EXP threshold in one step, but
-            // that's fine for "don't skip moves/evolution": the level-up
-            // stats/move-learn flow below (Task_TryLearningNextMove) walks
-            // MON_DATA_LEVEL from sInitialLevel to sFinalLevel one level at a
-            // time regardless of how the EXP itself was set, so every
-            // intermediate level's moves still get offered.
             u32 exp = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][levelCap];
             BufferMonStatsToTaskData(mon, arrayPtr);
             SetMonData(mon, MON_DATA_EXP, &exp);
@@ -5881,7 +5857,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         sInitialLevel = 0;
         sFinalLevel = 0;
 
-        if (holdEffectParam == 0 || isCapCandy) // Rare Candy, Endless Rare Candy, or already-capped Cap Candy
+        if (holdEffectParam == 0 || isCapCandy) // Rare Candy, Endless Rare Candy, Cap Candy
         {
             targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, CHECK_EVO);
         }

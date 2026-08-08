@@ -23,8 +23,6 @@
 #define tButtonMode data[5]
 #define tWindowFrameType data[6]
 
-// Battle Style is fixed to SET (gameplan.md) and deliberately not exposed
-// here - see OPTIONS_BATTLE_STYLE_SET default in src/new_game.c.
 enum
 {
     MENUITEM_TEXTSPEED,

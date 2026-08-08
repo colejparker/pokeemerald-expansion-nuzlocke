@@ -770,6 +770,54 @@ void ItemUseOutOfBattle_FlyTool(u8 taskId)
     }
 }
 
+static void FieldCallback_FlashTool(void)
+{
+    PlaySE(SE_M_REFLECT);
+    FlagSet(FLAG_SYS_USE_FLASH);
+    ScriptContext_SetupScript(EventScript_UseFlash);
+}
+
+// Flash has no walk-into-an-obstacle trigger the way Cut/Strength/Rock Smash/
+// Surf/Waterfall/Dive do (checkfieldmove is never called for FIELD_MOVE_FLASH
+// anywhere in data/scripts) - its only vanilla trigger is the party menu's
+// FLASH bubble, which only appears if the selected mon's actual moveset
+// contains Flash. Since the tool no longer teaches the move onto anything,
+// that bubble effectively never shows anymore, so - same as Fly - it needs a
+// direct bag-use path instead of the passive ItemUseOutOfBattle_CannotUse
+// every other HM tool uses.
+//
+// This goes through gFieldCallback2/gPostMenuFieldCallback (the same
+// CB2_ReturnToField-based handoff the party menu's FLASH/TELEPORT/DIG
+// options use), not the simpler sItemUseOnFieldCB/FieldCB_UseItemOnField
+// path most other bag items use - AnimateFlash's darkness-radius shrink is a
+// scanline effect that needs the full field-return graphics setup, which
+// FieldCB_UseItemOnField's lighter-weight fade skips (that's why an earlier
+// version of this using sItemUseOnFieldCB set the flag/ran the script fine
+// but never visibly lit up the cave).
+void ItemUseOutOfBattle_FlashTool(u8 taskId)
+{
+    if (MenuHelpers_IsLinkActive() == TRUE)
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (gMapHeader.cave == TRUE && !FlagGet(FLAG_SYS_USE_FLASH))
+    {
+        // Must be CB2_ReturnToField specifically, not left NULL - the
+        // default bag exit callback from the Start Menu is
+        // CB2_ReturnToFieldWithOpenMenu, which unconditionally overwrites
+        // gFieldCallback2 with its own "reopen the Start Menu" callback
+        // before we'd ever get a chance to run ours.
+        gBagMenu->newScreenCallback = CB2_ReturnToField;
+        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+        gPostMenuFieldCallback = FieldCallback_FlashTool;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+}
+
 static void Task_OpenRegisteredPokeblockCase(u8 taskId)
 {
     if (!gPaletteFade.active)
