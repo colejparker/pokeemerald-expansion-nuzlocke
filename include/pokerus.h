@@ -11,8 +11,6 @@ bool32 ShouldPokemonShowCuredPokerus(struct Pokemon *mon);
 void UpdatePartyPokerusTime(u32 days);
 void PartySpreadPokerus(void);
 
-// Pokérus is disabled (see config/pokerus.h); its per-mon storage byte (MON_DATA_POKERUS) is
-// repurposed here as a permanent-faint marker for the nuzlocke "faint = dead" tracker.
 bool32 IsMonPermanentlyFainted(struct Pokemon *mon);
 void MarkMonPermanentlyFainted(struct Pokemon *mon);
 

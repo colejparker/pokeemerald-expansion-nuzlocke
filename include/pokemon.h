@@ -216,7 +216,7 @@ struct PokemonSubstruct3
     u32 earthRibbon:1;    // Given to teams that have beaten Mt. Battle's 100-battle challenge in Colosseum/XD.
     u32 worldRibbon:1;    // Distributed during Pokémon Festa '04 and '05 to tournament winners.
     u32 isShadow:1;
-    u32 cantRandomizeAbility:1; // Locks this individual mon's ability against the ability randomizer (see MON_DATA_CANT_RANDOMIZE_ABILITY) - e.g. a Gym Leader's fixed ace mon.
+    u32 cantRandomizeAbility:1;
     u32 abilityNum:2;
 
     // The functionality of this bit changed in FRLG:

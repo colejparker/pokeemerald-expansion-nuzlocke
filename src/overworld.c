@@ -457,9 +457,6 @@ void Overworld_ResetBattleFlagsAndVars(void)
 }
 #endif
 
-// gameplan.md: "Whiting out removes these key items" - the QOL kit Mom gives
-// in place of Running Shoes (Infinite Repel, Porta Heal, Endless Rare Candy,
-// Cap Candy) is lost on a whiteout, same as any other Nuzlocke-style penalty.
 static void RemoveQolKeyItemsOnWhiteOut(void)
 {
     if (CheckBagHasItem(ITEM_INFINITE_REPEL, 1))

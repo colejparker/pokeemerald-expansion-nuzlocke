@@ -206,8 +206,6 @@ enum DebugMenuTypes
 #define DEBUG_NUMBER_ICON_X 210
 #define DEBUG_NUMBER_ICON_Y 50
 
-// Raised from 20 to fit the 5 new randomizer toggles (wild/trainer/starter/item/ability)
-// added to sDebugMenu_Actions_Flags without silently truncating that list's visible entries.
 #define DEBUG_MAX_MENU_ITEMS 25
 #define DEBUG_MAX_SUB_MENU_LEVELS 4
 

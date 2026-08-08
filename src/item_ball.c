@@ -35,9 +35,6 @@ void GetItemBallIdAndAmountFromTemplate(void)
     gSpecialVar_0x8009 = GetItemBallAmountFromTemplate(itemBallId);
 }
 
-// Called by Std_ObtainItem (the `giveitem` script command) before the item
-// actually gets added to the bag, so NPCs that hand the player an item
-// directly get the same randomization as item balls/hidden items.
 void RandomizeGivenItem(void)
 {
     gSpecialVar_0x8000 = RandomizeNpcGiftItem(gSpecialVar_0x8000, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);

@@ -1122,9 +1122,6 @@ bool8 IsWildLevelAllowedByRepel(u8 wildLevel)
 {
     u8 i;
 
-    // The Infinite Repel key item behaves like a permanently-active Repel
-    // without ever touching VAR_REPEL_STEP_COUNT, so a real Repel/Lure can
-    // still be tracked (and expire normally) underneath it.
     if (!REPEL_STEP_COUNT && !FlagGet(FLAG_INFINITE_REPEL_ACTIVE))
         return TRUE;
 

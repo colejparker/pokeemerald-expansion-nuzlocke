@@ -1,7 +1,4 @@
-// Curated pool for the item randomizer (field items, hidden items, and
-// NPC-given items). TM01-TM50 are folded into this same pool at the call
-// site in src/randomizer.c, so this list itself should stay TM/HM/key-item
-// free - those are added in programmatically, not listed here.
+// Items available for the randomizer
 static const u16 sRandomizerItemWhitelist[] =
 {
     ITEM_ABSORB_BULB,

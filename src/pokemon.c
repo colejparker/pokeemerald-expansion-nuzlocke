@@ -3288,10 +3288,6 @@ enum Ability GetSpeciesAbility(enum Species species, u8 slot)
 #endif
 }
 
-// Same fallback search as GetAbilityBySpecies (empty hidden-ability slot falls
-// back to another hidden slot, then to any non-empty slot), but reading the
-// species' true, un-randomized ability table - for mons individually locked
-// via MON_DATA_CANT_RANDOMIZE_ABILITY (e.g. a Gym Leader's fixed ace).
 static enum Ability GetUnrandomizedAbilityBySpecies(enum Species species, u8 abilityNum)
 {
     int i;
@@ -5041,8 +5037,6 @@ void MonGainEVs(struct Pokemon *mon, enum Species defeatedSpecies)
     u8 bonus;
     u32 currentEVCap = GetCurrentEVCap();
 
-    // Only Gym Leader battles award EVs from defeated Pokemon; wild encounters and every
-    // other trainer class are excluded. Vitamins/feathers remain unaffected by this check.
     if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         || IsSpecialTrainer(TRAINER_BATTLE_PARAM.opponentA)
         || GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA) != TRAINER_CLASS_LEADER)
@@ -5185,7 +5179,6 @@ u8 CanLearnTeachableMove(enum Species species, enum Move move)
     if (species == SPECIES_EGG)
         return FALSE;
 
-    // Every species can learn every TM and HM move; tutor moves stay species-gated below.
     tmHmItem = GetTMHMItemIdFromMoveId(move);
     if ((tmHmItem >= ITEM_TM01 && tmHmItem <= ITEM_TM100) || (tmHmItem >= ITEM_HM01 && tmHmItem <= ITEM_HM08))
         return TRUE;

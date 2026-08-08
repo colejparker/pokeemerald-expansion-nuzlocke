@@ -217,8 +217,6 @@ void PartySpreadPokerus(void)
     }
 }
 
-// Reads/writes the raw byte directly rather than going through CheckMonPokerus/CheckMonHasHadPokerus,
-// since those early-return FALSE while P_POKERUS_ENABLED is FALSE.
 bool32 IsMonPermanentlyFainted(struct Pokemon *mon)
 {
     return GetMonData(mon, MON_DATA_POKERUS, 0) != 0;

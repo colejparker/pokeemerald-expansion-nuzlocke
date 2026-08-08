@@ -166,11 +166,6 @@ static inline enum Item GetTMHMItemIdFromMoveId_Raw(enum Move move)
     }
 }
 
-// These two wrap the raw (compile-time-fixed) lookups above with the TM-move
-// randomizer, so every caller in the game - teaching a TM, describing what a
-// TM teaches, CanLearnTeachableMove's "is this move mapped to some TM/HM
-// slot" check - sees the shuffled mapping automatically with no changes of
-// their own. HMs are untouched; only ITEM_TM01-ITEM_TM50 ever get remapped.
 static inline enum Move GetItemTMHMMoveId(enum Item item)
 {
     enum Move move = GetItemTMHMMoveId_Raw(item);

@@ -866,10 +866,6 @@ static bool32 IsTmAvailable(enum Item item)
     return CheckBagHasItem(item, 1);
 }
 
-// gameplan.md: Move Relearner is turned off entirely. Special_HasMoveToRelearn
-// and the Fallarbor NPC script call into this relearn type directly by state,
-// bypassing IsLevelUpMoveRelearnerActive()'s FALSE, so it has to report
-// "nothing to teach" here too rather than just at the isActive() gate.
 static u32 GetRelearnerLevelUpMoves(struct BoxPokemon *mon, u16 *moves)
 {
     return 0;
@@ -978,8 +974,6 @@ bool32 HasMoveToRelearn(struct BoxPokemon *boxMon, enum MoveRelearnerStates stat
     return sRelearnTypes[state].hasMoveToRelearn(boxMon);
 }
 
-// See GetRelearnerLevelUpMoves: Move Relearner is turned off entirely, and
-// this is reached directly by state, bypassing the isActive() gate.
 static bool32 HasRelearnerLevelUpMoves(struct BoxPokemon *boxMon)
 {
     return FALSE;
