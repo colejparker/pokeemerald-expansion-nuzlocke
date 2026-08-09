@@ -1058,6 +1058,12 @@ enum __attribute__((packed)) Item
     ITEM_ENDLESS_RARE_CANDY = 876,
     ITEM_CAP_CANDY = 877,
 
+    // Custom Mega Stones repurposed from the Gigantamax forms (see gameplan.md)
+    ITEM_BUTTERFREEITE = 878,
+    ITEM_KINGLERITE = 879,
+    ITEM_SNORLAXITE = 880,
+    ITEM_LAPRASITE = 881,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

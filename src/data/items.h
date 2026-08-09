@@ -5705,6 +5705,78 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_Beedrillite,
     },
 
+    [ITEM_BUTTERFREEITE] =
+    {
+        .name = ITEM_NAME("Butterfreeite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Butterfree to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEGA_STONE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Beedrillite,
+        .iconPalette = gItemIconPalette_Beedrillite,
+    },
+
+    [ITEM_KINGLERITE] =
+    {
+        .name = ITEM_NAME("Kinglerite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Kingler to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEGA_STONE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Swampertite,
+        .iconPalette = gItemIconPalette_Swampertite,
+    },
+
+    [ITEM_SNORLAXITE] =
+    {
+        .name = ITEM_NAME("Snorlaxite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Snorlax to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEGA_STONE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Drampanite,
+        .iconPalette = gItemIconPalette_Drampanite,
+    },
+
+    [ITEM_LAPRASITE] =
+    {
+        .name = ITEM_NAME("Laprasite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Lapras to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEGA_STONE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Blastoisinite,
+        .iconPalette = gItemIconPalette_Blastoisinite,
+    },
+
     [ITEM_PIDGEOTITE] =
     {
         .name = ITEM_NAME("Pidgeotite"),
