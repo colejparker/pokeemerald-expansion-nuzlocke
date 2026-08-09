@@ -21,7 +21,7 @@
 #define RANDOMIZER_MOVESET_SIZE   21
 
 // Number of mega stones available in each save pool.
-#define RANDOMIZER_MEGA_STONE_POOL_SIZE   10
+#define RANDOMIZER_MEGA_STONE_POOL_SIZE   15
 
 #endif // RANDOMIZER_AVAILABLE
 
