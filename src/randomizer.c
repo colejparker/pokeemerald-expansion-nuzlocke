@@ -614,6 +614,28 @@ static bool32 IsItemRandomizable(u16 itemId)
 EWRAM_DATA static u16 sMegaStoneSubset[RANDOMIZER_MEGA_STONE_POOL_SIZE] = {0};
 EWRAM_DATA static bool8 sMegaStoneSubsetBuilt = FALSE;
 
+static bool32 IsMegaStoneForBannedSpecies(u16 item)
+{
+    u16 species;
+
+    for (species = 1; species < NUM_SPECIES; species++)
+    {
+        const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+        u32 i;
+
+        if (formChanges == NULL)
+            continue;
+
+        for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+        {
+            if (formChanges[i].method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM
+             && formChanges[i].param1 == item)
+                return IsRestrictedLegendary(species);
+        }
+    }
+    return FALSE;
+}
+
 static void BuildMegaStoneSubset(void)
 {
     rng_value_t rng = GetRandomizerSeed(RANDOMIZER_CONTEXT_MEGA_STONE_SUBSET, 0, 0);
@@ -623,6 +645,9 @@ static void BuildMegaStoneSubset(void)
     for (item = 1; item < ITEMS_COUNT; item++)
     {
         if (GetItemHoldEffect(item) != HOLD_EFFECT_MEGA_STONE)
+            continue;
+
+        if (IsMegaStoneForBannedSpecies(item))
             continue;
 
         if (count < RANDOMIZER_MEGA_STONE_POOL_SIZE)
@@ -719,10 +744,34 @@ static bool32 IsAbilityRandomizable(u16 ability)
     case ABILITY_EMBODY_ASPECT_WELLSPRING_MASK:
     case ABILITY_EMBODY_ASPECT_CORNERSTONE_MASK:
     case ABILITY_TERA_SHIFT:
+    case ABILITY_TERA_SHELL:
     case ABILITY_TERAFORM_ZERO:
     case ABILITY_ZERO_TO_HERO:
     case ABILITY_FIRE_MANE:
     case ABILITY_EELEVATE:
+    case ABILITY_ANTICIPATION:
+    case ABILITY_BALL_FETCH:
+    case ABILITY_DEFEATIST:
+    case ABILITY_DISGUISE:
+    case ABILITY_FORECAST:
+    case ABILITY_FOREWARN:
+    case ABILITY_FRISK:
+    case ABILITY_GORILLA_TACTICS:
+    case ABILITY_GRASS_PELT:
+    case ABILITY_HONEY_GATHER:
+    case ABILITY_HUGE_POWER:
+    case ABILITY_ILLUMINATE:
+    case ABILITY_KLUTZ:
+    case ABILITY_MINUS:
+    case ABILITY_PLUS:
+    case ABILITY_PICKUP:
+    case ABILITY_PURE_POWER:
+    case ABILITY_SLOW_START:
+    case ABILITY_STICKY_HOLD:
+    case ABILITY_TRUANT:
+    case ABILITY_WHITE_SMOKE:
+    case ABILITY_WIMP_OUT:
+    case ABILITY_RUN_AWAY:
         return FALSE;
     default:
         return TRUE;
@@ -735,7 +784,7 @@ static const u16 sRandomizerStrongAbilityWhitelist[] =
     ABILITY_DROUGHT, ABILITY_DRIZZLE, ABILITY_SAND_STREAM, ABILITY_SNOW_WARNING,
     ABILITY_INTIMIDATE, ABILITY_LEVITATE, ABILITY_MULTISCALE, ABILITY_REGENERATOR,
     ABILITY_MAGIC_GUARD, ABILITY_UNAWARE, ABILITY_PRANKSTER, ABILITY_SPEED_BOOST,
-    ABILITY_ADAPTABILITY, ABILITY_HUGE_POWER, ABILITY_PURE_POWER, ABILITY_PROTEAN,
+    ABILITY_ADAPTABILITY, ABILITY_PROTEAN, ABILITY_DESOLATE_LAND, ABILITY_PRIMORDIAL_SEA,
     ABILITY_LIBERO, ABILITY_TECHNICIAN, ABILITY_SHEER_FORCE, ABILITY_TOUGH_CLAWS,
     ABILITY_GUTS, ABILITY_MARVEL_SCALE, ABILITY_POISON_HEAL, ABILITY_WATER_ABSORB,
     ABILITY_VOLT_ABSORB, ABILITY_FLASH_FIRE, ABILITY_MOTOR_DRIVE, ABILITY_SAP_SIPPER,
@@ -757,7 +806,8 @@ static const u16 sRandomizerStrongAbilityWhitelist[] =
     ABILITY_DAUNTLESS_SHIELD, ABILITY_COTTON_DOWN, ABILITY_UNSEEN_FIST, ABILITY_WELL_BAKED_BODY,
     ABILITY_PROTOSYNTHESIS, ABILITY_QUARK_DRIVE, ABILITY_GOOD_AS_GOLD, ABILITY_ORICHALCUM_PULSE,
     ABILITY_HADRON_ENGINE, ABILITY_SUPREME_OVERLORD, ABILITY_EARTH_EATER, ABILITY_PIERCING_DRILL,
-    ABILITY_MEGA_SOL, ABILITY_SPICY_SPRAY 
+    ABILITY_MEGA_SOL, ABILITY_SPICY_SPRAY, ABILITY_AIR_LOCK, ABILITY_DELTA_STREAM,
+    ABILITY_ICE_SCALES
 };
 
 static u16 GetBaseEvolutionSpecies(u16 species)
@@ -812,27 +862,23 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
     return originalAbility;
 }
 
-static bool32 IsHMMove(u16 move)
+static bool32 IsMoveEligible(u16 move)
 {
     switch (move)
     {
-#define HM_MOVE_CASE(name) case MOVE_##name: return TRUE;
-    FOREACH_HM(HM_MOVE_CASE)
-#undef HM_MOVE_CASE
-    default:
-        return FALSE;
+        case MOVE_NONE:
+        case MOVE_STRUGGLE:
+        case MOVE_SPORE:
+        case MOVE_SHEER_COLD:
+        case MOVE_FISSURE:
+        case MOVE_HORN_DRILL:
+        case MOVE_GUILLOTINE:
+        case MOVE_VEEVEE_VOLLEY:
+        case MOVE_DRAGON_RAGE:
+            return FALSE;
+        default:
+            return TRUE;
     }
-}
-
-static bool32 IsMoveEligibleForTM(u16 move)
-{
-    if (move == MOVE_NONE || move >= MOVES_COUNT)
-        return FALSE;
-    if (move == MOVE_STRUGGLE || move == MOVE_SPORE)
-        return FALSE;
-    if (IsHMMove(move))
-        return FALSE;
-    return TRUE;
 }
 
 EWRAM_DATA static u16 sRandomizedTmMoves[NUM_TECHNICAL_MACHINES] = {0};
@@ -853,7 +899,7 @@ static void BuildRandomizedTmMoves(void)
         do
         {
             candidate = 1 + (LocalRandom32(&rng) % (MOVES_COUNT - 1));
-        } while (!IsMoveEligibleForTM(candidate)
+        } while (!IsMoveEligible(candidate)
               || (seenMoveBitVector[(candidate - 1) / 32] & (1u << ((candidate - 1) & 31))));
 
         wordIndex = (candidate - 1) / 32;
@@ -944,19 +990,20 @@ static void SortReservoirByPower(struct MoveReservoir *reservoir)
     }
 }
 
-static bool32 IsMoveEligibleForLearnset(u16 move)
-{
-    if (move == MOVE_NONE || move >= MOVES_COUNT)
-        return FALSE;
-    if (move == MOVE_STRUGGLE || move == MOVE_SPORE)
-        return FALSE;
-    return TRUE;
-}
-
 static u8 GetMoveMinimumLearnLevel(u16 move)
 {
-    if (move == MOVE_DRAGON_RAGE)
-        return 20;
+    if (
+        move == MOVE_RETURN || 
+        move == MOVE_FRUSTRATION ||
+        move == MOVE_CRUSH_GRIP ||
+        move == MOVE_WATER_SPOUT ||
+        move == MOVE_ERUPTION ||
+        move == MOVE_DRAGON_ENERGY ||
+        move == MOVE_HARD_PRESS ||
+        move == MOVE_WRING_OUT ||
+        move == MOVE_PIKA_PAPOW
+    )
+        return 40;
     return 1;
 }
 
@@ -1011,7 +1058,7 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
 
     for (move = 1; move < MOVES_COUNT; move++)
     {
-        if (!IsMoveEligibleForLearnset(move))
+        if (!IsMoveEligible(move))
             continue;
 
         if (GetMoveCategory(move) == DAMAGE_CATEGORY_STATUS)
