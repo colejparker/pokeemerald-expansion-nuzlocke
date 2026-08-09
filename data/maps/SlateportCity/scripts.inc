@@ -7,7 +7,6 @@ SlateportCity_OnTransition:
 	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 0
 	call SlateportCity_EventScript_EnterSlateport
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
-	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
 	end
 
 SlateportCity_EventScript_EnterSlateport::
@@ -33,85 +32,9 @@ SlateportCity_EventScript_MovePeopleForSternInterview::
 	setobjectmovementtype LOCALID_SLATEPORT_MAN_1, MOVEMENT_TYPE_FACE_LEFT
 	return
 
-SlateportCity_EventScript_SetReadyForScottScene::
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	getplayerxy VAR_0x8004, VAR_0x8005
-	goto_if_eq VAR_0x8004, 30, SlateportCity_EventScript_MoveScottLeft
-	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 23, 27
-	setobjectmovementtype LOCALID_SLATEPORT_SCOTT, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
-SlateportCity_EventScript_MoveScottLeft::
-	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 22, 27
-	setobjectmovementtype LOCALID_SLATEPORT_SCOTT, MOVEMENT_TYPE_FACE_RIGHT
-	return
-
 SlateportCity_OnFrame:
-	map_script_2 VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_ScottScene
 	.2byte 0
 
-SlateportCity_EventScript_ScottScene::
-	lockall
-	addobject LOCALID_SLATEPORT_SCOTT
-	applymovement LOCALID_PLAYER, SlateportCity_Movement_PlayerFaceScott
-	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottApproachPlayer
-	waitmovement 0
-	msgbox SlateportCity_Text_YouDroveTeamAquaAway, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_SLATEPORT_SCOTT, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	delay 60
-	msgbox SlateportCity_Text_MaybeThisTrainer, MSGBOX_DEFAULT
-	applymovement LOCALID_SLATEPORT_SCOTT, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	msgbox SlateportCity_Text_LetsRegisterEachOther, MSGBOX_DEFAULT
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox SlateportCity_Text_RegisteredScott, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_SCOTT_MATCH_CALL
-	msgbox SlateportCity_Text_KeepEyeOnTrainersBeSeeingYou, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottExit
-	waitmovement 0
-	removeobject LOCALID_SLATEPORT_SCOTT
-	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 10, 12
-	setobjectmovementtype LOCALID_SLATEPORT_SCOTT, MOVEMENT_TYPE_FACE_DOWN
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 2
-	addvar VAR_SCOTT_STATE, 1
-	releaseall
-	end
-
-SlateportCity_Movement_PlayerFaceScott:
-	delay_16
-	delay_8
-	walk_in_place_faster_left
-	step_end
-
-SlateportCity_Movement_ScottApproachPlayer:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-SlateportCity_Movement_ScottExit:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
 
 SlateportCity_EventScript_EnergyGuru::
 	lock
@@ -861,55 +784,6 @@ SlateportCity_EventScript_NotEnoughBerryPowder::
 	goto SlateportCity_EventScript_ChooseBerryPowderItem
 	end
 
-SlateportCity_EventScript_ScottBattleTentScene::
-	lockall
-	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	opendoor 10, 12
-	waitdooranim
-	addobject LOCALID_SLATEPORT_SCOTT
-	applymovement LOCALID_PLAYER, SlateportCity_Movement_PushPlayerDown
-	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottExitBattleTent
-	waitmovement 0
-	closedoor 10, 12
-	waitdooranim
-	msgbox SlateportCity_Text_TakingBattleTentChallenge, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_PLAYER, SlateportCity_Movement_PlayerWatchScottExit
-	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottExitAfterBattleTent
-	waitmovement 0
-	removeobject LOCALID_SLATEPORT_SCOTT
-	addvar VAR_SCOTT_STATE, 1
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
-	releaseall
-	end
-
-SlateportCity_Movement_PushPlayerDown:
-	lock_facing_direction
-	walk_down
-	unlock_facing_direction
-	step_end
-
-SlateportCity_Movement_PlayerWatchScottExit:
-	delay_16
-	walk_in_place_faster_right
-	step_end
-
-SlateportCity_Movement_ScottExitBattleTent:
-	delay_8
-	walk_down
-	step_end
-
-SlateportCity_Movement_ScottExitAfterBattleTent:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
 
 SlateportCity_EventScript_BerryCrushRankingsSign::
 	lockall

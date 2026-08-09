@@ -41,6 +41,7 @@ const u16 gObjectEventPal_Emily[] = INCGFX_U16("graphics/object_events/palettes/
 const u16 gObjectEventPal_Robert[] = INCGFX_U16("graphics/object_events/palettes/robert.pal", ".gbapal");
 const u16 gObjectEventPal_Kiran[] = INCGFX_U16("graphics/object_events/palettes/kiran.pal", ".gbapal");
 const u16 gObjectEventPal_Safeer[] = INCGFX_U16("graphics/object_events/palettes/safeer.pal", ".gbapal");
+const u16 gObjectEventPal_Rein[] = INCGFX_U16("graphics/object_events/palettes/rein.pal", ".gbapal");
 const u16 gUnusedObjectEventPalette[] = INCGFX_U16("graphics/object_events/palettes/unused_palette.pal", ".gbapal");
 const u16 gObjectEventPal_Null16[16] = {};
 const u16 gObjectEventPal_Null17[16] = {};

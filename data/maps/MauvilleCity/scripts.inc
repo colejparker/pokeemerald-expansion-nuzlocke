@@ -158,43 +158,9 @@ MauvilleCity_EventScript_DefeatedWally::
 	setflag FLAG_DEFEATED_WALLY_MAUVILLE
 	setvar VAR_WALLY_CALL_STEP_COUNTER, 0
 	setflag FLAG_ENABLE_FIRST_WALLY_POKENAV_CALL
-	call_if_eq VAR_FACING, DIR_NORTH, MauvilleCity_EventScript_ScottApproachPlayerNorth
-	call_if_eq VAR_FACING, DIR_EAST, MauvilleCity_EventScript_ScottApproachPlayerEast
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox MauvilleCity_Text_ScottYouDidntHoldBack, MSGBOX_DEFAULT
-	closemessage
-	addvar VAR_SCOTT_STATE, 1
-	call_if_eq VAR_FACING, DIR_NORTH, MauvilleCity_EventScript_ScottExitNorth
-	call_if_eq VAR_FACING, DIR_EAST, MauvilleCity_EventScript_ScottExitEast
-	removeobject LOCALID_MAUVILLE_SCOTT
 	releaseall
 	end
 
-MauvilleCity_EventScript_ScottApproachPlayerNorth::
-	addobject LOCALID_MAUVILLE_SCOTT
-	applymovement LOCALID_MAUVILLE_SCOTT, MauvilleCity_Movement_ScottApproachPlayerNorth
-	waitmovement 0
-	return
-
-MauvilleCity_EventScript_ScottApproachPlayerEast::
-	setobjectxyperm LOCALID_MAUVILLE_SCOTT, 12, 13
-	addobject LOCALID_MAUVILLE_SCOTT
-	applymovement LOCALID_MAUVILLE_SCOTT, MauvilleCity_Movement_ScottApproachPlayerEast
-	waitmovement 0
-	return
-
-MauvilleCity_EventScript_ScottExitNorth::
-	applymovement LOCALID_PLAYER, MauvilleCity_Movement_PlayerWatchScottExitNorth
-	applymovement LOCALID_MAUVILLE_SCOTT, MauvilleCity_Movement_ScottExitNorth
-	waitmovement 0
-	return
-
-MauvilleCity_EventScript_ScottExitEast::
-	applymovement LOCALID_PLAYER, MauvilleCity_Movement_PlayerWatchScottExitEast
-	applymovement LOCALID_MAUVILLE_SCOTT, MauvilleCity_Movement_ScottExitEast
-	waitmovement 0
-	return
 
 MauvilleCity_EventScript_BattleWally::
 	msgbox MauvilleCity_Text_WallyHereICome, MSGBOX_DEFAULT
@@ -280,16 +246,6 @@ MauvilleCity_Movement_PlayerWatchWallyExitEast2:
 	walk_in_place_faster_left
 	step_end
 
-MauvilleCity_Movement_PlayerWatchScottExitNorth:
-	delay_16
-	walk_in_place_faster_left
-	step_end
-
-MauvilleCity_Movement_PlayerWatchScottExitEast:
-	delay_16
-	delay_16
-	walk_in_place_faster_left
-	step_end
 
 MauvilleCity_Movement_PlayerWatchWallyExitEast1:
 	delay_16
@@ -358,58 +314,6 @@ MauvilleCity_Movement_WallysUncleExitEast2:
 	walk_left
 	step_end
 
-MauvilleCity_Movement_ScottApproachPlayerNorth:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_in_place_faster_up
-	step_end
-
-MauvilleCity_Movement_ScottApproachPlayerEast:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	step_end
-
-MauvilleCity_Movement_ScottExitNorth:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-MauvilleCity_Movement_ScottExitEast:
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
 
 MauvilleCity_EventScript_Wattson::
 	lock
