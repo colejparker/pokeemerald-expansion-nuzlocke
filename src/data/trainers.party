@@ -993,11 +993,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Azurill
-Level: 12
+Level: 19
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 Azurill
-Level: 12
+Level: 19
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_AUSTINA ===
@@ -1104,7 +1104,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zigzagoon
-Level: 13
+Level: 20
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_SIMON ===
@@ -1117,11 +1117,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Azurill
-Level: 12
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Marill
-Level: 12
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CHARLIE ===
@@ -8265,11 +8265,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Wingull
-Level: 12
+Level: 19
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 Machop
-Level: 12
+Level: 19
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_EDMOND ===
@@ -8282,7 +8282,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Wingull
-Level: 13
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ERNEST_1 ===
@@ -8312,15 +8312,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Wingull
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Machop
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Tentacool
-Level: 11
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PHILLIP ===
@@ -11117,7 +11117,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Goldeen
-Level: 13
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GERALD ===
@@ -12067,7 +12067,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Marill
-Level: 13
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CHANDLER ===
@@ -12080,11 +12080,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Tentacool
-Level: 12
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Tentacool
-Level: 12
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_KALEB ===

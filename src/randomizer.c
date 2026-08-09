@@ -276,7 +276,7 @@ static bool32 IsExcludedAltForm(u16 species)
     return FALSE;
 }
 
-bool32 IsSpeciesRandomizable(u16 species)
+static bool32 IsSpeciesEligibleForRandomFeatures(u16 species)
 {
     const struct SpeciesInfo *info;
 
@@ -290,6 +290,14 @@ bool32 IsSpeciesRandomizable(u16 species)
         return FALSE;
 
     if (IsRestrictedLegendary(species))
+        return FALSE;
+
+    return TRUE;
+}
+
+bool32 IsSpeciesRandomizable(u16 species)
+{
+    if (!IsSpeciesEligibleForRandomFeatures(species))
         return FALSE;
 
     if (species != SPECIES_SILVALLY_NORMAL && GET_BASE_SPECIES_ID(species) == SPECIES_SILVALLY_NORMAL)
@@ -945,6 +953,40 @@ static bool32 IsMoveEligibleForLearnset(u16 move)
     return TRUE;
 }
 
+static u8 GetMoveMinimumLearnLevel(u16 move)
+{
+    if (move == MOVE_DRAGON_RAGE)
+        return 20;
+    return 1;
+}
+
+static void EnforceReservoirMinLevels(struct MoveReservoir *reservoir, u8 categorySlotStart)
+{
+    u32 count = (reservoir->count < MOVESET_CATEGORY_SIZE) ? reservoir->count : MOVESET_CATEGORY_SIZE;
+    u32 i;
+
+    for (i = 0; i < count; i++)
+    {
+        u8 minLevel = GetMoveMinimumLearnLevel(reservoir->moves[i]);
+        u8 curLevel = sMovesetLevelCurve[categorySlotStart + i * 3];
+
+        if (minLevel > curLevel)
+        {
+            u16 move = reservoir->moves[i];
+            u32 k = i + 1;
+            while (k < count && minLevel > sMovesetLevelCurve[categorySlotStart + k * 3])
+                k++;
+            if (k < count)
+            {
+                u32 j;
+                for (j = i; j < k; j++)
+                    reservoir->moves[j] = reservoir->moves[j + 1];
+                reservoir->moves[k] = move;
+            }
+        }
+    }
+}
+
 EWRAM_DATA static struct LevelUpMove sRandomizedLearnsetBuffer[RANDOMIZER_MOVESET_SIZE + 1] = {0};
 
 const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct LevelUpMove *originalLearnset)
@@ -959,7 +1001,7 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
     u32 stabIndex = 0, nonStabIndex = 0, statusMatchingIndex = 0, statusOtherIndex = 0;
     u32 slot;
 
-    if (!IsMovesetRandomizerEnabled() || !IsSpeciesRandomizable(species))
+    if (!IsMovesetRandomizerEnabled() || !IsSpeciesEligibleForRandomFeatures(species))
         return originalLearnset;
 
     type1 = GetSpeciesType(species, 0);
@@ -987,6 +1029,8 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
 
     SortReservoirByPower(&stabMoves);
     SortReservoirByPower(&nonStabMoves);
+    EnforceReservoirMinLevels(&stabMoves, 0);
+    EnforceReservoirMinLevels(&nonStabMoves, 1);
 
     for (slot = 0; slot < RANDOMIZER_MOVESET_SIZE; slot++)
     {

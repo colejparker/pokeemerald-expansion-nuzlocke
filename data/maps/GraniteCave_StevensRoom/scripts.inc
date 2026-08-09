@@ -92,8 +92,8 @@ GraniteCave_StevensRoom_Text_ThankYouTakeThis:
 	.string "deliver that. I need to thank you.\p"
 	.string "Let me see…\n"
 	.string "I'll give you this TM.\p"
-	.string "It contains my favorite move,\n"
-	.string "STEEL WING.$"
+	.string "It contains...\n"
+	.string "something?$"
 
 GraniteCave_StevensRoom_Text_CouldBecomeChampionLetsRegister:
 	.string "STEVEN: Your POKéMON appear quite\n"
