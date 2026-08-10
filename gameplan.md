@@ -127,6 +127,7 @@
     - Frosmoth (Level 29)
     - Rabsca (Level 29) — dropped the 1000-overworld-steps requirement
     - Goodra (Level 50) — both weather-conditioned branches (rain/fog) collapsed into one, since they both led to the same species anyway
+        - [x] **Bug found and fixed (reported while explaining how the Sliggoo/Goodra line works — this collapse only touched the regular Sliggoo→Goodra branch):** Sliggoo-Hisui's own evolution into Goodra-Hisui (`src/data/pokemon/species_info/gen_6_families.h`) had been left with its original two rain/fog-gated `EVO_LEVEL 50` entries untouched, meaning a Hisuian-form Sliggoo genuinely couldn't evolve at all outside rain or fog weather. Collapsed to a single unconditional `EVO_LEVEL 50` entry, matching the regular branch
     - Galarian Slowking/Slowking (King's Rock) — both now use King's Rock directly. Also revisited Galarian Slowbro while here: it no longer needs Galarica Cuff either, now a plain Level 37 evolution (same level as regular Slowbro) since Galarian Slowpoke is its own distinct species from regular Slowpoke — Galarica Cuff dropped from the Lilycove shop as fully unused
     - Kleavor/Scizor (Randomly at 43, even split) — dropped the Metal Coat/Black Augurite item requirements
         - [x] Tested va debug and its working
