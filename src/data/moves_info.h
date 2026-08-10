@@ -18660,7 +18660,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "trap for four to five turns."),
         .effect = EFFECT_HIT,
         .power = 35,
-        .type = TYPE_GRASS,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 15,
         .target = TARGET_SELECTED,

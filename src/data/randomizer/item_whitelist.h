@@ -145,6 +145,7 @@ static const u16 sRandomizerItemWhitelist[] =
     ITEM_CLEAR_AMULET,
     ITEM_MIRROR_HERB,
     ITEM_PUNCHING_GLOVE,
+    ITEM_LINKING_CORD
 };
 
 #define ITEM_WHITELIST_SIZE ARRAY_COUNT(sRandomizerItemWhitelist)

@@ -4513,12 +4513,12 @@ Meditite
 Level: 16
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Carbink @ Sitrus Berry
-Ability: Solid Rock
+Carbink @ Babiri Berry
+Ability: Levitate
 Level: 19
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Crabhammer
-- Rock Slide
+- Smack Down
 - Misty Explosion
 - Power Split
 
@@ -4575,14 +4575,14 @@ Camerupt
 Level: 26
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
-Leafeon @ Sitrus Berry
+Leafeon @ Miracle Seed
 Ability: Grassy Surge
 Level: 29
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Swords Dance
 - Grassy Glide
-- Floral Healing
-- Knock Off
+- Ice Fang
+- Fire Fang
 
 === TRAINER_NORMAN_1 ===
 Name: REIN

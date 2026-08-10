@@ -2340,7 +2340,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Norman = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Winona = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ROBYN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -2358,7 +2358,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Winona = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Liza = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NEAL,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -2376,7 +2376,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Liza = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tate = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_CONRAD,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

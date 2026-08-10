@@ -726,6 +726,8 @@ static bool32 IsAbilityRandomizable(u16 ability)
     switch (ability)
     {
     case ABILITY_NONE:
+    case ABILITY_314:
+    case ABILITY_317:
     case ABILITY_WONDER_GUARD:
     case ABILITY_IMPOSTER:
     case ABILITY_ZEN_MODE:
@@ -769,7 +771,7 @@ static bool32 IsAbilityRandomizable(u16 ability)
     case ABILITY_SLOW_START:
     case ABILITY_STICKY_HOLD:
     case ABILITY_TRUANT:
-    case ABILITY_WHITE_SMOKE:
+    case ABILITY_STALL:
     case ABILITY_WIMP_OUT:
     case ABILITY_RUN_AWAY:
         return FALSE;
@@ -875,6 +877,8 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_GUILLOTINE:
         case MOVE_VEEVEE_VOLLEY:
         case MOVE_DRAGON_RAGE:
+        case MOVE_SPIT_UP:
+        case MOVE_SWALLOW:
             return FALSE;
         default:
             return TRUE;

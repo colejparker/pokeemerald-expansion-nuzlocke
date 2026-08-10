@@ -573,6 +573,9 @@ enum
 #define OBJ_EVENT_PAL_TAG_KIRAN                   0x1136
 #define OBJ_EVENT_PAL_TAG_SAFEER                  0x1137
 #define OBJ_EVENT_PAL_TAG_REIN                    0x1138
+#define OBJ_EVENT_PAL_TAG_ROBYN                   0x1139
+#define OBJ_EVENT_PAL_TAG_CONRAD                  0x113A
+#define OBJ_EVENT_PAL_TAG_NEAL                    0x113B
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
