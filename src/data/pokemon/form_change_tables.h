@@ -141,8 +141,8 @@ static const struct FormChange sAlakazamFormChangeTable[] =
 #if P_FAMILY_MACHOP
 static const struct FormChange sMachampFormChangeTable[] =
 {
-#if P_GIGANTAMAX_FORMS
-    {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_MACHAMP_GMAX},
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM, SPECIES_MACHAMP_GMAX, ITEM_MACHAMPITE},
 #endif
     {FORM_CHANGE_FAINT,             SPECIES_MACHAMP},
     {FORM_CHANGE_END_BATTLE,        SPECIES_MACHAMP},

@@ -25,7 +25,6 @@ static const struct Landmark Landmark_SeashoreHouse = {COMPOUND_STRING("SEASHORE
 static const struct Landmark Landmark_SlateportBeach = {COMPOUND_STRING("SLATEPORT BEACH"), -1};
 static const struct Landmark Landmark_CyclingRoad = {COMPOUND_STRING("CYCLING ROAD"), -1};
 static const struct Landmark Landmark_NewMauville = {COMPOUND_STRING("NEW MAUVILLE"), FLAG_LANDMARK_NEW_MAUVILLE};
-static const struct Landmark Landmark_TrickHouse = {COMPOUND_STRING("TRICK HOUSE"), FLAG_LANDMARK_TRICK_HOUSE};
 static const struct Landmark Landmark_OldLadysRestShop = {COMPOUND_STRING("OLD LADY'S REST STOP"), FLAG_LANDMARK_OLD_LADY_REST_SHOP};
 static const struct Landmark Landmark_Desert = {COMPOUND_STRING("DESERT"), -1};
 static const struct Landmark Landmark_WinstrateFamily = {COMPOUND_STRING("THE WINSTRATE FAMILY"), FLAG_LANDMARK_WINSTRATE_FAMILY};
@@ -119,7 +118,6 @@ static const struct Landmark *const Landmarks_Route110_1[]  =
 static const struct Landmark *const Landmarks_Route110_2[]  =
 {
     &Landmark_CyclingRoad,
-    &Landmark_TrickHouse,
     NULL,
 };
 

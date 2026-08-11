@@ -566,8 +566,14 @@ static u32 GetGameProgressFlags()
 
 u16 GetRematchTrainerIdVSSeeker(u16 trainerId)
 {
-    u32 tableId = FirstBattleTrainerIdToRematchTableId(gRematchTable, trainerId);
-    u32 rematchTrainerIdx = GetGameProgressFlags();
+    u32 tableId;
+    u32 rematchTrainerIdx;
+
+    // Rematches are disabled entirely.
+    return 0;
+
+    tableId = FirstBattleTrainerIdToRematchTableId(gRematchTable, trainerId);
+    rematchTrainerIdx = GetGameProgressFlags();
 
     if (!I_VS_SEEKER_CHARGING)
         return 0;

@@ -205,6 +205,13 @@ static const u16 sMiniorCoreForms[] = {
     SPECIES_MINIOR_CORE_VIOLET,
 };
 
+static const u16 sPumpkabooForms[] = {
+    SPECIES_PUMPKABOO_AVERAGE, SPECIES_PUMPKABOO_SMALL, SPECIES_PUMPKABOO_LARGE, SPECIES_PUMPKABOO_SUPER,
+};
+static const u16 sGourgeistForms[] = {
+    SPECIES_GOURGEIST_AVERAGE, SPECIES_GOURGEIST_SMALL, SPECIES_GOURGEIST_LARGE, SPECIES_GOURGEIST_SUPER,
+};
+
 static const struct CosmeticFormFamily sCosmeticFormFamilies[] =
 {
     { sAlcremieForms, ARRAY_COUNT(sAlcremieForms) },
@@ -226,6 +233,8 @@ static const struct CosmeticFormFamily sCosmeticFormFamilies[] =
     { sTatsugiriForms, ARRAY_COUNT(sTatsugiriForms) },
     { sMiniorMeteorForms, ARRAY_COUNT(sMiniorMeteorForms) },
     { sMiniorCoreForms, ARRAY_COUNT(sMiniorCoreForms) },
+    { sPumpkabooForms, ARRAY_COUNT(sPumpkabooForms) },
+    { sGourgeistForms, ARRAY_COUNT(sGourgeistForms) },
 };
 
 static const struct CosmeticFormFamily *GetCosmeticFormFamily(u16 species)
@@ -877,6 +886,7 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_GUILLOTINE:
         case MOVE_VEEVEE_VOLLEY:
         case MOVE_DRAGON_RAGE:
+        case MOVE_DARK_VOID:
         case MOVE_SPIT_UP:
         case MOVE_SWALLOW:
             return FALSE;

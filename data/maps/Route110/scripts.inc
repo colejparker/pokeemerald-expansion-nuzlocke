@@ -123,10 +123,6 @@ Route110_EventScript_TrainerTipsRegisterItems::
 	msgbox Route110_Text_TrainerTipsRegisterItems, MSGBOX_SIGN
 	end
 
-Route110_EventScript_TrickHouseSign::
-	msgbox Route110_Text_TrickHouseSign, MSGBOX_SIGN
-	end
-
 Route110_EventScript_CyclingRoadResultsSign::
 	lockall
 	specialvar VAR_RESULT, GetRecordedCyclingRoadResults
@@ -422,8 +418,6 @@ Route110_EventScript_MayBattleMudkip::
 
 Route110_EventScript_MayDefeated::
 	msgbox Route110_Text_MayTakeThis, MSGBOX_DEFAULT
-	call Route110_EventScript_GiveItemfinder
-	msgbox Route110_Text_MayExplainItemfinder, MSGBOX_DEFAULT
 	goto Route110_EventScript_RivalExit
 	end
 
@@ -452,14 +446,8 @@ Route110_EventScript_BrendanBattleMudkip::
 
 Route110_EventScript_BrendanDefeated::
 	msgbox Route110_Text_BrendanTakeThis, MSGBOX_DEFAULT
-	call Route110_EventScript_GiveItemfinder
-	msgbox Route110_Text_BrendanExplainItemfinder, MSGBOX_DEFAULT
 	goto Route110_EventScript_RivalExit
 	end
-
-Route110_EventScript_GiveItemfinder::
-	giveitem ITEM_DOWSING_MACHINE
-	return
 
 Route110_EventScript_RivalExit::
 	closemessage
@@ -768,17 +756,7 @@ Route110_Text_MayDefeated:
 Route110_Text_MayTakeThis:
 	.string "MAY: {PLAYER}{KUN}, you've been busy\n"
 	.string "training, too, haven't you?\p"
-	.string "I think you deserve a reward!\n"
-	.string "This is from me!$"
-
-Route110_Text_MayExplainItemfinder:
-	.string "MAY: That's an ITEMFINDER.\p"
-	.string "Try it out. If there is an item that's\n"
-	.string "not visible, it emits a sound.\p"
-	.string "Okay, {PLAYER}{KUN}, let's meet again!\p"
-	.string "I know it's a little silly coming from\n"
-	.string "me, but I think you should train a lot\l"
-	.string "harder for the next time.$"
+	.string "I guess I have to too!$"
 
 Route110_Text_BrendanLetsBattle:
 	.string "BRENDAN: Hey, {PLAYER}.\n"
@@ -794,17 +772,7 @@ Route110_Text_BrendanDefeated:
 Route110_Text_BrendanTakeThis:
 	.string "BRENDAN: {PLAYER}, you've trained\n"
 	.string "without me noticing…\p"
-	.string "Good enough!\n"
-	.string "Here, take this.$"
-
-Route110_Text_BrendanExplainItemfinder:
-	.string "BRENDAN: That's an ITEMFINDER.\p"
-	.string "Use it to root around for items that\n"
-	.string "aren't visible.\p"
-	.string "If it senses something, it emits\n"
-	.string "a sound.\p"
-	.string "Anyway, I'm off to look for new\n"
-	.string "POKéMON.$"
+	.string "Good enough!$"
 
 Route110_Text_RideBikeAtFullSpeed:
 	.string "Wouldn't it be great to ride a BIKE\n"
@@ -944,10 +912,6 @@ Route110_Text_TrainerTipsRegisterItems:
 	.string "TRAINER TIPS\p"
 	.string "The items in the BAG can be reorganized\n"
 	.string "by pressing SELECT.$"
-
-Route110_Text_TrickHouseSign:
-	.string "“Three steps {RIGHT_ARROW} and two steps {UP_ARROW}\n"
-	.string "to reach the wondrous TRICK HOUSE.”$"
 
 Route110_Text_BestRecord:
 	.string "THE BEST RECORD TO DATE…\p"

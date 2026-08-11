@@ -639,7 +639,7 @@ DewfordTown_Text_TownSign:
 DewfordTown_Text_GymSign:
 	.string "DEWFORD TOWN POKéMON GYM\n"
 	.string "LEADER: ROBERT\l"
-	.string "“A big wave in fighting!”$"
+	.string "“Will destroy you forever!”$"
 
 DewfordTown_Text_HallSign:
 	.string "DEWFORD HALL\n"
