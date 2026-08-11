@@ -576,6 +576,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_ROBYN                   0x1139
 #define OBJ_EVENT_PAL_TAG_CONRAD                  0x113A
 #define OBJ_EVENT_PAL_TAG_NEAL                    0x113B
+#define OBJ_EVENT_PAL_TAG_KATE                    0x113C
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
