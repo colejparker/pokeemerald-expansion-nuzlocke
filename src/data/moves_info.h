@@ -16814,7 +16814,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "spotlighted Pokémon."),
         .effect = EFFECT_FOLLOW_ME,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ELECTRIC,
         .accuracy = 0,
         .pp = 15,
         .target = TARGET_SELECTED,
@@ -21985,6 +21985,28 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .chance = 50,
         }),
         .battleAnimScript = gBattleAnimMove_MalignantChain,
+    },
+
+    [MOVE_SHIMMER_SHELTER] =
+    {
+        .name = COMPOUND_STRING("Shimmer Shelter"),
+        .description = COMPOUND_STRING(
+            "Creates a reflective shield,\n"
+            "lowering Sp. Atk if struck.\n"
+            "Fails against Fire moves."),
+        .effect = EFFECT_PROTECT,
+        .power = 0,
+        .type = TYPE_ICE,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER,
+        .priority = 4,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .protectMethod = PROTECT_SHIMMER_SHELTER },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Protect,
     },
 
     // Z-Moves

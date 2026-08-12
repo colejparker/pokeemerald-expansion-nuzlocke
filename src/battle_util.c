@@ -5837,6 +5837,8 @@ bool32 IsBattlerProtected(struct BattleCalcValues *cv)
         isProtected = TRUE;
     else if (gProtectStructs[cv->battlerDef].protected == PROTECT_KINGS_SHIELD && !IsBattleMoveStatus(cv->move))
         isProtected = TRUE;
+    else if (gProtectStructs[cv->battlerDef].protected == PROTECT_SHIMMER_SHELTER && !IsBattleMoveStatus(cv->move) && GetMoveType(cv->move) != TYPE_FIRE)
+        isProtected = TRUE;
     else if (IsSideProtected(cv->battlerDef, PROTECT_QUICK_GUARD) && GetChosenMovePriority(cv->battlerAtk, cv->abilities[cv->battlerAtk]) > 0)
         isProtected = TRUE;
     else if (IsSideProtected(cv->battlerDef, PROTECT_MAT_BLOCK) && !IsBattleMoveStatus(cv->move))
@@ -5860,6 +5862,7 @@ enum ProtectType GetProtectType(enum ProtectMethod method)
     case PROTECT_BURNING_BULWARK:
     case PROTECT_OBSTRUCT:
     case PROTECT_SILK_TRAP:
+    case PROTECT_SHIMMER_SHELTER:
     case PROTECT_MAX_GUARD:
         return PROTECT_TYPE_SINGLE;
     case PROTECT_WIDE_GUARD:

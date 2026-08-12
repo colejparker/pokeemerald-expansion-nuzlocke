@@ -2101,6 +2101,8 @@ bool32 IsAllyProtectingFromMove(enum BattlerId battlerAtk, enum Move attackerMov
     case PROTECT_SILK_TRAP:
     case PROTECT_KINGS_SHIELD:
         return !IsBattleMoveStatus(attackerMove);
+    case PROTECT_SHIMMER_SHELTER:
+        return !IsBattleMoveStatus(attackerMove) && GetMoveType(attackerMove) != TYPE_FIRE;
     case PROTECT_QUICK_GUARD:
         return (GetChosenMovePriority(battlerAtk, gAiLogicData->abilities[battlerAtk]) > 0);
     case PROTECT_MAT_BLOCK:

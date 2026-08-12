@@ -2499,7 +2499,8 @@ static enum MoveEndResult MoveEndProtectLikeEffect(struct BattleCalcValues *cv)
 
     if (gProtectStructs[cv->battlerAtk].chargingTurn
      || !IsBattlerAlive(cv->battlerAtk)
-     || CanBattlerAvoidContactEffects(cv->battlerAtk, cv->battlerDef, cv->abilities[cv->battlerAtk], cv->holdEffects[cv->battlerAtk], cv->move))
+     || (method != PROTECT_SHIMMER_SHELTER
+      && CanBattlerAvoidContactEffects(cv->battlerAtk, cv->battlerDef, cv->abilities[cv->battlerAtk], cv->holdEffects[cv->battlerAtk], cv->move)))
     {
         gBattleScripting.moveendState++;
         return result;
@@ -2556,6 +2557,12 @@ static enum MoveEndResult MoveEndProtectLikeEffect(struct BattleCalcValues *cv)
     case PROTECT_SILK_TRAP:
         gEffectBattler = gBattlerAttacker;
         SetStatChange(gEffectBattler, STAT_SPEED, -1);
+        BattleScriptCall(BattleScript_KingsShieldEffect);
+        result = MOVEEND_RESULT_RUN_SCRIPT;
+        break;
+    case PROTECT_SHIMMER_SHELTER:
+        gEffectBattler = gBattlerAttacker;
+        SetStatChange(gEffectBattler, STAT_SPATK, -1);
         BattleScriptCall(BattleScript_KingsShieldEffect);
         result = MOVEEND_RESULT_RUN_SCRIPT;
         break;
