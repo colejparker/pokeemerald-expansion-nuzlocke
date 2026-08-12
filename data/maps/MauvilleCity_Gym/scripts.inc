@@ -274,7 +274,7 @@ MauvilleCity_Gym_Text_GymGuideAdvice:
 	.string "Hey, how's it going, CHAMPION-\n"
 	.string "bound {PLAYER}?\p"
 	.string "SAFEER, the LEADER of MAUVILLE\n"
-	.string "GYM, uses ELECTRIC-type POKéMON.\p"
+	.string "GYM, uses MORPEKO.\p"
 	.string "If you challenge him with WATER-type\n"
 	.string "POKéMON, he'll zap them! Bzzt!\p"
 	.string "And, he's put in switch-controlled\n"
@@ -305,10 +305,8 @@ MauvilleCity_Gym_Text_ShawnDefeat:
 	.string "Unplugged and turned off…$"
 
 MauvilleCity_Gym_Text_ShawnPostBattle:
-	.string "SAFEER, our GYM LEADER, has been\n"
-	.string "around for a long, long time.\p"
-	.string "He was battling even before your\n"
-	.string "daddy was born, that tough coot.$"
+	.string "SAFEER was inspired by some guy\n"
+	.string "named Jigsaw with these traps.$"
 
 MauvilleCity_Gym_Text_BenIntro:
 	.string "This GYM's got puzzles!\n"
@@ -329,10 +327,10 @@ MauvilleCity_Gym_Text_VivianDefeat:
 	.string "I'm shocked by your power!$"
 
 MauvilleCity_Gym_Text_VivianPostBattle:
-	.string "I've heard that MAUVILLE was founded\n"
-	.string "by SAFEER.\p"
-	.string "He was a TRAINER long before we\n"
-	.string "became TRAINERS.\l"
+	.string "I've heard that SAFEER\n"
+	.string "is a doctor.\p"
+	.string "I've never seen any of his\n"
+	.string "patients though...\l"
 	.string "He must know all sorts of things!$"
 
 MauvilleCity_Gym_Text_AngeloIntro:
@@ -343,19 +341,17 @@ MauvilleCity_Gym_Text_AngeloDefeat:
 	.string "My eyes are frazzled…$"
 
 MauvilleCity_Gym_Text_AngeloPostBattle:
-	.string "MAUVILLE GYM's SAFEER has a shiny\n"
-	.string "forehead. It makes me happy!$"
+	.string "MAUVILLE GYM's SAFEER has a cute\n"
+	.string "hamster. It makes me happy!$"
 
 MauvilleCity_Gym_Text_WattsonIntro:
-	.string "I've given up on my plans to convert\n"
-	.string "the city, I have.\p"
-	.string "And so, I put my time into making\n"
+	.string "I put my time into making\n"
 	.string "door traps in my GYM.\p"
 	.string "Oh? Now, what are you doing here?\p"
 	.string "What's that? You say you've gotten\n"
 	.string "past all my rigged doors?\p"
 	.string "Wahahahah!\n"
-	.string "Now, that is amusing!\p"
+	.string "You want to play a game!\p"
 	.string "Then, I, SAFEER, the LEADER of\n"
 	.string "MAUVILLE GYM, shall electrify you!$"
 
@@ -378,9 +374,8 @@ MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis:
 	.string "You should take this, too!$"
 
 MauvilleCity_Gym_Text_ExplainShockWave:
-	.string "That TM34 there contains SHOCK WAVE.\p"
-	.string "It's a trustworthy move that never\n"
-	.string "misses! You can count on it!\p"
+	.string "That contains...\p"
+	.string "Who knows!\n"
 	.string "… … … … … …$"
 
 MauvilleCity_Gym_Text_RegisteredWattson:

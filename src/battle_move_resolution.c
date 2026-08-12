@@ -2505,7 +2505,8 @@ static enum MoveEndResult MoveEndProtectLikeEffect(struct BattleCalcValues *cv)
     if (gProtectStructs[cv->battlerAtk].chargingTurn
      || !IsBattlerAlive(cv->battlerAtk)
      || (method != PROTECT_SHIMMER_SHELTER
-      && CanBattlerAvoidContactEffects(cv->battlerAtk, cv->battlerDef, cv->abilities[cv->battlerAtk], cv->holdEffects[cv->battlerAtk], cv->move)))
+      && CanBattlerAvoidContactEffects(cv->battlerAtk, cv->battlerDef, cv->abilities[cv->battlerAtk], cv->holdEffects[cv->battlerAtk], cv->move))
+     || (method == PROTECT_SHIMMER_SHELTER && IsBattleMoveStatus(cv->move)))
     {
         gBattleScripting.moveendState++;
         return result;

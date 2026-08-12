@@ -541,7 +541,7 @@ MauvilleCity_Text_CitySign:
 MauvilleCity_Text_GymSign:
 	.string "MAUVILLE CITY POKéMON GYM\n"
 	.string "LEADER: SAFEER\l"
-	.string "“The cheerfully electrifying man!”$"
+	.string "“Bruce Man!”$"
 
 MauvilleCity_Text_BikeShopSign:
 	.string "“Ride in gravel and shake up your\n"

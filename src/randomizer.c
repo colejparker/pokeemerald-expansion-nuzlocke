@@ -903,6 +903,7 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_HOLD_HANDS:
         case MOVE_CELEBRATE:
         case MOVE_KINESIS:
+        case MOVE_HIDDEN_POWER:
             return FALSE;
         default:
             return TRUE;

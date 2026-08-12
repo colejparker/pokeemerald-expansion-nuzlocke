@@ -39,16 +39,8 @@ FallarborTown_EventScript_Azurill::
 	release
 	end
 
-FallarborTown_EventScript_BattleTentSign::
-	msgbox FallarborTown_Text_BattleTentSign, MSGBOX_SIGN
-	end
-
 FallarborTown_EventScript_TownSign::
 	msgbox FallarborTown_Text_TownSign, MSGBOX_SIGN
-	end
-
-FallarborTown_EventScript_MoveTutorSign::
-	msgbox FallarborTown_Text_MoveTutorSign, MSGBOX_SIGN
 	end
 
 FallarborTown_Text_ShadyCharactersCozmosHome:
@@ -81,15 +73,7 @@ FallarborTown_Text_HaveYouChallengedFlannery:
 	.string "become a great TRAINER in his own\l"
 	.string "right.$"
 
-FallarborTown_Text_BattleTentSign:
-	.string "BATTLE TENT FALLARBOR SITE\n"
-	.string "“May the Greatest Teams Gather!”$"
-
 FallarborTown_Text_TownSign:
 	.string "FALLARBOR TOWN\n"
 	.string "“A farm community with small gardens.”$"
-
-FallarborTown_Text_MoveTutorSign:
-	.string "MOVE TUTOR'S HOUSE\n"
-	.string "“New moves taught to POKéMON.”$"
 
