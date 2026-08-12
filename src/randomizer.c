@@ -441,7 +441,7 @@ u16 GetRandomizedSpecies(enum RandomizerContext context, u32 data1, u32 data2, u
     u16 chosenSpecies;
     const struct CosmeticFormFamily *family;
 
-    if (!IsSpeciesRandomizable(species))
+    if (!IsSpeciesRandomizable(species) && !IsRestrictedLegendary(species))
         return species;
 
     if (!sBstTableBuilt)
