@@ -195,7 +195,9 @@ u32 BattlePalace_TryEscapeStatus(enum BattlerId battler)
                         toSub = 1;
 
                     // Reduce number of sleep turns
-                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) < toSub)
+                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) == 2 && RandomChance(RNG_SLEEP_TURNS, 1, 3))
+                        gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
+                    else if ((gBattleMons[battler].status1 & STATUS1_SLEEP) < toSub)
                         gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
                     else
                         gBattleMons[battler].status1 -= toSub;
@@ -221,7 +223,9 @@ u32 BattlePalace_TryEscapeStatus(enum BattlerId battler)
         case 1:
             if (gBattleMons[battler].status1 & STATUS1_FREEZE)
             {
-                if (Random() % 5 != 0)
+                gBattleMons[battler].volatiles.freezeTurns++;
+
+                if (gBattleMons[battler].volatiles.freezeTurns < 3 && !RandomPercentage(RNG_FROZEN, 25))
                 {
                     // Still frozen
                     gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
@@ -230,6 +234,7 @@ u32 BattlePalace_TryEscapeStatus(enum BattlerId battler)
                 {
                     // Unfreeze
                     gBattleMons[battler].status1 &= ~(STATUS1_FREEZE);
+                    gBattleMons[battler].volatiles.freezeTurns = 0;
                     gBattleScripting.battler = battler;
                     BattleScriptCall(BattleScript_BattlerDefrosted);
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DEFROSTED;

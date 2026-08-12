@@ -955,12 +955,7 @@ static bool32 HandleEndTurnYawn(enum BattlerId battler)
             }
             else
             {
-                if (B_SLEEP_TURNS >= GEN_5)
-                    gBattleMons[battler].status1 |= (RandomUniform(RNG_SLEEP_TURNS, 2, 4));
-                else if (B_SLEEP_TURNS >= GEN_3)
-                    gBattleMons[battler].status1 |= (RandomUniform(RNG_SLEEP_TURNS, 2, 5));
-                else
-                    gBattleMons[battler].status1 |= (RandomUniform(RNG_SLEEP_TURNS, 2, 8));
+                gBattleMons[battler].status1 |= STATUS1_SLEEP_TURN(3);
 
                 CancelMultiTurnMoves(battler);
                 TryActivateSleepClause(battler, gBattlerPartyIndexes[battler]);

@@ -36,12 +36,6 @@ static bool32 Fishing_PutRodAway(struct Task *);
 static bool32 Fishing_EndNoMon(struct Task *);
 static void AlignFishingAnimationFrames(void);
 static bool32 DoesFishingMinigameAllowCancel(void);
-static bool32 Fishing_DoesFirstMonInPartyHaveSuctionCupsOrStickyHold(void);
-static bool32 Fishing_RollForBite(u32, bool32);
-static u32 CalculateFishingBiteOdds(u32, bool32);
-static u32 CalculateFishingFollowerBoost(void);
-static u32 CalculateFishingProximityBoost(void);
-static u32 CalculateFishingTimeOfDayBoost(void);
 
 #define FISHING_PROXIMITY_BOOST 20     //Active if config I_FISHING_PROXIMITY is TRUE
 #define FISHING_TIME_OF_DAY_BOOST 20   //Active if config I_FISHING_TIME_OF_DAY_BOOST is TRUE
@@ -65,23 +59,6 @@ static const u8 sText_OhABite[] = _("Oh! A bite!");
 static const u8 sText_PokemonOnHook[] = _("A POKéMON's on the hook!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_NotEvenANibble[] = _("Not even a nibble…{PAUSE_UNTIL_PRESS}");
 static const u8 sText_ItGotAway[] = _("It got away…{PAUSE_UNTIL_PRESS}");
-
-struct FriendshipHookChanceBoost
-{
-    u8 threshold;
-    u8 bonus;
-};
-
-//Needs to be defined in descending order and end with the 0 friendship boost
-//Active if config I_FISHING_FOLLOWER_BOOST is TRUE
-static const struct FriendshipHookChanceBoost sFriendshipHookChanceBoostArray[] =
-{
-    {.threshold = 250, .bonus = 50},
-    {.threshold = 200, .bonus = 40},
-    {.threshold = 150, .bonus = 30},
-    {.threshold = 100, .bonus = 20},
-    {.threshold =   0, .bonus =  0},
-};
 
 #define FISHING_CHAIN_SHINY_STREAK_MAX 20
 
@@ -254,11 +231,8 @@ static bool32 Fishing_ShowDots(struct Task *task)
 
 static bool32 Fishing_CheckForBite(struct Task *task)
 {
-    bool32 bite, firstMonHasSuctionOrSticky;
-
     AlignFishingAnimationFrames();
     task->tStep = FISHING_GOT_BITE;
-    bite = FALSE;
 
     if (!DoesCurrentMapHaveFishingMons())
     {
@@ -266,19 +240,7 @@ static bool32 Fishing_CheckForBite(struct Task *task)
         return TRUE;
     }
 
-    firstMonHasSuctionOrSticky = Fishing_DoesFirstMonInPartyHaveSuctionCupsOrStickyHold();
-
-    if (firstMonHasSuctionOrSticky && I_FISHING_STICKY_BOOST < GEN_4)
-        bite = RandomPercentage(RNG_FISHING_GEN3_STICKY, FISHING_GEN3_STICKY_CHANCE);
-
-    if (!bite)
-        bite = Fishing_RollForBite(task->tFishingRod, firstMonHasSuctionOrSticky);
-
-    if (!bite)
-        task->tStep = FISHING_NOT_EVEN_NIBBLE;
-
-    if (bite)
-        StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingBiteDirectionAnimNum(GetPlayerFacingDirection()));
+    StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingBiteDirectionAnimNum(GetPlayerFacingDirection()));
 
     return TRUE;
 }
@@ -480,109 +442,6 @@ static bool32 DoesFishingMinigameAllowCancel(void)
     default:
             return TRUE;
     }
-}
-
-static bool32 Fishing_DoesFirstMonInPartyHaveSuctionCupsOrStickyHold(void)
-{
-    enum Ability ability;
-
-    if (GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_SANITY_IS_EGG))
-        return FALSE;
-
-    ability = GetMonAbility(&gParties[B_TRAINER_PLAYER][0]);
-
-    return (ability == ABILITY_SUCTION_CUPS || ability == ABILITY_STICKY_HOLD);
-}
-
-static bool32 Fishing_RollForBite(u32 rod, bool32 isStickyHold)
-{
-    return ((RandomUniform(RNG_FISHING_BITE, 1, 100)) <= CalculateFishingBiteOdds(rod, isStickyHold));
-}
-
-static u32 CalculateFishingBiteOdds(u32 rod, bool32 isStickyHold)
-{
-    u32 odds;
-
-    if (rod == OLD_ROD)
-        odds = FISHING_OLD_ROD_ODDS;
-    if (rod == GOOD_ROD)
-        odds = FISHING_GOOD_ROD_ODDS;
-    if (rod == SUPER_ROD)
-        odds = FISHING_SUPER_ROD_ODDS;
-
-    odds += CalculateFishingFollowerBoost();
-    odds += CalculateFishingProximityBoost();
-    odds += CalculateFishingTimeOfDayBoost();
-
-    if (isStickyHold && I_FISHING_STICKY_BOOST >= GEN_4)
-        odds *= 2;
-
-    odds = min(100, odds);
-    return odds;
-}
-
-static u32 CalculateFishingFollowerBoost()
-{
-    u32 friendship;
-    struct Pokemon *mon = GetFirstLiveMon();
-
-    if (!I_FISHING_FOLLOWER_BOOST || !mon)
-        return 0;
-
-    friendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
-    for (u32 i = 0;; i++)
-    {
-        if (friendship >= sFriendshipHookChanceBoostArray[i].threshold)
-            return sFriendshipHookChanceBoostArray[i].bonus;
-    }
-}
-
-static u32 CalculateFishingProximityBoost()
-{
-    s16 bobber_x, bobber_y, tile_x, tile_y;
-    enum Direction direction, facingDirection;
-    u32 numQualifyingTile = 0;
-    struct ObjectEvent *objectEvent;
-
-    if (!I_FISHING_PROXIMITY)
-        return 0;
-
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-
-    bobber_x = objectEvent->currentCoords.x;
-    bobber_y = objectEvent->currentCoords.y;
-
-    facingDirection = GetPlayerFacingDirection();
-    MoveCoords(facingDirection, &bobber_x, &bobber_y);
-
-    numQualifyingTile = 0;
-    for (direction = DIR_SOUTH; direction < CARDINAL_DIRECTION_COUNT; direction++)
-    {
-        tile_x = bobber_x;
-        tile_y = bobber_y;
-        MoveCoords(direction, &tile_x, &tile_y);
-        if (tile_x == objectEvent->currentCoords.x && tile_y == objectEvent->currentCoords.y)
-            continue;
-        if (!MetatileBehavior_IsSurfableFishableWater(MapGridGetMetatileBehaviorAt(tile_x, tile_y)))
-            numQualifyingTile++;
-        else if (MapGridGetCollisionAt(tile_x, tile_y))
-            numQualifyingTile++;
-        else if (GetMapBorderIdAt(tile_x, tile_y) == CONNECTION_INVALID)
-            numQualifyingTile++;
-    }
-
-    return (numQualifyingTile * FISHING_PROXIMITY_BOOST);
-}
-
-static u32 CalculateFishingTimeOfDayBoost()
-{
-    if (!I_FISHING_TIME_OF_DAY_BOOST)
-        return 0;
-
-    enum TimeOfDay timeOfDay = GetTimeOfDay();
-    if (timeOfDay == TIME_MORNING || timeOfDay == TIME_EVENING)
-        return FISHING_TIME_OF_DAY_BOOST;
-    return 0;
 }
 
 #undef tStep

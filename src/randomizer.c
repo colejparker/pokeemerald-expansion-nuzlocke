@@ -889,6 +889,19 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_DARK_VOID:
         case MOVE_SPIT_UP:
         case MOVE_SWALLOW:
+        case MOVE_SPLASH:
+        case MOVE_MIND_READER:
+        case MOVE_FORESIGHT:
+        case MOVE_ODOR_SLEUTH:
+        case MOVE_LOCK_ON:
+        case MOVE_SWEET_SCENT:
+        case MOVE_MUD_SPORT:
+        case MOVE_WATER_SPORT:
+        case MOVE_MIRACLE_EYE:
+        case MOVE_HAPPY_HOUR:
+        case MOVE_NATURE_POWER:
+        case MOVE_HOLD_HANDS:
+        case MOVE_CELEBRATE:
             return FALSE;
         default:
             return TRUE;
