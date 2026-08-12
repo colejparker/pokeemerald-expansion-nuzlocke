@@ -902,6 +902,7 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_NATURE_POWER:
         case MOVE_HOLD_HANDS:
         case MOVE_CELEBRATE:
+        case MOVE_KINESIS:
             return FALSE;
         default:
             return TRUE;
@@ -975,7 +976,7 @@ static const u8 sMovesetLevelCurve[RANDOMIZER_MOVESET_SIZE] =
 
 #define MOVESET_CATEGORY_SIZE (RANDOMIZER_MOVESET_SIZE / 3)
 
-#define MOVESET_STATUS_TYPE_MATCH_CAP 5
+#define MOVESET_STATUS_TYPE_MATCH_CAP 4
 
 struct MoveReservoir
 {

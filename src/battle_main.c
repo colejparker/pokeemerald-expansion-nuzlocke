@@ -3156,6 +3156,7 @@ void SwitchInClearSetData(enum BattlerId battler, struct Volatiles *volatilesCop
     enum BattleMoveEffects effect = GetMoveEffect(gCurrentMove);
 
     ClearIllusionMon(battler);
+    GetBattlerPartyState(battler)->timesGotHit = 0;
     if (effect != EFFECT_BATON_PASS)
     {
         for (enum Stat i = 0; i < NUM_BATTLE_STATS; i++)
