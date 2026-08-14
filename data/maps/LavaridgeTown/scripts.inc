@@ -239,10 +239,11 @@ LavaridgeTown_EventScript_EggWoman::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_LAVARIDGE_EGG
+	getrandomizedgiftspecies VAR_0x8004, SPECIES_WYNAUT, giftId=1
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
-	giveegg SPECIES_WYNAUT
+	giveegg VAR_0x8004
 	release
 	end
 
@@ -398,7 +399,7 @@ LavaridgeTown_Text_TownSign:
 LavaridgeTown_Text_GymSign:
 	.string "LAVARIDGE TOWN POKéMON GYM\n"
 	.string "LEADER: KIRAN\l"
-	.string "“One with a fiery passion that burns!”$"
+	.string "“Will stab you consentually!”$"
 
 LavaridgeTown_Text_HerbShopSign:
 	.string "POKéMON HERB SHOP\n"

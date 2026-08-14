@@ -9,6 +9,7 @@
 #include "new_game.h"
 #include "pokemon.h"
 #include "random.h"
+#include "script.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -533,6 +534,44 @@ u16 RandomizeUniqueMonList(u32 slot, const u16 *originalSpecies, u32 count)
     return results[slot];
 }
 
+u16 RandomizeStaticGiftSpecies(u32 giftId, u16 originalSpecies)
+{
+    if (!IsStarterAndGiftRandomizerEnabled())
+        return originalSpecies;
+
+    return GetRandomizedSpecies(RANDOMIZER_CONTEXT_STARTER_AND_GIFT, giftId, 0, originalSpecies);
+}
+
+void ScrCmd_getrandomizedgiftspecies(struct ScriptContext *ctx)
+{
+    u16 destVar = ScriptReadHalfword(ctx);
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+    u32 giftId = ScriptReadWord(ctx);
+
+    Script_RequestEffects(SCREFF_V1);
+    Script_RequestWriteVar(destVar);
+    VarSet(destVar, RandomizeStaticGiftSpecies(giftId, species));
+}
+
+u16 RandomizeFixedEncounter(u32 encounterId, u16 originalSpecies)
+{
+    if (!IsWildRandomizerEnabled())
+        return originalSpecies;
+
+    return GetRandomizedSpecies(RANDOMIZER_CONTEXT_FIXED_ENCOUNTER, encounterId, 0, originalSpecies);
+}
+
+void ScrCmd_getrandomizedfixedspecies(struct ScriptContext *ctx)
+{
+    u16 destVar = ScriptReadHalfword(ctx);
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+    u32 encounterId = VarGet(ScriptReadHalfword(ctx));
+
+    Script_RequestEffects(SCREFF_V1);
+    Script_RequestWriteVar(destVar);
+    VarSet(destVar, RandomizeFixedEncounter(encounterId, species));
+}
+
 struct MegaCapableSpecies
 {
     u16 species;
@@ -607,9 +646,10 @@ static bool32 IsItemRandomizable(u16 itemId)
         return FALSE;
     if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
         return FALSE;
+    if (itemId == ITEM_ROOT_FOSSIL || itemId == ITEM_CLAW_FOSSIL)
+        return FALSE;
     if (GetItemPocket(itemId) == POCKET_KEY_ITEMS)
         return FALSE;
-    // Some TM/HM pocket slots are unpriced placeholders, not real obtainable items.
     if (GetItemPocket(itemId) == POCKET_TM_HM && GetItemPrice(itemId) == 0)
         return FALSE;
     return TRUE;
@@ -904,6 +944,9 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_CELEBRATE:
         case MOVE_KINESIS:
         case MOVE_HIDDEN_POWER:
+        case MOVE_HOLD_BACK:
+        case MOVE_ION_DELUGE:
+        case MOVE_TERA_BLAST:
             return FALSE;
         default:
             return TRUE;

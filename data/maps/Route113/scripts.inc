@@ -38,10 +38,6 @@ Route113_EventScript_RouteSignFallarbor::
 	msgbox Route113_Text_RouteSignFallarbor, MSGBOX_SIGN
 	end
 
-Route113_EventScript_GlassWorkshopSign::
-	msgbox Route113_Text_GlassWorkshopSign, MSGBOX_SIGN
-	end
-
 Route113_EventScript_TrainerTipsRegisterKeyItems::
 	msgbox Route113_Text_TrainerTipsRegisterKeyItems, MSGBOX_SIGN
 	end
@@ -159,8 +155,4 @@ Route113_Text_TrainerTipsRegisterKeyItems:
 	.string "in your BAG as SELECT.\p"
 	.string "Simply press SELECT to use\n"
 	.string "the registered item conveniently.$"
-
-Route113_Text_GlassWorkshopSign:
-	.string "GLASS WORKSHOP\n"
-	.string "“Turning Volcanic Ash into Glass Items”$"
 

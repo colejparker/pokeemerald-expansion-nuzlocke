@@ -45,6 +45,10 @@ u16 RandomizeTrainerMon(const void *trainerIdentity, u32 slot, u32 totalMons, u1
 
 u16 RandomizeUniqueMonList(u32 slot, const u16 *originalSpecies, u32 count);
 
+u16 RandomizeStaticGiftSpecies(u32 giftId, u16 originalSpecies);
+
+u16 RandomizeFixedEncounter(u32 encounterId, u16 originalSpecies);
+
 u16 RandomizeEliteFourAce(const void *trainerIdentity, u32 slot, u16 originalSpecies, u16 *outHeldItem);
 
 u16 RandomizeFieldItem(u16 itemId, u32 mapNum, u32 mapGroup, u32 localId);

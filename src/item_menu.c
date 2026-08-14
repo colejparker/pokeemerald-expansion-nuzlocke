@@ -1028,6 +1028,12 @@ static void PrintItemDescription(int itemIndex)
     if (itemIndex != LIST_CANCEL)
     {
         str = GetItemDescription(GetBagItemId(gBagPosition.pocket, itemIndex));
+        if (gBagPosition.pocket == POCKET_TM_HM)
+        {
+            u8 *end = StringCopy(gStringVar4, str);
+            WrapFontIdToFit(gStringVar4, end, FONT_NORMAL, WindowWidthPx(WIN_DESCRIPTION) - 6);
+            str = gStringVar4;
+        }
     }
     else
     {

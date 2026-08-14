@@ -29,7 +29,6 @@ static const struct Landmark Landmark_OldLadysRestShop = {COMPOUND_STRING("OLD L
 static const struct Landmark Landmark_Desert = {COMPOUND_STRING("DESERT"), -1};
 static const struct Landmark Landmark_WinstrateFamily = {COMPOUND_STRING("THE WINSTRATE FAMILY"), FLAG_LANDMARK_WINSTRATE_FAMILY};
 static const struct Landmark Landmark_CableCar = {COMPOUND_STRING("CABLE CAR"), -1};
-static const struct Landmark Landmark_GlassWorkshop = {COMPOUND_STRING("GLASS WORKSHOP"), FLAG_LANDMARK_GLASS_WORKSHOP};
 static const struct Landmark Landmark_WeatherInstitute = {COMPOUND_STRING("WEATHER INSTITUTE"), -1};
 static const struct Landmark Landmark_MeteorFalls = {COMPOUND_STRING("METEOR FALLS"), -1};
 static const struct Landmark Landmark_TunnelersRestHouse = {COMPOUND_STRING("TUNNELER'S RESTHOUSE"), FLAG_LANDMARK_TUNNELERS_REST_HOUSE};
@@ -166,12 +165,6 @@ static const struct Landmark *const Landmarks_Route112_1[]  =
 {
     &Landmark_CableCar,
     &Landmark_FieryPath,
-    NULL,
-};
-
-static const struct Landmark *const Landmarks_Route113_1[]  =
-{
-    &Landmark_GlassWorkshop,
     NULL,
 };
 
@@ -312,7 +305,6 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_ROUTE_111, 4, Landmarks_Route111_4},
     {MAPSEC_ROUTE_112, 0, Landmarks_Route112_0},
     {MAPSEC_ROUTE_112, 1, Landmarks_Route112_1},
-    {MAPSEC_ROUTE_113, 1, Landmarks_Route113_1},
     {MAPSEC_ROUTE_114, 1, Landmarks_Route114_1},
     {MAPSEC_ROUTE_114, 2, Landmarks_Route114_2},
     {MAPSEC_ROUTE_114, 3, Landmarks_MeteorFalls},
