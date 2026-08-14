@@ -2512,10 +2512,10 @@ bool8 ScrCmd_cleartrainerflag(struct ScriptContext *ctx)
 
 bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 {
-    enum Species species = ScriptReadHalfword(ctx);
+    enum Species species = VarGet(ScriptReadHalfword(ctx));
     u8 level = ScriptReadByte(ctx);
     enum Item item = ScriptReadHalfword(ctx);
-    enum Species species2 = ScriptReadHalfword(ctx);
+    enum Species species2 = VarGet(ScriptReadHalfword(ctx));
     u8 level2 = ScriptReadByte(ctx);
     enum Item item2 = ScriptReadHalfword(ctx);
 
