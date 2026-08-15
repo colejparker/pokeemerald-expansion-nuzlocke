@@ -5291,7 +5291,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_LEADER:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
-            return MUS_VS_CHAMPION;
+            return MUS_CAROL_OF_THE_BELLS;
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
@@ -5299,7 +5299,19 @@ u16 GetBattleBGM(void)
                 return MUS_VS_TRAINER;
             return MUS_VS_RIVAL;
         case TRAINER_CLASS_ELITE_FOUR:
-            return MUS_VS_ELITE_FOUR;
+            switch (TRAINER_BATTLE_PARAM.opponentA)
+            {
+            case TRAINER_SIDNEY:
+                return MUS_ANCIENT_VOICES;
+            case TRAINER_PHOEBE:
+                return MUS_KYOTO;
+            case TRAINER_GLACIA:
+                return MUS_ROUNDBALL;
+            case TRAINER_DRAKE:
+                return MUS_MEGALO;
+            default:
+                return MUS_VS_ELITE_FOUR;
+            }
         case TRAINER_CLASS_CHAMPION_FRLG:
             return MUS_RG_VS_CHAMPION;
         case TRAINER_CLASS_LEADER_FRLG:

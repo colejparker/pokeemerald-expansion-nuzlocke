@@ -543,6 +543,15 @@
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
 
+#define MUS_CAROL_OF_THE_BELLS      610
+#define MUS_MEGALO                  611
+#define MUS_FLY_EAGLE               612
+#define MUS_ROUNDBALL               613
+#define MUS_GRACELAND               614
+#define MUS_KYOTO                   615
+#define MUS_ANCIENT_VOICES          616
+#define MUS_ALL_I_WANT              617
+
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
 #define MUS_NONE                    0xFFFF

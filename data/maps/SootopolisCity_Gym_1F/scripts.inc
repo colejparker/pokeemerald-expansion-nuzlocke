@@ -104,6 +104,7 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated::
 	setvar VAR_0x8008, 8
 	call Common_EventScript_SetGymTrainers
 	call SootopolisCity_Gym_1F_EventScript_GiveWaterPulse
+	call SootopolisCity_Gym_1F_EventScript_GiveMasterBall
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -120,6 +121,12 @@ SootopolisCity_Gym_1F_EventScript_GiveWaterPulse::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
+	return
+
+SootopolisCity_Gym_1F_EventScript_GiveMasterBall::
+	giveitem ITEM_MASTER_BALL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	msgbox SootopolisCity_Gym_1F_Text_ExplainMasterBall, MSGBOX_DEFAULT
 	return
 
 SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2::
@@ -252,6 +259,12 @@ SootopolisCity_Gym_1F_Text_ExplainWaterPulse:
 	.string "In use, it will occasionally confuse\n"
 	.string "the target with ultrasonic waves.\p"
 	.string "… … … … … …$"
+
+SootopolisCity_Gym_1F_Text_ExplainMasterBall:
+	.string "And here, take this as well.\p"
+	.string "It's a MASTER BALL--it will never\n"
+	.string "fail to catch a wild POKéMON.\p"
+	.string "Use it wisely.$"
 
 SootopolisCity_Gym_1F_Text_RegisteredJuan:
 	.string "Registered GYM LEADER KATE\n"

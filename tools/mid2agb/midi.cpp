@@ -243,7 +243,7 @@ std::string ReadEventText()
 
     if (length <= 2)
     {
-        if (fread(buffer, length, 1, g_inputFile) != 1)
+        if (length > 0 && fread(buffer, length, 1, g_inputFile) != 1)
             RaiseError("failed to read event text");
     }
     else

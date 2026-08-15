@@ -956,6 +956,7 @@ static bool32 HandleEndTurnYawn(enum BattlerId battler)
             else
             {
                 gBattleMons[battler].status1 |= STATUS1_SLEEP_TURN(3);
+                gBattleMons[battler].volatiles.restSleep = FALSE;
 
                 CancelMultiTurnMoves(battler);
                 TryActivateSleepClause(battler, gBattlerPartyIndexes[battler]);

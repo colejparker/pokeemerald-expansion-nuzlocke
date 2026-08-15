@@ -616,6 +616,14 @@ gSongTable::
 	song ph_nurse_blend, MUSIC_PLAYER_SE2, 2
 	song ph_nurse_held, MUSIC_PLAYER_SE2, 2
 	song ph_nurse_solo, MUSIC_PLAYER_SE2, 2
+	song carol_of_the_bells, MUSIC_PLAYER_BGM, 0
+	song mus_megalo, MUSIC_PLAYER_BGM, 0
+	song mus_fly_eagle, MUSIC_PLAYER_BGM, 0
+	song mus_roundball, MUSIC_PLAYER_BGM, 0
+	song mus_graceland, MUSIC_PLAYER_BGM, 0
+	song mus_kyoto, MUSIC_PLAYER_BGM, 0
+	song mus_ancient_voices, MUSIC_PLAYER_BGM, 0
+	song mus_all_i_want, MUSIC_PLAYER_BGM, 0
 
 	.align 2
 dummy_song_header:

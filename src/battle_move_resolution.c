@@ -137,7 +137,9 @@ static enum CancelerResult CancelerAsleepOrFrozen(struct BattleCalcValues *cv)
             else
                 toSub = 1;
 
-            if ((gBattleMons[cv->battlerAtk].status1 & STATUS1_SLEEP) == 2 && RandomChance(RNG_SLEEP_TURNS, 1, 3))
+            if ((gBattleMons[cv->battlerAtk].status1 & STATUS1_SLEEP) == 2
+             && !gBattleMons[cv->battlerAtk].volatiles.restSleep
+             && RandomChance(RNG_SLEEP_TURNS, 1, 3))
                 gBattleMons[cv->battlerAtk].status1 &= ~STATUS1_SLEEP;
             else if ((gBattleMons[cv->battlerAtk].status1 & STATUS1_SLEEP) < toSub)
                 gBattleMons[cv->battlerAtk].status1 &= ~STATUS1_SLEEP;

@@ -646,7 +646,7 @@ static bool32 IsItemRandomizable(u16 itemId)
         return FALSE;
     if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
         return FALSE;
-    if (itemId == ITEM_ROOT_FOSSIL || itemId == ITEM_CLAW_FOSSIL)
+    if (itemId == ITEM_ROOT_FOSSIL || itemId == ITEM_CLAW_FOSSIL || itemId == ITEM_MASTER_BALL)
         return FALSE;
     if (GetItemPocket(itemId) == POCKET_KEY_ITEMS)
         return FALSE;
@@ -947,6 +947,9 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_HOLD_BACK:
         case MOVE_ION_DELUGE:
         case MOVE_TERA_BLAST:
+        case MOVE_DYNAMAX_CANNON:
+        case MOVE_BEHEMOTH_BLADE:
+        case MOVE_BEHEMOTH_BASH:
             return FALSE;
         default:
             return TRUE;

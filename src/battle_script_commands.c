@@ -2175,6 +2175,7 @@ static void SetNonVolatileStatus(enum BattlerId battlerAtk, enum BattlerId effec
     {
     case MOVE_EFFECT_SLEEP:
         gBattleMons[effectBattler].status1 |= STATUS1_SLEEP_TURN(3);
+        gBattleMons[effectBattler].volatiles.restSleep = FALSE;
         TryActivateSleepClause(effectBattler, gBattlerPartyIndexes[effectBattler]);
         gBattlescriptCurrInstr = BattleScript_MoveEffectSleep;
         break;
@@ -7116,6 +7117,7 @@ static void Cmd_trysetrest(void)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_REST;
 
         gBattleMons[gBattlerTarget].status1 = STATUS1_SLEEP_TURN(3);
+        gBattleMons[gBattlerTarget].volatiles.restSleep = TRUE;
         BtlController_EmitSetMonData(gBattlerTarget, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
         MarkBattlerForControllerExec(gBattlerTarget);
         gBattlescriptCurrInstr = cmd->nextInstr;

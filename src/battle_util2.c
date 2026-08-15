@@ -195,7 +195,9 @@ u32 BattlePalace_TryEscapeStatus(enum BattlerId battler)
                         toSub = 1;
 
                     // Reduce number of sleep turns
-                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) == 2 && RandomChance(RNG_SLEEP_TURNS, 1, 3))
+                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) == 2
+                     && !gBattleMons[battler].volatiles.restSleep
+                     && RandomChance(RNG_SLEEP_TURNS, 1, 3))
                         gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
                     else if ((gBattleMons[battler].status1 & STATUS1_SLEEP) < toSub)
                         gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
