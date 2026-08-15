@@ -6124,6 +6124,9 @@ enum Species GetFormChangeTargetSpecies_Internal(struct FormChangeContext ctx)
         switch (ctx.method)
         {
         case FORM_CHANGE_ITEM_HOLD:
+            if (formChanges[i].param1 == ITEM_NONE && GET_BASE_SPECIES_ID(ctx.currentSpecies) == SPECIES_SILVALLY_NORMAL)
+                break;
+
             if ((ctx.heldItem == formChanges[i].param1 || formChanges[i].param1 == ITEM_NONE)
                 && (ctx.ability == formChanges[i].param2 || formChanges[i].param2 == ABILITY_NONE))
             {

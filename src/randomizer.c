@@ -213,6 +213,48 @@ static const u16 sGourgeistForms[] = {
     SPECIES_GOURGEIST_AVERAGE, SPECIES_GOURGEIST_SMALL, SPECIES_GOURGEIST_LARGE, SPECIES_GOURGEIST_SUPER,
 };
 
+static const u16 sCastformForms[] = {
+    SPECIES_CASTFORM_NORMAL, SPECIES_CASTFORM_SUNNY, SPECIES_CASTFORM_RAINY, SPECIES_CASTFORM_SNOWY
+};
+
+static const u16 sRotomForms[] = {
+    SPECIES_ROTOM, SPECIES_ROTOM_HEAT, SPECIES_ROTOM_WASH, SPECIES_ROTOM_FROST,
+    SPECIES_ROTOM_FAN, SPECIES_ROTOM_MOW
+};
+
+static const u16 sDeoxysForms[] = {
+    SPECIES_DEOXYS_NORMAL, SPECIES_DEOXYS_ATTACK, SPECIES_DEOXYS_DEFENSE, SPECIES_DEOXYS_SPEED
+};
+
+static const u16 sPaldeanTaurosForms[] = {
+    SPECIES_TAUROS_PALDEA_COMBAT, SPECIES_TAUROS_PALDEA_BLAZE, SPECIES_TAUROS_PALDEA_AQUA
+};
+
+static const u16 sOricorioForms[] = {
+    SPECIES_ORICORIO_BAILE, SPECIES_ORICORIO_POM_POM, SPECIES_ORICORIO_PAU, SPECIES_ORICORIO_SENSU
+};
+
+static const u16 sToxitricForms[] = {
+    SPECIES_TOXTRICITY_AMPED, SPECIES_TOXTRICITY_LOW_KEY
+};
+
+static const u16 sSquawkabillyForms[] = {
+    SPECIES_SQUAWKABILLY_GREEN, SPECIES_SQUAWKABILLY_WHITE, SPECIES_SQUAWKABILLY_YELLOW, SPECIES_SQUAWKABILLY_BLUE
+};
+
+static const u16 sGimmighoulForms[] = {
+    SPECIES_GIMMIGHOUL_CHEST, SPECIES_GIMMIGHOUL_ROAMING
+};
+
+static const u16 sSilvallyForms[] = {
+    SPECIES_SILVALLY_NORMAL, SPECIES_SILVALLY_FIGHTING, SPECIES_SILVALLY_FLYING, SPECIES_SILVALLY_POISON,
+    SPECIES_SILVALLY_GROUND, SPECIES_SILVALLY_ROCK, SPECIES_SILVALLY_BUG, SPECIES_SILVALLY_GHOST,
+    SPECIES_SILVALLY_STEEL, SPECIES_SILVALLY_FIRE, SPECIES_SILVALLY_WATER, SPECIES_SILVALLY_GRASS,
+    SPECIES_SILVALLY_ELECTRIC, SPECIES_SILVALLY_PSYCHIC, SPECIES_SILVALLY_ICE, SPECIES_SILVALLY_DRAGON,
+    SPECIES_SILVALLY_DARK, SPECIES_SILVALLY_FAIRY,
+};
+
+
 static const struct CosmeticFormFamily sCosmeticFormFamilies[] =
 {
     { sAlcremieForms, ARRAY_COUNT(sAlcremieForms) },
@@ -236,7 +278,18 @@ static const struct CosmeticFormFamily sCosmeticFormFamilies[] =
     { sMiniorCoreForms, ARRAY_COUNT(sMiniorCoreForms) },
     { sPumpkabooForms, ARRAY_COUNT(sPumpkabooForms) },
     { sGourgeistForms, ARRAY_COUNT(sGourgeistForms) },
+    { sCastformForms, ARRAY_COUNT(sCastformForms) },
+    { sRotomForms, ARRAY_COUNT(sRotomForms) },
+    { sDeoxysForms, ARRAY_COUNT(sDeoxysForms) },
+    { sPaldeanTaurosForms, ARRAY_COUNT(sPaldeanTaurosForms) },
+    { sOricorioForms, ARRAY_COUNT(sOricorioForms) },
+    { sToxitricForms, ARRAY_COUNT(sToxitricForms) },
+    { sSquawkabillyForms, ARRAY_COUNT(sSquawkabillyForms) },
+    { sGimmighoulForms, ARRAY_COUNT(sGimmighoulForms) },
+    { sSilvallyForms, ARRAY_COUNT(sSilvallyForms) }
 };
+
+
 
 static const struct CosmeticFormFamily *GetCosmeticFormFamily(u16 species)
 {
@@ -269,6 +322,12 @@ static const u16 sExcludedAltForms[] =
     SPECIES_ZARUDE_DADA,
     SPECIES_MAGEARNA_ORIGINAL,
     SPECIES_PICHU_SPIKY_EARED,
+    SPECIES_AEGISLASH_BLADE,
+    SPECIES_WISHIWASHI_SCHOOL,
+    SPECIES_MORPEKO_HANGRY,
+    SPECIES_PALAFIN_HERO,
+    SPECIES_DUDUNSPARCE_THREE_SEGMENT,
+    SPECIES_GRENINJA_BATTLE_BOND, SPECIES_GRENINJA_ASH,
     SPECIES_PIKACHU_ORIGINAL, SPECIES_PIKACHU_HOENN, SPECIES_PIKACHU_SINNOH, SPECIES_PIKACHU_UNOVA,
     SPECIES_PIKACHU_KALOS, SPECIES_PIKACHU_ALOLA, SPECIES_PIKACHU_PARTNER, SPECIES_PIKACHU_WORLD,
     SPECIES_PIKACHU_COSPLAY, SPECIES_PIKACHU_ROCK_STAR, SPECIES_PIKACHU_BELLE, SPECIES_PIKACHU_POP_STAR,
@@ -308,9 +367,6 @@ static bool32 IsSpeciesEligibleForRandomFeatures(u16 species)
 bool32 IsSpeciesRandomizable(u16 species)
 {
     if (!IsSpeciesEligibleForRandomFeatures(species))
-        return FALSE;
-
-    if (species != SPECIES_SILVALLY_NORMAL && GET_BASE_SPECIES_ID(species) == SPECIES_SILVALLY_NORMAL)
         return FALSE;
 
     if (IsCosmeticFormDuplicate(species) || IsExcludedAltForm(species))

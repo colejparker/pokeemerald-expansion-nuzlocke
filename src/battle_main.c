@@ -1888,7 +1888,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         DoTrainerPartyPool(trainer, monIndices, monsCount, battleTypeFlags);
 
         s32 eliteFourAceSlot = -1;
-        if (trainer->trainerClass == TRAINER_CLASS_ELITE_FOUR || trainer->trainerClass == TRAINER_CLASS_CHAMPION)
+        if (trainer->trainerClass == TRAINER_CLASS_ELITE_FOUR)
         {
             u32 maxLevel = 0;
             for (s32 j = 0; j < monsCount; j++)
@@ -1912,14 +1912,14 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 abilityNum = 0;
             u16 species = partyData[monIndex].species;
             bool32 speciesWasRandomized = FALSE;
-            // Gym Leaders keep their last party slot(s for Doubles) fixed. E4 has random mega
             bool32 isDoubleBattleLeader = (trainer->trainerClass == TRAINER_CLASS_LEADER && trainer->battleType != TRAINER_BATTLE_TYPE_SINGLES);
             s32 fixedAceSlots = (isDoubleBattleLeader && monsCount >= 2) ? 2 : 1;
             bool32 isGymLeaderAce = (trainer->trainerClass == TRAINER_CLASS_LEADER && i >= (s32)monsCount - fixedAceSlots);
             bool32 isEliteFourAce = (i == eliteFourAceSlot);
             u16 eliteFourAceHeldItem = ITEM_NONE;
+            bool32 isRandomizationExempt = (TRAINER_BATTLE_PARAM.opponentA == TRAINER_WALLACE || TRAINER_BATTLE_PARAM.opponentA == TRAINER_RED);
 
-            if (!isGymLeaderAce)
+            if (!isGymLeaderAce && !isRandomizationExempt)
             {
                 if (isEliteFourAce)
                     species = RandomizeEliteFourAce(trainer, i, species, &eliteFourAceHeldItem);

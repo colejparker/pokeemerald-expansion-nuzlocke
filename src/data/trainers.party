@@ -4407,34 +4407,39 @@ Level: 51
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_GLACIA ===
-Name: GLACIA
+Name: DAME
 Class: Elite Four
 Pic: Elite Four Glacia
-Gender: Female
+Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
-Mugshot: Pink
+Mugshot: Blue
 
 Sealeo
 Level: 50
+Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Glalie
 Level: 50
+Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Sealeo
 Level: 52
+Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Glalie
 Level: 52
+Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Walrein @ Sitrus Berry
 Level: 53
+Ball: Timer
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_DRAKE ===
@@ -5736,29 +5741,59 @@ Double Battle: No
 AI: Basic Trainer
 Mugshot: Yellow
 
-Wailord
-Level: 57
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-
-Tentacruel
+Grimmsnarl @ Icy Rock
 Level: 55
+Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Aurora Veil
+- Foul Play
+- Play Rough
+- Sucker Punch
 
-Ludicolo
+Wyrdeer @ Loaded Dice
+Level: 55
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Population Bomb
+- Icicle Spear
+- Bullet Seed
+- Psyshield Bash
+
+Coalossal @ Air Balloon
 Level: 56
+Ability: Water Absorb
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Body Press
+- Milk Drink
+- Diamond Storm
+- Overheat
 
-Whiscash
+Mimikyu @ Babiri Berry
 Level: 56
+Ability: Disguise
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Natural Gift
+- Shadow Sneak
+- Play Rough
+- Chilly Reception
 
-Gyarados
-Level: 56
+Iron Bundle @ Expert Belt
+Level: 57
+Ability: Thick Fat
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Freeze Dry
+- Scald
+- Volt Switch
+- Milk Drink
 
-Milotic @ Sitrus Berry
-Level: 58
+Abomasnow @ Abomasite
+Level: 63
+Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wood Hammer
+- Glacial Lance
+- Aurora Veil
+- Ice Shard
 
 === TRAINER_ANDREW ===
 Name: ANDREW
@@ -15462,10 +15497,63 @@ Pic: Red
 Gender: Male
 Music: Male
 Double Battle: No
+Items: Full Restore / Full Restore
+AI: Basic Trainer
+Mugshot: Blue
 
-Charmander
-Level: 5
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Butterfree @ Charti Berry
+Level: 55
+Ability: No Guard
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sleep Powder
+- Hurricane
+- Bug Buzz
+- Blizzard
+
+Espeon @ Life Orb
+Level: 55
+Ability: Sheer Force
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psychic
+- Aura Sphere
+- Transform
+- Morning Sun
+
+Venusaur @ Black Sludge
+Level: 56
+Ability: Chlorophyll
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sleep Powder
+- Sludge Bomb
+- Giga Drain
+- Growth
+
+Blastoise @ White Herb
+Level: 56
+Ability: Protosynthesis
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Shell Smash
+- Hydro Steam
+- Scald
+- Dazzling Gleam
+
+Charizard @ Charizardite-Y
+Level: 57
+Ability: Drought
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Flamethrower
+- Air Slash
+- Solar Beam
+- Weather Ball
+
+Pikachu-Original @ Light Ball
+Level: 63
+Ability: Solar Power
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Thunderbolt
+- Freeze Dry
+- Vacuum Wave
+- Flamethrower
 
 === TRAINER_LEAF ===
 Name: LEAF
