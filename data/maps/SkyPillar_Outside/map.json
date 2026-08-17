@@ -46,6 +46,16 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_SKY_PILLAR_STATE",
+      "var_value": "3",
+      "script": "SkyPillar_Outside_EventScript_WarpToTop"
+    }
+  ],
   "bg_events": []
 }

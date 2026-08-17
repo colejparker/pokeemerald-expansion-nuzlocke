@@ -17,6 +17,8 @@
 // Percentage a random Pokemon can vary from the mon its being based on.
 #define RANDOMIZER_BST_LENIENCY_PERCENT    10
 
+#define RANDOMIZER_HIGH_BST_FALLBACK   570
+
 // Number of moves in each randomized moveset.
 #define RANDOMIZER_MOVESET_SIZE   21
 

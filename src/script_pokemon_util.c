@@ -165,6 +165,16 @@ void CreateScriptedDoubleWildMon(enum Species species1, u8 level1, enum Item ite
     }
 }
 
+// Fixed legendary encounters (Regirock/Regice/Registeel/Rayquaza) should always get
+// their 3 guaranteed perfect IVs, even when the randomizer rolls them into a species
+// that isn't itself flagged legendary/mythical in gSpeciesInfo (perfectIVCount 0).
+void ForceOpponentMonThreePerfectIvs(void)
+{
+    struct Pokemon *mon = &gParties[B_TRAINER_OPPONENT_A][0];
+    SetBoxMonPerfectIVs(&mon->box, 3);
+    CalculateMonStats(mon);
+}
+
 void ScriptSetMonMoveSlot(u8 monIndex, enum Move move, u8 slot)
 {
 // Allows monIndex to go out of bounds of gParties[B_TRAINER_PLAYER]. Doesn't occur in vanilla

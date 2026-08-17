@@ -26,6 +26,13 @@ SkyPillar_Outside_EventScript_OpenDoor::
 	setmetatile 14, 5, METATILE_Pacifidlog_SkyPillar_DoorOpen_Bottom, FALSE
 	return
 
+SkyPillar_Outside_EventScript_WarpToTop::
+	lockall
+	warpsilent MAP_SKY_PILLAR_TOP, 16, 14
+	waitstate
+	releaseall
+	end
+
 SkyPillar_Outside_OnFrame:
 	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_WallaceScene
 	.2byte 0

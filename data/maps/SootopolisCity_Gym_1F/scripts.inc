@@ -237,7 +237,7 @@ SootopolisCity_Gym_1F_Text_ExplainWaterPulse:
 
 SootopolisCity_Gym_1F_Text_ExplainMasterBall:
 	.string "And here, take this as well.\p"
-	.string "It's a MASTER BALL--it will never\n"
+	.string "It's a MASTER BALL. It will never\n"
 	.string "fail to catch a wild POKéMON.\p"
 	.string "Use it wisely!$"
 

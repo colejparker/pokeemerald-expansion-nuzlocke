@@ -1,6 +1,5 @@
 AncientTomb_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, AncientTomb_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, AncientTomb_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, AncientTomb_OnTransition
 	.byte 0
 
@@ -23,22 +22,8 @@ AncientTomb_EventScript_ShowRegisteel::
 	clearflag FLAG_HIDE_REGISTEEL
 	return
 
-AncientTomb_OnLoad:
-	call_if_unset FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED, AncientTomb_EventScript_HideRegiEntrance
-	end
-
-AncientTomb_EventScript_HideRegiEntrance::
-	setmetatile 7, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 8, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 9, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 7, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	setmetatile 8, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	setmetatile 9, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	return
-
 AncientTomb_EventScript_CaveEntranceMiddle::
 	lockall
-	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, AncientTomb_EventScript_RegiEntranceSealed
 	goto_if_set FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED, AncientTomb_EventScript_BigHoleInWall
 	braillemsgbox AncientTomb_Braille_ShineInTheMiddle
 	releaseall
@@ -51,24 +36,20 @@ AncientTomb_EventScript_BigHoleInWall::
 
 AncientTomb_EventScript_CaveEntranceSide::
 	lockall
-	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, AncientTomb_EventScript_RegiEntranceSealed
 	braillemsgbox AncientTomb_Braille_ShineInTheMiddle
-	releaseall
-	end
-
-AncientTomb_EventScript_RegiEntranceSealed::
-	msgbox gText_RegiEntranceSealed, MSGBOX_DEFAULT
 	releaseall
 	end
 
 AncientTomb_EventScript_Registeel::
 	lock
 	faceplayer
+	getrandomizedfixedspecies VAR_0x8004, SPECIES_REGISTEEL, encounterId=3
 	waitse
-	playmoncry SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER
+	playmoncry VAR_0x8004, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_REGISTEEL, 40
+	setwildbattle VAR_0x8004, 40
+	special ForceOpponentMonThreePerfectIvs
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -86,7 +67,6 @@ AncientTomb_EventScript_DefeatedRegisteel::
 	end
 
 AncientTomb_EventScript_RanFromRegisteel::
-	setvar VAR_0x8004, SPECIES_REGISTEEL
 	goto Common_EventScript_LegendaryFlewAway
 	end
 

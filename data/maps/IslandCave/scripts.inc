@@ -1,6 +1,5 @@
 IslandCave_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, IslandCave_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, IslandCave_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, IslandCave_OnTransition
 	.byte 0
 
@@ -12,19 +11,6 @@ IslandCave_EventScript_TryRemoveRegice::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
 	removeobject VAR_LAST_TALKED
-	return
-
-IslandCave_OnLoad:
-	call_if_unset FLAG_SYS_BRAILLE_REGICE_COMPLETED, IslandCave_EventScript_HideRegiEntrance
-	end
-
-IslandCave_EventScript_HideRegiEntrance::
-	setmetatile 7, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 8, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 9, 19, METATILE_Cave_EntranceCover, TRUE
-	setmetatile 7, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	setmetatile 8, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
-	setmetatile 9, 20, METATILE_Cave_SealedChamberBraille_Mid, TRUE
 	return
 
 IslandCave_OnTransition:
@@ -51,7 +37,6 @@ IslandCave_EventScript_OpenRegiEntrance::
 
 IslandCave_EventScript_CaveEntranceMiddle::
 	lockall
-	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, IslandCave_EventScript_RegiEntranceSealed
 	call_if_set FLAG_TEMP_REGICE_PUZZLE_FAILED, IslandCave_EventScript_ClearSteps
 	goto_if_set FLAG_SYS_BRAILLE_REGICE_COMPLETED, IslandCave_EventScript_BigHoleInWall
 	braillemessage IslandCave_Braille_RunLapAroundWall
@@ -67,18 +52,12 @@ IslandCave_EventScript_BigHoleInWall::
 
 IslandCave_EventScript_CaveEntranceSide::
 	lockall
-	goto_if_lt VAR_SOOTOPOLIS_CITY_STATE, 5, IslandCave_EventScript_RegiEntranceSealed
 	call_if_set FLAG_TEMP_REGICE_PUZZLE_FAILED, IslandCave_EventScript_ClearSteps
 	braillemessage IslandCave_Braille_RunLapAroundWall
 	goto_if_set FLAG_SYS_BRAILLE_REGICE_COMPLETED, IslandCave_EventScript_CloseBrailleMsg
 	setflag FLAG_TEMP_REGICE_PUZZLE_STARTED
 	special ShouldDoBrailleRegicePuzzle
 	goto IslandCave_EventScript_CloseBrailleMsg
-	end
-
-IslandCave_EventScript_RegiEntranceSealed::
-	msgbox gText_RegiEntranceSealed, MSGBOX_DEFAULT
-	releaseall
 	end
 
 IslandCave_EventScript_CloseBrailleMsg::
@@ -97,11 +76,13 @@ IslandCave_EventScript_ClearSteps::
 IslandCave_EventScript_Regice::
 	lock
 	faceplayer
+	getrandomizedfixedspecies VAR_0x8004, SPECIES_REGICE, encounterId=2
 	waitse
-	playmoncry SPECIES_REGICE, CRY_MODE_ENCOUNTER
+	playmoncry VAR_0x8004, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_REGICE, 40
+	setwildbattle VAR_0x8004, 40
+	special ForceOpponentMonThreePerfectIvs
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -119,6 +100,5 @@ IslandCave_EventScript_DefeatedRegice::
 	end
 
 IslandCave_EventScript_RanFromRegice::
-	setvar VAR_0x8004, SPECIES_REGICE
 	goto Common_EventScript_LegendaryFlewAway
 	end

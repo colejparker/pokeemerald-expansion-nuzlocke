@@ -15,8 +15,8 @@ SkyPillar_Top_EventScript_TryRemoveRayquaza::
 	return
 
 SkyPillar_Top_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
-	call_if_ge VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_TryShowRayquaza
+	call_if_unset FLAG_BADGE08_GET, SkyPillar_Top_EventScript_SetCleanLayout
+	call_if_set FLAG_BADGE08_GET, SkyPillar_Top_EventScript_TryShowRayquaza
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout::
@@ -42,11 +42,13 @@ SkyPillar_Top_EventScript_RayquazaFaceDown::
 
 SkyPillar_Top_EventScript_Rayquaza::
 	lockall
+	getrandomizedfixedspecies VAR_0x8004, SPECIES_RAYQUAZA, encounterId=4
 	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
+	playmoncry VAR_0x8004, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_RAYQUAZA, 70
+	setwildbattle VAR_0x8004, 50
+	special ForceOpponentMonThreePerfectIvs
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -64,7 +66,6 @@ SkyPillar_Top_EventScript_DefeatedRayquaza::
 	end
 
 SkyPillar_Top_EventScript_RanFromRayquaza::
-	setvar VAR_0x8004, SPECIES_RAYQUAZA
 	goto SkyPillar_Top_EventScript_RanFromRayquaza2
 	end
 

@@ -518,7 +518,12 @@ u16 GetRandomizedSpecies(enum RandomizerContext context, u32 data1, u32 data2, u
     GetBstRangeIndices((u16)minBst, (u16)maxBst, &rangeStart, &rangeEnd);
     rangeCount = rangeEnd - rangeStart;
     if (rangeCount == 0)
-        return species;
+    {
+        GetBstRangeIndices(RANDOMIZER_HIGH_BST_FALLBACK, 0xFFFF, &rangeStart, &rangeEnd);
+        rangeCount = rangeEnd - rangeStart;
+        if (rangeCount == 0)
+            return species;
+    }
 
     rng = GetRandomizerSeed(context, data1, data2 ^ species);
     chosenSpecies = sBstTable[rangeStart + (LocalRandom32(&rng) % rangeCount)].species;
@@ -1012,6 +1017,15 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_BEHEMOTH_BASH:
         case MOVE_TERA_STARSTORM:
         case MOVE_MAGICAL_TORQUE:
+        case MOVE_BLAZING_TORQUE:
+        case MOVE_WICKED_TORQUE:
+        case MOVE_NOXIOUS_TORQUE:
+        case MOVE_COMBAT_TORQUE:
+        case MOVE_FISHIOUS_REND:
+        case MOVE_BOLT_BEAK:
+        case MOVE_TECHNO_BLAST:
+        case MOVE_RAGING_BULL:
+        case MOVE_MULTI_ATTACK:
             return FALSE;
         default:
             return TRUE;
@@ -1080,7 +1094,7 @@ u16 RandomizeTMItemForMove(u16 move, u16 originalItem)
 
 static const u8 sMovesetLevelCurve[RANDOMIZER_MOVESET_SIZE] =
 {
-    1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 63,
+    1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 33, 38, 41, 44, 47, 50, 53, 56, 59, 63,
 };
 
 #define MOVESET_CATEGORY_SIZE (RANDOMIZER_MOVESET_SIZE / 3)
