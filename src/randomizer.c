@@ -59,21 +59,23 @@ static const u16 sRestrictedLegendaryFamilies[] =
     SPECIES_ZACIAN,
     SPECIES_ZAMAZENTA,
     SPECIES_GIRATINA_ALTERED,
+    SPECIES_DIALGA,
+    SPECIES_PALKIA,
     SPECIES_NECROZMA,
     SPECIES_SOLGALEO,
     SPECIES_LUNALA,
     SPECIES_SLAKING,
+    SPECIES_ETERNATUS,
+    SPECIES_XERNEAS_NEUTRAL,
+    SPECIES_WISHIWASHI_SOLO,
 };
 
 static const u16 sRestrictedLegendarySpecies[] =
 {
-    SPECIES_ETERNATUS,
     SPECIES_MEWTWO,
     SPECIES_LUGIA,
     SPECIES_HO_OH,
     SPECIES_RAYQUAZA,
-    SPECIES_DIALGA,
-    SPECIES_PALKIA,
     SPECIES_RESHIRAM,
     SPECIES_ZEKROM,
     SPECIES_HOOPA_UNBOUND,
@@ -88,6 +90,8 @@ static const u16 sRestrictedLegendarySpecies[] =
     SPECIES_COSMOEM,
     SPECIES_SLAKOTH,
     SPECIES_VIGOROTH,
+    SPECIES_YVELTAL,
+    SPECIES_ZYGARDE_COMPLETE,
 };
 
 static bool32 IsRestrictedLegendary(u16 species)
@@ -1006,6 +1010,8 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_DYNAMAX_CANNON:
         case MOVE_BEHEMOTH_BLADE:
         case MOVE_BEHEMOTH_BASH:
+        case MOVE_TERA_STARSTORM:
+        case MOVE_MAGICAL_TORQUE:
             return FALSE;
         default:
             return TRUE;

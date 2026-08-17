@@ -2196,7 +2196,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sidney = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Phoebe = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PHOEBE_BRIDGERS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -2232,7 +2232,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Glacia = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drake = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_3,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SANS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

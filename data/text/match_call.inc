@@ -2224,13 +2224,8 @@ MatchCall_Text_TateLiza_PostRematch::
 	.string "NEAL: We could all battle again!$"
 
 MatchCall_Text_Juan_Preparing::
-	.string "KATE: Hmm…\n"
-	.string "{PLAYER}{KUN}… Was it?\p"
-	.string "Our battle together--it brought\n"
-	.string "to me memories of when I first\l"
-	.string "encountered WALLACE.\p"
-	.string "Perhaps you are a genius who may\n"
-	.string "yet surpass WALLACE!$"
+	.string "KATE: Hey buddy!\n"
+	.string "Hope you're doing good!$"
 
 MatchCall_Text_Juan_PreparingPostGame::
 	.string "KATE: Fufu… {PLAYER}{KUN}…\n"
@@ -2293,7 +2288,7 @@ MatchCall_Text_Drake::
 	.string "Don't you agree, {PLAYER}?$"
 
 MatchCall_Text_Wallace::
-	.string "WALLACE: Hello, {PLAYER}{KUN}.\n"
+	.string "SANTA: Hello, {PLAYER}{KUN}.\n"
 	.string "Have you met STEVEN?\p"
 	.string "He is…\n"
 	.string "Actually incredibly skilled.\p"

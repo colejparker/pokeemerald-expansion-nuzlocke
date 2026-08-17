@@ -1289,9 +1289,8 @@ PetalburgCity_Gym_Text_ReceivedBalanceBadge:
 	.string "from REIN!$"
 
 PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis:
-	.string "REIN: With that BADGE, the DEFENSE\n"
-	.string "of all your POKéMON will increase.\p"
-	.string "POKéMON that know the HM move SURF\n"
+	.string "REIN: With that BADGE, \n"
+	.string "POKéMON that know the HM move SURF\l"
 	.string "will be able to travel over water.\p"
 	.string "This is my gift to you. {PLAYER}, I'm\n"
 	.string "sure you can use it correctly.$"

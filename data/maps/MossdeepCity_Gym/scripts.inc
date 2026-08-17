@@ -386,12 +386,10 @@ MossdeepCity_Gym_Text_GymGuideAdvice:
 	.string "Yo, how's it going, CHAMPION-bound\n"
 	.string "{PLAYER}?\p"
 	.string "The GYM LEADERS here use\n"
-	.string "PSYCHIC-type POKéMON.\p"
-	.string "If you go up against them with\n"
-	.string "FIGHTING- or POISON-type POKéMON,\l"
-	.string "they'll inflict horrible damage!\p"
-	.string "Plus, they'll come at you with\n"
-	.string "outstanding combination attacks.\p"
+	.string "CLEFABLE and GENGAR.\p"
+	.string "A powerful duo thats\n"
+	.string "sure to hit you with their,\l"
+	.string "SPECIAL attacks and DESTINY BOND!\p"
 	.string "If you want to win, you'll need to show\n"
 	.string "them how tight you are with your\l"
 	.string "POKéMON. Go for it!$"
@@ -568,8 +566,8 @@ MossdeepCity_Gym_Text_TateAndLizaIntro:
 	.string "NEAL: Fufufu… Were you surprised?\p"
 	.string "CONRAD: That there are two GYM LEADERS?\n"
 	.string "NEAL: That there are two GYM LEADERS?\p"
-	.string "CONRAD: We're twins!\n"
-	.string "NEAL: We're twins!\p"
+	.string "CONRAD: We're soulmates!\n"
+	.string "NEAL: We're soulmates!\p"
 	.string "CONRAD: We don't need to talk because…\n"
 	.string "NEAL: We can each determine what…\p"
 	.string "CONRAD: The other is thinking…\n"
@@ -588,19 +586,16 @@ MossdeepCity_Gym_Text_ReceivedMindBadge:
 	.string "from CONRAD and NEAL.$"
 
 MossdeepCity_Gym_Text_ExplainMindBadgeTakeThis:
-	.string "CONRAD: The MIND BADGE enhances the\n"
-	.string "SP. ATK and SP. DEF of POKéMON.\p"
+	.string "CONRAD: The MIND BADGE\p"
 	.string "NEAL: It also lets you use the HM move\n"
 	.string "DIVE outside of battle.\p"
 	.string "CONRAD: You should also take this, too.$"
 
 MossdeepCity_Gym_Text_ExplainCalmMind:
-	.string "CONRAD: That TM04 contains…\n"
-	.string "NEAL: CALM MIND!\p"
-	.string "CONRAD: It raises SP. ATK and…\n"
-	.string "NEAL: It raises SP. DEF!\p"
-	.string "CONRAD: It's a move that's perfect…\n"
-	.string "NEAL: For PSYCHIC POKéMON!\p"
+	.string "CONRAD: That contains…\n"
+	.string "NEAL: something!\p"
+	.string "CONRAD: Neither of us know\n"
+	.string "NEAL: what it is!\p"
 	.string "… … … … … …$"
 
 MossdeepCity_Gym_Text_RegisteredTateAndLiza:
@@ -608,11 +603,10 @@ MossdeepCity_Gym_Text_RegisteredTateAndLiza:
 	.string "in the POKéNAV.$"
 
 MossdeepCity_Gym_Text_TateAndLizaPostBattle:
-	.string "CONRAD: Looks like the bond between you\n"
+	.string "NEAL: Looks like the bond between you\n"
 	.string "and your POKéMON is far stronger than\l"
-	.string "the bond that we share as twins.\p"
-	.string "NEAL: You will become even stronger!\n"
-	.string "We've battled you, so we know.$"
+	.string "the bond that we share.\p"
+	.string "CONRAD: Don't say that!$"
 
 MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons:
 	.string "CONRAD: Hehehe… Were you surprised?\p"

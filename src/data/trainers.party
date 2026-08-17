@@ -106,7 +106,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 32
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_2 ===
@@ -119,11 +119,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 31
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Carvanha
-Level: 31
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_3 ===
@@ -136,7 +136,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_4 ===
@@ -149,7 +149,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_1 ===
@@ -162,7 +162,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 36
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_2 ===
@@ -175,7 +175,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 36
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_3 ===
@@ -188,7 +188,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 36
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GABRIELLE_1 ===
@@ -201,27 +201,27 @@ Double Battle: No
 AI: Check Bad Move
 
 Skitty
-Level: 26
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Poochyena
-Level: 26
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zigzagoon
-Level: 26
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Lotad
-Level: 26
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Seedot
-Level: 26
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Taillow
-Level: 26
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_PETALBURG_WOODS ===
@@ -265,11 +265,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Pelipper
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Xatu
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ED ===
@@ -282,11 +282,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zangoose
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Seviper
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_4 ===
@@ -299,7 +299,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 36
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DECLAN ===
@@ -312,7 +312,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Gyarados
-Level: 34
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_RUSTURF_TUNNEL ===
@@ -423,7 +423,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 32
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MT_PYRE_1 ===
@@ -436,7 +436,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MT_PYRE_2 ===
@@ -449,7 +449,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MT_PYRE_3 ===
@@ -462,11 +462,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Carvanha
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_WEATHER_INST_4 ===
@@ -492,7 +492,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_6 ===
@@ -505,7 +505,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_FREDRICK ===
@@ -518,11 +518,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Makuhita
-Level: 30
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Machoke
-Level: 30
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_MATT ===
@@ -536,11 +536,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Mightyena
-Level: 34
+Level: 39
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Golbat
-Level: 34
+Level: 39
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_ZANDER ===
@@ -553,7 +553,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Hariyama
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SHELLY_WEATHER_INSTITUTE ===
@@ -583,11 +583,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Sharpedo
-Level: 37
+Level: 45
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Mightyena
-Level: 37
+Level: 45
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_ARCHIE ===
@@ -601,15 +601,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Mightyena
-Level: 41
+Level: 44
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Crobat
-Level: 41
+Level: 44
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Sharpedo
-Level: 43
+Level: 46
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_LEAH ===
@@ -622,7 +622,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Spoink
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DAISY ===
@@ -1256,23 +1256,23 @@ Double Battle: No
 AI: Basic Trainer
 
 Swellow
-Level: 28
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Trapinch
-Level: 28
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Wailmer
-Level: 28
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Magneton
-Level: 28
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Shiftry
-Level: 28
+Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_VINCENT ===
@@ -1602,15 +1602,15 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Mawile
-Level: 29
+Level: 38
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Roselia
-Level: 29
+Level: 38
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Pelipper
-Level: 29
+Level: 38
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_KEIRA ===
@@ -1872,11 +1872,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Duskull
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Shuppet
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TAMMY ===
@@ -1906,7 +1906,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Sableye
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TASHA ===
@@ -1919,7 +1919,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Shuppet
-Level: 32
+Level: 38
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_VALERIE_2 ===
@@ -2036,15 +2036,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Mightyena
-Level: 26
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Mightyena
-Level: 28
+Level: 43
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Numel
-Level: 30
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CINDY_2 ===
@@ -2474,7 +2474,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Rhyhorn
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MT_CHIMNEY_1 ===
@@ -2684,11 +2684,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Tentacool
-Level: 33
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Wingull
-Level: 33
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ROLAND ===
@@ -3163,7 +3163,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Hariyama
-Level: 32
+Level: 38
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_KIRK ===
@@ -3193,11 +3193,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_8 ===
@@ -3210,7 +3210,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SHAWN ===
@@ -3240,11 +3240,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Electrike
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Loudred
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DALTON_1 ===
@@ -3949,15 +3949,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Ralts
-Level: 26
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Ralts
-Level: 26
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Kirlia
-Level: 26
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOSHUA ===
@@ -3987,7 +3987,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Solrock
-Level: 31
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CAMERON_2 ===
@@ -4120,15 +4120,15 @@ Double Battle: No
 AI: Check Bad Move
 
 Wobbuffet
-Level: 26
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Natu
-Level: 26
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Kadabra
-Level: 26
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ALEXIS ===
@@ -4158,11 +4158,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Kadabra
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Lunatone
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JACKI_2 ===
@@ -4345,7 +4345,7 @@ Level: 41
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_SIDNEY ===
-Name: SIDNEY
+Name: JEFF
 Class: Elite Four
 Pic: Elite Four Sidney
 Gender: Male
@@ -4356,23 +4356,23 @@ AI: Basic Trainer / Force Setup First Turn
 Mugshot: Purple
 
 Mightyena
-Level: 46
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Shiftry
-Level: 48
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Cacturne
-Level: 46
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Crawdaunt
-Level: 48
+Level: 55
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Absol @ Sitrus Berry
-Level: 49
+Level: 56
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_PHOEBE ===
@@ -4387,23 +4387,23 @@ AI: Basic Trainer
 Mugshot: Green
 
 Dusclops
-Level: 48
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Banette
-Level: 49
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Sableye
-Level: 50
+Level: 55
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Banette
-Level: 49
+Level: 56
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Dusclops @ Sitrus Berry
-Level: 51
+Level: 57
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_GLACIA ===
@@ -4418,32 +4418,32 @@ AI: Basic Trainer
 Mugshot: Blue
 
 Sealeo
-Level: 50
+Level: 55
 Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Glalie
-Level: 50
+Level: 55
 Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Sealeo
-Level: 52
+Level: 56
 Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Glalie
-Level: 52
+Level: 56
 Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Walrein @ Sitrus Berry
-Level: 53
+Level: 58
 Ball: Timer
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_DRAKE ===
-Name: DRAKE
+Name: SANS
 Class: Elite Four
 Pic: Elite Four Drake
 Gender: Male
@@ -4454,23 +4454,23 @@ AI: Basic Trainer
 Mugshot: Blue
 
 Shelgon
-Level: 52
+Level: 56
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Altaria
-Level: 54
+Level: 56
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Kingdra
-Level: 53
+Level: 57
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Flygon
-Level: 53
+Level: 57
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 Salamence @ Sitrus Berry
-Level: 55
+Level: 59
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_ROXANNE_1 ===
@@ -5731,7 +5731,7 @@ Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WALLACE ===
-Name: WALLACE
+Name: SANTA
 Class: Champion
 Pic: Champion Wallace
 Gender: Male
@@ -6469,7 +6469,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Staryu
-Level: 35
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_PABLO_1 ===
@@ -6482,11 +6482,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Staryu
-Level: 33
+Level: 43
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Staryu
-Level: 33
+Level: 43
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CHASE ===
@@ -6876,11 +6876,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Tropius
-Level: 33
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Xatu
-Level: 33
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_EDWARDO ===
@@ -7631,7 +7631,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Wailmer
-Level: 34
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRACE ===
@@ -7644,7 +7644,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Marill
-Level: 34
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TANYA ===
@@ -7670,7 +7670,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Seaking
-Level: 34
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_NIKKI ===
@@ -7769,11 +7769,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Luvdisc
-Level: 33
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Luvdisc
-Level: 33
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DEBRA ===
@@ -8033,7 +8033,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Wobbuffet
-Level: 32
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_IRENE ===
@@ -8551,7 +8551,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Koffing
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_KAYLEY ===
@@ -8564,7 +8564,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Castform
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_AURON ===
@@ -8577,11 +8577,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Manectric
-Level: 33
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Machamp
-Level: 33
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_KELVIN ===
@@ -8594,11 +8594,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Machoke
-Level: 33
+Level: 37
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Spheal
-Level: 33
+Level: 37
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_MARLEY ===
@@ -8707,15 +8707,15 @@ AI: Check Bad Move
 Multi Party: Half
 
 Camerupt
-Level: 36
+Level: 43
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Mightyena
-Level: 38
+Level: 44
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Golbat
-Level: 40
+Level: 44
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_EDWIN_2 ===
@@ -9800,11 +9800,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Mightyena
-Level: 35
+Level: 44
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Golbat
-Level: 35
+Level: 44
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_GRUNT_UNUSED ===
@@ -9834,11 +9834,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Wailmer
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 30
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_JAGGED_PASS ===
@@ -9951,11 +9951,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Manectric
-Level: 32
+Level: 36
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Linoone
-Level: 32
+Level: 36
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_HARRISON ===
@@ -10072,11 +10072,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 31
+Level: 43
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Poochyena
-Level: 31
+Level: 43
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SPACE_CENTER_4 ===
@@ -10089,7 +10089,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Baltoy
-Level: 32
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SPACE_CENTER_5 ===
@@ -10102,7 +10102,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 32
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SPACE_CENTER_6 ===
@@ -10115,7 +10115,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Mightyena
-Level: 32
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SPACE_CENTER_7 ===
@@ -10128,7 +10128,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Baltoy
-Level: 32
+Level: 44
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MACEY ===
@@ -10313,15 +10313,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Mightyena
-Level: 37
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Crobat
-Level: 38
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Camerupt
-Level: 39
+Level: 41
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_MAXIE_MT_CHIMNEY ===
@@ -11033,11 +11033,11 @@ Double Battle: Yes
 AI: Check Bad Move
 
 Delcatty
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Manectric
-Level: 31
+Level: 37
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LEA_AND_JED ===
@@ -11431,19 +11431,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Tropius
-Level: 31
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Slugma
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Pelipper
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Grovyle
-Level: 34
+Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_BRENDAN_LILYCOVE_TREECKO ===
@@ -11456,19 +11456,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Tropius
-Level: 31
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Pelipper
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Ludicolo
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Combusken
-Level: 34
+Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_BRENDAN_LILYCOVE_TORCHIC ===
@@ -11481,19 +11481,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Tropius
-Level: 31
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Ludicolo
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Slugma
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Marshtomp
-Level: 34
+Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_MAY_LILYCOVE_MUDKIP ===
@@ -11506,19 +11506,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Tropius
-Level: 31
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Slugma
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Pelipper
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Grovyle
-Level: 34
+Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_MAY_LILYCOVE_TREECKO ===
@@ -11531,19 +11531,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Tropius
-Level: 31
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Pelipper
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Ludicolo
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Combusken
-Level: 34
+Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_MAY_LILYCOVE_TORCHIC ===
@@ -11556,19 +11556,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Tropius
-Level: 31
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Ludicolo
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Slugma
-Level: 32
+Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Marshtomp
-Level: 34
+Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_JONAH ===
@@ -11659,11 +11659,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Shiftry
-Level: 34
+Level: 44
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Nosepass
-Level: 34
+Level: 44
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_KOJI_1 ===
@@ -11710,11 +11710,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Swellow
-Level: 32
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Skarmory
-Level: 32
+Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_REED ===
@@ -12389,7 +12389,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_2 ===
@@ -12402,7 +12402,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_3 ===
@@ -12415,7 +12415,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_4 ===
@@ -12428,11 +12428,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Baltoy
-Level: 28
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Zubat
-Level: 28
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_5 ===
@@ -12445,11 +12445,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Baltoy
-Level: 28
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Numel
-Level: 28
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_6 ===
@@ -12462,7 +12462,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Mightyena
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_7 ===
@@ -12488,7 +12488,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_9 ===
@@ -12501,7 +12501,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_10 ===
@@ -12514,7 +12514,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Mightyena
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_11 ===
@@ -12527,7 +12527,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Baltoy
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_12 ===
@@ -12540,7 +12540,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_13 ===
@@ -12553,7 +12553,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_14 ===
@@ -12566,7 +12566,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Mightyena
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_15 ===
@@ -12579,7 +12579,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MAGMA_HIDEOUT_16 ===
@@ -12592,7 +12592,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Baltoy
-Level: 29
+Level: 38
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TABITHA_MAGMA_HIDEOUT ===
@@ -12605,19 +12605,19 @@ Double Battle: No
 AI: Check Bad Move
 
 Numel
-Level: 26
+Level: 36
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 Mightyena
-Level: 28
+Level: 37
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 Zubat
-Level: 30
+Level: 38
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 Camerupt
-Level: 33
+Level: 39
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
 === TRAINER_DARCY ===
@@ -12649,15 +12649,15 @@ AI: Basic Trainer
 Multi Party: Half
 
 Mightyena
-Level: 42
+Level: 44
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Crobat
-Level: 43
+Level: 45
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Camerupt
-Level: 44
+Level: 46
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_PETE ===
@@ -14840,11 +14840,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Staryu
-Level: 37
+Level: 43
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 Staryu
-Level: 37
+Level: 43
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_PABLO_3 ===
