@@ -18214,7 +18214,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_DYNAMAX_CANNON] =
     {
-        .name = COMPOUND_STRING("Dynamax Cannon"),
+        .name = COMPOUND_STRING("Gaster Blaster"),
         .description = COMPOUND_STRING(
             "Unleashes core energy.\n"
             "2x against Dynamaxed foes."),

@@ -1122,22 +1122,80 @@ static void ReservoirAdd(struct MoveReservoir *reservoir, u16 move, rng_value_t 
     reservoir->count++;
 }
 
-static void SortReservoirByPower(struct MoveReservoir *reservoir)
+static bool32 MoveHasRechargeEffect(u16 move)
+{
+    u32 i, count = GetMoveAdditionalEffectCount(move);
+
+    for (i = 0; i < count; i++)
+    {
+        if (GetMoveAdditionalEffectById(move, i)->moveEffect == MOVE_EFFECT_RECHARGE)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static u32 GetMoveEffectivePower(u16 move)
+{
+    u32 power = GetMovePower(move);
+    u32 accuracy = GetMoveAccuracy(move);
+    u32 effectivePower;
+
+    if (accuracy == 0)
+        accuracy = 100;
+
+    effectivePower = (power * accuracy) / 100;
+
+    switch (GetMoveEffect(move))
+    {
+    case EFFECT_RECOIL:
+    case EFFECT_RECOIL_IF_MISS:
+    case EFFECT_CHLOROBLAST:
+        effectivePower = (effectivePower * 75) / 100;
+        break;
+    case EFFECT_MAX_HP_50_RECOIL:
+        effectivePower = (effectivePower * 60) / 100;
+        break;
+    default:
+        break;
+    }
+
+    if (MoveHasRechargeEffect(move))
+        effectivePower = (effectivePower * 60) / 100;
+
+    if (IsExplosionMove(move))
+        effectivePower = (effectivePower * 35) / 100;
+
+    return effectivePower;
+}
+
+#define MOVESET_POWER_PSEUDO_PERCENT 25
+
+static void SortReservoirByEffectivePower(struct MoveReservoir *reservoir, rng_value_t *rng)
 {
     u32 count = (reservoir->count < MOVESET_CATEGORY_SIZE) ? reservoir->count : MOVESET_CATEGORY_SIZE;
+    u32 scores[MOVESET_CATEGORY_SIZE];
     u32 i, j;
+
+    for (i = 0; i < count; i++)
+    {
+        u32 basePower = GetMoveEffectivePower(reservoir->moves[i]);
+        s32 jitterPercent = (LocalRandom32(rng) % (2 * MOVESET_POWER_PSEUDO_PERCENT + 1)) - MOVESET_POWER_PSEUDO_PERCENT;
+        scores[i] = (basePower * (100 + jitterPercent)) / 100;
+    }
 
     for (i = 1; i < count; i++)
     {
-        u16 key = reservoir->moves[i];
-        u32 keyPower = GetMovePower(key);
+        u16 keyMove = reservoir->moves[i];
+        u32 keyScore = scores[i];
         j = i;
-        while (j > 0 && GetMovePower(reservoir->moves[j - 1]) > keyPower)
+        while (j > 0 && scores[j - 1] > keyScore)
         {
             reservoir->moves[j] = reservoir->moves[j - 1];
+            scores[j] = scores[j - 1];
             j--;
         }
-        reservoir->moves[j] = key;
+        reservoir->moves[j] = keyMove;
+        scores[j] = keyScore;
     }
 }
 
@@ -1225,8 +1283,8 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
             ReservoirAdd(&nonStabMoves, move, &rng);
     }
 
-    SortReservoirByPower(&stabMoves);
-    SortReservoirByPower(&nonStabMoves);
+    SortReservoirByEffectivePower(&stabMoves, &rng);
+    SortReservoirByEffectivePower(&nonStabMoves, &rng);
     EnforceReservoirMinLevels(&stabMoves, 0);
     EnforceReservoirMinLevels(&nonStabMoves, 1);
 

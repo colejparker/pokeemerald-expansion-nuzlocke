@@ -184,6 +184,7 @@
 #define METATILE_EliteFour_OpenDoor_Frame            0x344
 #define METATILE_EliteFour_OpenDoor_Opening          0x345
 #define METATILE_EliteFour_RightSpotlightOff         0x2DE
+#define METATILE_EliteFour_sans_1                    0x34C
 
 // gTileset_EverGrande
 #define METATILE_EverGrande_Door_PokemonLeague  0x21D

@@ -50,6 +50,7 @@ const u16 gObjectEventPal_Santa[] = INCGFX_U16("graphics/object_events/palettes/
 const u16 gObjectEventPal_Hoopster[] = INCGFX_U16("graphics/object_events/palettes/hoopster.pal", ".gbapal");
 const u16 gObjectEventPal_PhoebeBridgers[] = INCGFX_U16("graphics/object_events/palettes/phoebe.pal", ".gbapal");
 const u16 gObjectEventPal_Sans[] = INCGFX_U16("graphics/object_events/palettes/sans.pal", ".gbapal");
+const u16 gObjectEventPal_Probst[] = INCGFX_U16("graphics/object_events/palettes/probst.pal", ".gbapal");
 const u16 gUnusedObjectEventPalette[] = INCGFX_U16("graphics/object_events/palettes/unused_palette.pal", ".gbapal");
 const u16 gObjectEventPal_Null16[16] = {};
 const u16 gObjectEventPal_Null17[16] = {};

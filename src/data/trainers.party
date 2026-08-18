@@ -4366,14 +4366,17 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 Cacturne
 Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Dig
 
 Crawdaunt
 Level: 55
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Jungle Healing
 
-Absol @ Sitrus Berry
+Absol
 Level: 56
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Torch Song
 
 === TRAINER_PHOEBE ===
 Name: PHOEBE
@@ -4397,14 +4400,17 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 Sableye
 Level: 55
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Self-Destruct
 
 Banette
 Level: 56
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Copycat
 
-Dusclops @ Sitrus Berry
+Dusclops
 Level: 57
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Doom Desire
 
 === TRAINER_GLACIA ===
 Name: DAME
@@ -4436,11 +4442,13 @@ Glalie
 Level: 56
 Ball: Timer
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Searing Shot
 
-Walrein @ Sitrus Berry
+Walrein
 Level: 58
 Ball: Timer
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Roar of Time
 
 === TRAINER_DRAKE ===
 Name: SANS
@@ -4468,10 +4476,12 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 Flygon
 Level: 57
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- Bonemerang
 
-Salamence @ Sitrus Berry
+Salamence
 Level: 59
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dynamax Cannon
 
 === TRAINER_ROXANNE_1 ===
 Name: EMILY

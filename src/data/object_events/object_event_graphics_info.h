@@ -2178,7 +2178,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MagmaMemberF = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sidney = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PROBST,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

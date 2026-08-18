@@ -1837,20 +1837,94 @@ u32 GeneratePersonalityForGender(u32 gender, enum Species species)
         return speciesInfo->genderRatio / 2;
 }
 
+static void FillRemainingTrainerMonMoves(struct Pokemon *mon, const enum Move *setMoves)
+{
+    enum Species species = GetMonData(mon, MON_DATA_SPECIES);
+    u32 level = GetMonData(mon, MON_DATA_LEVEL);
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+    enum Move candidates[MAX_MON_MOVES] = {MOVE_NONE};
+    u8 emptySlots[MAX_MON_MOVES];
+    u8 numEmpty = 0;
+    u8 addedCandidates = 0;
+    s32 i, j;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (setMoves[i] == MOVE_NONE)
+            emptySlots[numEmpty++] = i;
+    }
+    if (numEmpty == 0)
+        return;
+
+    for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
+    {
+        bool32 alreadyKnown = FALSE;
+
+        if (learnset[i].level > level)
+            break;
+        if (learnset[i].level == 0)
+            continue;
+
+        for (j = 0; j < MAX_MON_MOVES; j++)
+        {
+            if (setMoves[j] == learnset[i].move)
+            {
+                alreadyKnown = TRUE;
+                break;
+            }
+        }
+        if (!alreadyKnown)
+        {
+            for (j = 0; j < addedCandidates; j++)
+            {
+                if (candidates[j] == learnset[i].move)
+                {
+                    alreadyKnown = TRUE;
+                    break;
+                }
+            }
+        }
+
+        if (!alreadyKnown)
+        {
+            if (addedCandidates < numEmpty)
+            {
+                candidates[addedCandidates] = learnset[i].move;
+                addedCandidates++;
+            }
+            else
+            {
+                for (j = 0; j < numEmpty - 1; j++)
+                    candidates[j] = candidates[j + 1];
+                candidates[numEmpty - 1] = learnset[i].move;
+            }
+        }
+    }
+
+    for (i = 0; i < numEmpty; i++)
+    {
+        u32 pp = GetMovePP(candidates[i]);
+        SetMonData(mon, MON_DATA_MOVE1 + emptySlots[i], &candidates[i]);
+        SetMonData(mon, MON_DATA_PP1 + emptySlots[i], &pp);
+    }
+}
+
 void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon *partyEntry)
 {
     bool32 noMoveSet = TRUE;
+    bool32 hasEmptySlot = FALSE;
     u32 j;
 
     for (j = 0; j < MAX_MON_MOVES; ++j)
     {
         if (partyEntry->moves[j] != MOVE_NONE)
             noMoveSet = FALSE;
+        else
+            hasEmptySlot = TRUE;
     }
     if (noMoveSet)
     {
         GiveMonInitialMoveset(mon);
-        // TODO: Figure out a default strategy when moves are not set, to generate a good moveset
         return;
     }
 
@@ -1860,6 +1934,9 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
         SetMonData(mon, MON_DATA_MOVE1 + j, &partyEntry->moves[j]);
         SetMonData(mon, MON_DATA_PP1 + j, &pp);
     }
+
+    if (hasEmptySlot)
+        FillRemainingTrainerMonMoves(mon, partyEntry->moves);
 }
 
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 halfTeam, u32 battleTypeFlags)

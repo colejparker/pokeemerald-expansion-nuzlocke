@@ -135,3 +135,36 @@ EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
 
+EverGrandeCity_PokemonLeague_1F_EventScript_ProtectTutor::
+	lock
+	faceplayer
+	move_tutor MOVE_PROTECT, EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorAsk, EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorWhichMon, EverGrandeCity_PokemonLeague_1F_EventScript_ProtectTutorDeclined, EverGrandeCity_PokemonLeague_1F_EventScript_ProtectTutorDone, flagId=FLAG_TUTOR_PROTECT
+
+EverGrandeCity_PokemonLeague_1F_EventScript_ProtectTutorDeclined::
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_ProtectTutorDone::
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorDone, MSGBOX_DEFAULT
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorAsk:
+	.string "Before you go into the ELITE 4,\n"
+	.string "and then the tournament.\p"
+	.string "I can teach one of your POKéMON\n"
+	.string "PROTECT, but I've only got it in me\l"
+	.string "to do this once.\p"
+	.string "Do you want to learn it?$"
+
+EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorWhichMon:
+	.string "Which POKéMON should learn\n"
+	.string "PROTECT?$"
+
+EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorDeclined:
+	.string "Come back if you change your mind.$"
+
+EverGrandeCity_PokemonLeague_1F_Text_ProtectTutorDone:
+	.string "Good luck!$"
+

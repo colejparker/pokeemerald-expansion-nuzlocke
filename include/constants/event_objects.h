@@ -581,6 +581,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_HOOPSTER                0x113E
 #define OBJ_EVENT_PAL_TAG_PHOEBE_BRIDGERS         0x113F
 #define OBJ_EVENT_PAL_TAG_SANS                    0x1140
+#define OBJ_EVENT_PAL_TAG_PROBST                  0x1141
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
