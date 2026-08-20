@@ -844,7 +844,7 @@ static u32 GetFinalEvolutionBaseStatTotal(u16 species)
     for (guard = 0; guard < 10; guard++)
     {
         const struct Evolution *evolutions = GetSpeciesEvolutions(species);
-        if (evolutions[0].method == EVOLUTIONS_END)
+        if (evolutions == NULL || evolutions[0].method == EVOLUTIONS_END)
             break;
         species = evolutions[0].targetSpecies;
     }

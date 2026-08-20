@@ -297,7 +297,7 @@ void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
 
 void ItemUseOutOfBattle_PortaHeal(u8 taskId)
 {
-    HealPlayerParty();
+    HealPlayerPartyExcludingFainted();
     PlaySE(SE_USE_ITEM);
     if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
         DisplayItemMessageOnField(taskId, gText_PortaHealUsed, Task_CloseCantUseKeyItemMessage);
