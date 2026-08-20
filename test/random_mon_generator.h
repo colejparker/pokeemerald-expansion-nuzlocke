@@ -78,7 +78,7 @@ static const enum Item sRandomItemOption2HeldItemPool[] =
 
 static const enum Item sRandomItemOption3HeldItemPool[] =
 {
-    ITEM_MACH_BIKE,
+    ITEM_QUICK_CLAW,
     ITEM_HM01,
     ITEM_LEFTOVERS,
 };

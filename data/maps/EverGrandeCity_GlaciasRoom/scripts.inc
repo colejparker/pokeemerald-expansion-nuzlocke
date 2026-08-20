@@ -74,7 +74,7 @@ EverGrandeCity_GlaciasRoom_Text_Defeat:
 	.string "I guess I didn't get one here either...$"
 
 EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
-	.string "Advance to the next room.\p"
-	.string "And there, confirm the truly fearsome\n"
-	.string "side of the POKéMON LEAGUE.$"
+	.string "I made it to the Semis once.\p"
+	.string "Got swept.\p"
+	.string "Here's hoping you do better.$"
 

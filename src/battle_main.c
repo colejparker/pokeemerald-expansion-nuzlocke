@@ -2061,8 +2061,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 }
             }
             SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
-            if (isGymLeaderAce)
-                SetMonData(&party[i], MON_DATA_CANT_RANDOMIZE_ABILITY, &isGymLeaderAce);
+            if (isGymLeaderAce || isRandomizationExempt)
+            {
+                bool32 cantRandomizeAbility = TRUE;
+                SetMonData(&party[i], MON_DATA_CANT_RANDOMIZE_ABILITY, &cantRandomizeAbility);
+            }
             SetMonData(&party[i], MON_DATA_FRIENDSHIP, &(partyData[monIndex].friendship));
             if (partyData[monIndex].ball < POKEBALL_COUNT)
             {

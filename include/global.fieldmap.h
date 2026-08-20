@@ -428,6 +428,7 @@ struct PlayerAvatar
     /*0x14*/ u8 dirTimerHistory[8];
     /*0x1C*/ u8 abStartSelectTimerHistory[8];
     u16 lastSpinTile;
+    u8 acroTimer;
 };
 
 struct Camera

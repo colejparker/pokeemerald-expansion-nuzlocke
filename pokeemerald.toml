@@ -2831,7 +2831,6 @@ DefaultHash = '''E74F20C6'''
    '''IsTrendyPhraseBoring''',
    '''BufferDeepLinkPhrase''',
    '''GetDewfordHallPaintingNameIndex''',
-   '''SwapRegisteredBike''',
    '''CalculatePlayerPartyCount''',
    '''CountPartyNonEggMons''',
    '''CountPartyAliveNonEggMons_IgnoreVar4Slot''',

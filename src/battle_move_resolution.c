@@ -3932,7 +3932,10 @@ static enum MoveEndResult MoveEndEmergencyExit(struct BattleCalcValues *cv)
 
 static bool32 CanPartingShotTrigger(enum BattlerId battlerAtk)
 {
-    if (GetConfig(B_PARTING_SHOT_SWITCH) < GEN_7 && CanBattlerSwitch(battlerAtk))
+    if (!CanBattlerSwitch(battlerAtk))
+        return FALSE;
+
+    if (GetConfig(B_PARTING_SHOT_SWITCH) < GEN_7)
         return TRUE;
 
     if (gBattleStruct->allowPartingShot)
@@ -3959,7 +3962,10 @@ static enum MoveEndResult MoveEndHitEscape(struct BattleCalcValues *cv)
          && !gBattleStruct->unableToUseMove
          && IsAnyTargetTurnDamaged(cv->battlerAtk, INCLUDING_SUBSTITUTES)
          && IsBattlerAlive(cv->battlerAtk)
-         && !NoAliveMonsForBattlerSide(cv->battlerDef))
+         && !NoAliveMonsForBattlerSide(cv->battlerDef)
+         // A trapped attacker (No Retreat, Arena Trap, Shadow Tag, Ingrain, etc.) still
+         // deals damage but can't actually switch out.
+         && CanBattlerSwitch(cv->battlerAtk))
         {
             result = MOVEEND_RESULT_RUN_SCRIPT;
             gSpecialStatuses[cv->battlerAtk].queuedSwitch = QUEUED_SWITCH_OPEN_PARTY_SCREEN;

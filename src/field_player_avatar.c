@@ -304,16 +304,16 @@ static const struct PACKED
     [MALE] =
     {
         {PLAYER_AVATAR_GFX_MALE_NORMAL,     PLAYER_AVATAR_FLAG_ON_FOOT},
-        {PLAYER_AVATAR_GFX_MALE_MACH_BIKE,  PLAYER_AVATAR_FLAG_MACH_BIKE},
         {PLAYER_AVATAR_GFX_MALE_ACRO_BIKE,  PLAYER_AVATAR_FLAG_ACRO_BIKE},
+        {PLAYER_AVATAR_GFX_MALE_MACH_BIKE,  PLAYER_AVATAR_FLAG_MACH_BIKE},
         {PLAYER_AVATAR_GFX_MALE_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
         {PLAYER_AVATAR_GFX_MALE_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
     },
     [FEMALE] =
     {
         {PLAYER_AVATAR_GFX_FEMALE_NORMAL,         PLAYER_AVATAR_FLAG_ON_FOOT},
-        {PLAYER_AVATAR_GFX_FEMALE_MACH_BIKE,      PLAYER_AVATAR_FLAG_MACH_BIKE},
         {PLAYER_AVATAR_GFX_FEMALE_ACRO_BIKE,      PLAYER_AVATAR_FLAG_ACRO_BIKE},
+        {PLAYER_AVATAR_GFX_FEMALE_MACH_BIKE,      PLAYER_AVATAR_FLAG_MACH_BIKE},
         {PLAYER_AVATAR_GFX_FEMALE_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
         {PLAYER_AVATAR_GFX_FEMALE_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
     }
@@ -1129,23 +1129,14 @@ static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
 
 static void PlayerAvatarTransition_MachBike(struct ObjectEvent *objEvent)
 {
-    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_MACH_BIKE));
-    ObjectEventTurn(objEvent, objEvent->movementDirection);
-    if (IS_FRLG)
-        SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
-    else
-        SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_MACH_BIKE);
-    BikeClearState(0, 0);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
 }
 
 static void PlayerAvatarTransition_AcroBike(struct ObjectEvent *objEvent)
 {
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_ACRO_BIKE));
     ObjectEventTurn(objEvent, objEvent->movementDirection);
-    if (IS_FRLG)
-        SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
-    else
-        SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
     BikeClearState(0, 0);
     Bike_HandleBumpySlopeJump();
 }

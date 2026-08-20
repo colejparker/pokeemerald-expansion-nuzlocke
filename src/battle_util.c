@@ -6826,6 +6826,10 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (IsBattleMovePhysical(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
+    case ABILITY_FELINE_PROWESS:
+        if (IsBattleMoveSpecial(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        break;
     case ABILITY_SLOW_START:
         if (gBattleMons[battlerAtk].volatiles.slowStartTimer > 0 && IsBattleMovePhysical(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));

@@ -835,12 +835,34 @@ u16 RandomizeNpcGiftItem(u16 itemId, u32 mapNum, u32 mapGroup)
     return RandomizeItemFromSeed(rng, itemId);
 }
 
-static bool32 IsAbilityRandomizable(u16 ability)
+#define FELINE_PROWESS_HUGE_POWER_BST_CAP 420
+
+static u32 GetFinalEvolutionBaseStatTotal(u16 species)
 {
+    u32 guard;
+
+    for (guard = 0; guard < 10; guard++)
+    {
+        const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+        if (evolutions[0].method == EVOLUTIONS_END)
+            break;
+        species = evolutions[0].targetSpecies;
+    }
+
+    return GetSpeciesBaseStatTotal(species);
+}
+
+static bool32 IsAbilityRandomizable(u16 species, u16 ability)
+{
+    if (ability == ABILITY_HUGE_POWER || ability == ABILITY_FELINE_PROWESS)
+    {
+        if (GetFinalEvolutionBaseStatTotal(species) > FELINE_PROWESS_HUGE_POWER_BST_CAP)
+            return FALSE;
+    }
+
     switch (ability)
     {
     case ABILITY_NONE:
-    case ABILITY_314:
     case ABILITY_317:
     case ABILITY_WONDER_GUARD:
     case ABILITY_IMPOSTER:
@@ -875,7 +897,6 @@ static bool32 IsAbilityRandomizable(u16 ability)
     case ABILITY_GORILLA_TACTICS:
     case ABILITY_GRASS_PELT:
     case ABILITY_HONEY_GATHER:
-    case ABILITY_HUGE_POWER:
     case ABILITY_ILLUMINATE:
     case ABILITY_KLUTZ:
     case ABILITY_MINUS:
@@ -961,7 +982,7 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
         for (tries = 0; tries < 30; tries++)
         {
             result = sRandomizerStrongAbilityWhitelist[LocalRandom32(&rng) % ARRAY_COUNT(sRandomizerStrongAbilityWhitelist)];
-            if (IsAbilityRandomizable(result))
+            if (IsAbilityRandomizable(species, result))
                 return result;
         }
         return originalAbility;
@@ -971,7 +992,7 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
     for (tries = 0; tries < 60; tries++)
     {
         result = 1 + (LocalRandom32(&rng) % (ABILITIES_COUNT - 1));
-        if (IsAbilityRandomizable(result))
+        if (IsAbilityRandomizable(species, result))
             return result;
     }
 
@@ -1026,6 +1047,9 @@ static bool32 IsMoveEligible(u16 move)
         case MOVE_TECHNO_BLAST:
         case MOVE_RAGING_BULL:
         case MOVE_MULTI_ATTACK:
+        case MOVE_HYPERSPACE_FURY:
+        case MOVE_AURA_WHEEL:
+        case MOVE_HAIL:
             return FALSE;
         default:
             return TRUE;
@@ -1147,16 +1171,16 @@ static u32 GetMoveEffectivePower(u16 move)
 
     switch (GetMoveEffect(move))
     {
-    case EFFECT_RECOIL:
-    case EFFECT_RECOIL_IF_MISS:
-    case EFFECT_CHLOROBLAST:
-        effectivePower = (effectivePower * 75) / 100;
-        break;
-    case EFFECT_MAX_HP_50_RECOIL:
-        effectivePower = (effectivePower * 60) / 100;
-        break;
-    default:
-        break;
+        case EFFECT_RECOIL:
+        case EFFECT_RECOIL_IF_MISS:
+        case EFFECT_CHLOROBLAST:
+            effectivePower = (effectivePower * 75) / 100;
+            break;
+        case EFFECT_MAX_HP_50_RECOIL:
+            effectivePower = (effectivePower * 60) / 100;
+            break;
+        default:
+            break;
     }
 
     if (MoveHasRechargeEffect(move))
@@ -1164,6 +1188,25 @@ static u32 GetMoveEffectivePower(u16 move)
 
     if (IsExplosionMove(move))
         effectivePower = (effectivePower * 35) / 100;
+
+    if (GetMovePriority(move) >= 1)
+        effectivePower = (effectivePower*125) / 100;
+
+    if (IsMultiHitMove(move))
+    {
+        effectivePower *= 3;
+    } else
+    {
+        u32 strikeCount = GetMoveStrikeCount(move);
+        if (strikeCount > 1)
+            effectivePower *= strikeCount;
+    }
+
+    if (move == MOVE_FAKE_OUT)
+        effectivePower = effectivePower * 2;
+
+    if (move == MOVE_RAGE_FIST)
+        effectivePower = (effectivePower * 175) / 100;
 
     return effectivePower;
 }

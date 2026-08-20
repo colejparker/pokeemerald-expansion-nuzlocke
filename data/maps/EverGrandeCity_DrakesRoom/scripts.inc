@@ -43,7 +43,6 @@ EverGrandeCity_DrakesRoom_EventScript_Drake::
 	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	msgbox EverGrandeCity_DrakesRoom_Sans_Speech, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_DRAKE, EverGrandeCity_DrakesRoom_Text_Defeat
 	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
 	end
@@ -69,20 +68,13 @@ EverGrandeCity_DrakesRoom_Text_IntroSpeech:
 	.string "so, i've got a question for ya.\p"
 	.string "do you think even the worst person\n"
 	.string "can change?\p"
-	.string "thay everybody can be a good person\n"
+	.string "that everybody can be a good person\n"
 	.string "if they just try?\p"
 	.string "heh heh heh heh...\p"
 	.string "all right\p"
 	.string "well here's a better question\p"
 	.string "do you wanna have a bad time?$"
 
-EverGrandeCity_DrakesRoom_Sans_Speech:
-	.string "it's a beautiful day outside.\p"
-	.string "birds are singing, \n"
-	.string "flowers are blooming.\p"
-	.string "on days like these,\n"
-	.string "kids like you.\n"
-	.string "SHOULD BE BURNING IN HELL.$"
 
 EverGrandeCity_DrakesRoom_Text_Defeat:
 	.string "so that's it huh?$"

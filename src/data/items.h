@@ -14009,14 +14009,12 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Mach Bike"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A folding bicycle\n"
-            "that doubles your\n"
-            "speed or better."),
+            "This bike model is\n"
+            "no longer made."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_Bike,
-        .secondaryId = MACH_BIKE,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_MachBike,
         .iconPalette = gItemIconPalette_MachBike,
     },
@@ -14026,14 +14024,12 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Acro Bike"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A folding bicycle\n"
-            "capable of jumps\n"
-            "and wheelies."),
+            "This bike model is\n"
+            "no longer made."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_Bike,
-        .secondaryId = ACRO_BIKE,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_AcroBike,
         .iconPalette = gItemIconPalette_AcroBike,
     },

@@ -674,11 +674,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Medicham
-Level: 43
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Claydol
-Level: 43
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_VIOLET ===
@@ -1348,11 +1348,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Cacturne
-Level: 43
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Pelipper
-Level: 43
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_ALBERT ===
@@ -1366,11 +1366,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Magneton
-Level: 43
+Level: 55
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Muk
-Level: 43
+Level: 55
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_SAMUEL ===
@@ -1384,15 +1384,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Swellow
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Mawile
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Kadabra
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_VITO ===
@@ -1406,19 +1406,19 @@ Double Battle: No
 AI: Basic Trainer
 
 Dodrio
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Kadabra
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Electrode
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Shiftry
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_OWEN ===
@@ -1432,15 +1432,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Kecleon
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Graveler
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Wailord
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_WILTON_2 ===
@@ -1678,7 +1678,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Roselia
-Level: 45
+Level: 56
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_SHANNON ===
@@ -1692,7 +1692,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Claydol
-Level: 45
+Level: 55
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_MICHELLE ===
@@ -1706,15 +1706,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Torkoal
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Medicham
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Ludicolo
-Level: 42
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_CAROLINE ===
@@ -1728,11 +1728,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Skarmory
-Level: 43
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Sableye
-Level: 43
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_JULIE ===
@@ -1746,15 +1746,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Sandslash
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Ninetales
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Tropius
-Level: 42
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_BROOKE_2 ===
@@ -4494,11 +4494,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Geodude
-Level: 12
+Level: 14
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Bellsprout
-Level: 12
+Level: 14
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Tinkatuff @ Throat Spray
@@ -4521,11 +4521,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Machop
-Level: 16
+Level: 17
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Meditite
-Level: 16
+Level: 18
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Carbink @ Babiri Berry
@@ -4548,15 +4548,15 @@ Double Battle: No
 AI: Basic Trainer
 
 Voltorb
-Level: 20
+Level: 22
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 Electrike
-Level: 20
+Level: 22
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 Magneton
-Level: 22
+Level: 23
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 
 Morpeko @ Sitrus Berry
@@ -4628,7 +4628,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Curse
 - Body Slam
 - Rest
-- Sleep Talk
+- Mortal Spin
 
 === TRAINER_WINONA_1 ===
 Name: ROBYN
@@ -5475,7 +5475,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Poochyena
-Level: 11
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BILLY ===
@@ -5566,11 +5566,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Slaking
-Level: 43
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Dusclops
-Level: 43
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_KATELYNN ===
@@ -5584,11 +5584,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Gardevoir
-Level: 43
+Level: 54
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 Slaking
-Level: 43
+Level: 53
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_JAYLEN ===
@@ -5716,11 +5716,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zigzagoon
-Level: 10
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Taillow
-Level: 9
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TIMMY ===
@@ -7116,11 +7116,11 @@ Items: Full Restore
 Double Battle: No
 
 Claydol
-Level: 43
+Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Lanturn
-Level: 43
+Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JANI ===
@@ -8807,23 +8807,23 @@ Double Battle: No
 AI: Basic Trainer
 
 Altaria
-Level: 44
+Level: 54
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Delcatty
-Level: 43
+Level: 54
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Roselia
-Level: 44
+Level: 55
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Magneton
-Level: 41
+Level: 56
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 Gardevoir
-Level: 45
+Level: 58
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_BRENDAN_ROUTE_103_MUDKIP ===
@@ -9212,11 +9212,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Lunatone
-Level: 43
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Solrock
-Level: 43
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ISAAC_2 ===
@@ -9395,11 +9395,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Sableye
-Level: 43
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Absol
-Level: 43
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GARRISON ===
@@ -10164,11 +10164,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Lotad
-Level: 13
+Level: 17
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 Torchic
-Level: 15
+Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_BRENDAN_RUSTBORO_MUDKIP ===
@@ -10288,11 +10288,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Slugma
-Level: 13
+Level: 17
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 Mudkip
-Level: 15
+Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_MAY_RUSTBORO_MUDKIP ===
@@ -10305,11 +10305,11 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Force Setup First Turn
 
 Wingull
-Level: 13
+Level: 17
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 Treecko
-Level: 15
+Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_MAXIE_MAGMA_HIDEOUT ===
@@ -10366,11 +10366,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zigzagoon
-Level: 9
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Shroomish
-Level: 10
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HALEY_1 ===
@@ -10570,11 +10570,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Wurmple
-Level: 9
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Wurmple
-Level: 9
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LYLE ===
@@ -13249,11 +13249,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Lotad
-Level: 13
+Level: 17
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 Torchic
-Level: 15
+Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_MAY_RUSTBORO_TORCHIC ===
@@ -13266,11 +13266,11 @@ Double Battle: No
 AI: Basic Trainer
 
 Torkoal
-Level: 13
+Level: 17
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 Mudkip
-Level: 15
+Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_ROXANNE_2 ===
