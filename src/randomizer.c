@@ -835,7 +835,7 @@ u16 RandomizeNpcGiftItem(u16 itemId, u32 mapNum, u32 mapGroup)
     return RandomizeItemFromSeed(rng, itemId);
 }
 
-#define FELINE_PROWESS_HUGE_POWER_BST_CAP 420
+#define FELINE_PROWESS_HUGE_POWER_BST_CAP 425
 
 static u32 GetFinalEvolutionBaseStatTotal(u16 species)
 {

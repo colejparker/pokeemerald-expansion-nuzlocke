@@ -13685,7 +13685,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_MAROWAK] =
     {
         .baseHP        = 60,
-        .baseAttack    = 80,
+        .baseAttack    = 81,
         .baseDefense   = 110,
         .baseSpeed     = 45,
         .baseSpAttack  = 50,
@@ -13759,7 +13759,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_MAROWAK_ALOLA] =
     {
         .baseHP        = 60,
-        .baseAttack    = 80,
+        .baseAttack    = 81,
         .baseDefense   = 110,
         .baseSpeed     = 45,
         .baseSpAttack  = 50,
