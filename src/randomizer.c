@@ -968,12 +968,16 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
     u16 result;
     u32 tries;
 
-    if (!IsAbilityRandomizerEnabled() || originalAbility == ABILITY_NONE)
+    if (!IsAbilityRandomizerEnabled())
         return originalAbility;
 
     // Wonder Guard/Imposter are these two species' entire identity, not
-    // ordinary combat abilities to shuffle.
-    if (species == SPECIES_SHEDINJA || species == SPECIES_DITTO)
+    // ordinary combat abilities to shuffle
+    if (species == SPECIES_SHEDINJA)
+        return ABILITY_WONDER_GUARD;
+    if (species == SPECIES_DITTO)
+        return ABILITY_IMPOSTER;
+    if (originalAbility == ABILITY_NONE)
         return originalAbility;
 
     if (gSpeciesInfo[species].isMegaEvolution)
