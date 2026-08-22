@@ -13,4 +13,6 @@
 #define QUICKSTART_HUD_X             (DISPLAY_WIDTH - 32) // Quickstart HUD X Position
 #define QUICKSTART_HUD_Y             (16)                 // Quickstart HUD Y Position
 
+#define SKIP_INTRO_TO_STARTER        1
+
 #endif // GUARD_CONFIG_QUICKSTART_H

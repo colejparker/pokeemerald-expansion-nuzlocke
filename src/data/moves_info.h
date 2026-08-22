@@ -4244,7 +4244,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "restoring HP and status."),
         .effect = EFFECT_REST,
         .power = 0,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 5 : 10,
         .target = TARGET_USER,
