@@ -2,11 +2,11 @@ MauvilleCity_GameCorner_MapScripts::
 	.byte 0
 
 	@ Game Corner prices
-	.set TM_DOUBLE_TEAM_COINS, 1500
-	.set TM_PSYCHIC_COINS, 3500
-	.set TM_FLAMETHROWER_COINS, 4000
-	.set TM_THUNDERBOLT_COINS, 4000
-	.set TM_ICE_BEAM_COINS, 4000
+	.set TM_DOUBLE_TEAM_COINS, 1
+	.set TM_PSYCHIC_COINS, 1
+	.set TM_FLAMETHROWER_COINS, 1
+	.set TM_THUNDERBOLT_COINS, 1
+	.set TM_ICE_BEAM_COINS, 1
 	.set DOLL_COINS, 1000
 
 	.set COINS_PRICE_50,  1000
@@ -288,12 +288,14 @@ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
+	goto_if_set FLAG_BOUGHT_GAME_CORNER_TM_DOUBLE_TEAM, MauvilleCity_GameCorner_EventScript_TMSoldOut
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_DOUBLE_TEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_DOUBLE_TEAM
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_DOUBLE_TEAM_COINS
 	additem ITEM_TM_DOUBLE_TEAM
+	setflag FLAG_BOUGHT_GAME_CORNER_TM_DOUBLE_TEAM
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
@@ -301,12 +303,14 @@ MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
+	goto_if_set FLAG_BOUGHT_GAME_CORNER_TM_PSYCHIC, MauvilleCity_GameCorner_EventScript_TMSoldOut
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_PSYCHIC_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_PSYCHIC
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_PSYCHIC_COINS
 	additem ITEM_TM_PSYCHIC
+	setflag FLAG_BOUGHT_GAME_CORNER_TM_PSYCHIC
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
@@ -314,12 +318,14 @@ MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
+	goto_if_set FLAG_BOUGHT_GAME_CORNER_TM_FLAMETHROWER, MauvilleCity_GameCorner_EventScript_TMSoldOut
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_FLAMETHROWER_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_FLAMETHROWER
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_FLAMETHROWER_COINS
 	additem ITEM_TM_FLAMETHROWER
+	setflag FLAG_BOUGHT_GAME_CORNER_TM_FLAMETHROWER
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
@@ -327,12 +333,14 @@ MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
+	goto_if_set FLAG_BOUGHT_GAME_CORNER_TM_THUNDERBOLT, MauvilleCity_GameCorner_EventScript_TMSoldOut
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_THUNDERBOLT_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_THUNDERBOLT
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_THUNDERBOLT_COINS
 	additem ITEM_TM_THUNDERBOLT
+	setflag FLAG_BOUGHT_GAME_CORNER_TM_THUNDERBOLT
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
@@ -340,12 +348,14 @@ MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTMIceBeam::
+	goto_if_set FLAG_BOUGHT_GAME_CORNER_TM_ICE_BEAM, MauvilleCity_GameCorner_EventScript_TMSoldOut
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_ICE_BEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
 	checkitemspace ITEM_TM_ICE_BEAM
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_ICE_BEAM_COINS
 	additem ITEM_TM_ICE_BEAM
+	setflag FLAG_BOUGHT_GAME_CORNER_TM_ICE_BEAM
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
@@ -354,6 +364,11 @@ MauvilleCity_GameCorner_EventScript_BuyTMIceBeam::
 
 MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM::
 	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_TMSoldOut::
+	msgbox MauvilleCity_GameCorner_Text_TMSoldOut, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
 	end
 
@@ -674,6 +689,9 @@ MauvilleCity_GameCorner_Text_SendToYourHomePC:
 
 MauvilleCity_GameCorner_Text_NotEnoughCoins:
 	.string "You don't have enough COINS.$"
+
+MauvilleCity_GameCorner_Text_TMSoldOut:
+	.string "That TM is sold out!$"
 
 @ Unused
 MauvilleCity_GameCorner_Text_NoRoomForPlacingDecor:

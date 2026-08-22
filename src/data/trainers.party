@@ -393,7 +393,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Carvanha
-Level: 20
+Level: 23
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_MUSEUM_2 ===
@@ -406,11 +406,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Zubat
-Level: 19
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Carvanha
-Level: 19
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_SPACE_CENTER_1 ===
@@ -4068,7 +4068,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Abra
-Level: 16
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HANNAH ===
@@ -6147,11 +6147,11 @@ Double Battle: No
 AI: Check Bad Move
 
 Magnemite
-Level: 14
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Magnemite
-Level: 14
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BENJAMIN_1 ===
@@ -6164,7 +6164,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Magnemite
-Level: 16
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BENJAMIN_2 ===
@@ -6229,7 +6229,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Magnemite
-Level: 16
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JASMINE ===

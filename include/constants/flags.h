@@ -702,11 +702,11 @@
 #define FLAG_RECEIVED_MEGA_RING  0x287 // Set when the player receives the Mega Ring from Kiran after defeating the Lavaridge Gym
 #define FLAG_TUTOR_PROTECT  0x288 // One-time Protect tutor NPC in the Ever Grande Pokemon League 1F
 #define FLAG_DEFEATED_RED  0x289 // Set after defeating the Red encounter at the end of Victory Road 1F
-#define FLAG_UNUSED_0x28A  0x28A // Unused Flag
-#define FLAG_UNUSED_0x28B  0x28B // Unused Flag
-#define FLAG_UNUSED_0x28C  0x28C // Unused Flag
-#define FLAG_UNUSED_0x28D  0x28D // Unused Flag
-#define FLAG_UNUSED_0x28E  0x28E // Unused Flag
+#define FLAG_BOUGHT_GAME_CORNER_TM_DOUBLE_TEAM  0x28A // Game Corner stock
+#define FLAG_BOUGHT_GAME_CORNER_TM_PSYCHIC      0x28B // Game Corner stock
+#define FLAG_BOUGHT_GAME_CORNER_TM_FLAMETHROWER 0x28C // Game Corner stock
+#define FLAG_BOUGHT_GAME_CORNER_TM_THUNDERBOLT  0x28D // Game Corner stock
+#define FLAG_BOUGHT_GAME_CORNER_TM_ICE_BEAM     0x28E // Game Corner stock
 #define FLAG_UNUSED_0x28F  0x28F // Unused Flag
 #define FLAG_UNUSED_0x290  0x290 // Unused Flag
 #define FLAG_UNUSED_0x291  0x291 // Unused Flag
