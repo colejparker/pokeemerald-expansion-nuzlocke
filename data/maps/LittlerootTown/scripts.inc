@@ -241,6 +241,10 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
 	setobjectxy LOCALID_LITTLEROOT_BIRCH, 14, 10
 	end
 
+LittlerootTown_EventScript_MovingTruck::
+	msgbox LittlerootTown_Text_NoMewUnderHere, MSGBOX_SIGN
+	end
+
 LittlerootTown_EventScript_FatMan::
 	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
 	end
@@ -948,6 +952,9 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "…But please be careful.\n"
 	.string "If anything happens, you can come home.\p"
 	.string "Go on, go get them, honey!$"
+
+LittlerootTown_Text_NoMewUnderHere:
+	.string "There is no MEW under here.$"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "If you use a PC, you can store items\n"
