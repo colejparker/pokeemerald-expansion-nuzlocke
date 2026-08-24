@@ -13,6 +13,10 @@ Route121_EventScript_SafariZoneSign::
 	msgbox Route121_Text_SafariZoneSign, MSGBOX_SIGN
 	end
 
+Route121_EventScript_BeatWinonaSign::
+	msgbox Route121_Text_BeatWinonaSign, MSGBOX_SIGN
+	end
+
 Route121_EventScript_AquaGruntsMoveOut::
 	lockall
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
@@ -185,4 +189,8 @@ Route121_Text_MtPyrePierSign:
 Route121_Text_SafariZoneSign:
 	.string "“Filled with rare POKéMON!”\n"
 	.string "SAFARI ZONE$"
+
+Route121_Text_BeatWinonaSign:
+	.string "Hope you've beaten Robyn!\n"
+	.string "The trainers here are stronger.$"
 

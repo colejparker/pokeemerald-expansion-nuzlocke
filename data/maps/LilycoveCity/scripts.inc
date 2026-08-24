@@ -34,11 +34,11 @@ LilycoveCity_EventScript_BerryGentleman::
 	lock
 	faceplayer
 	dotimebasedevents
-	goto_if_set FLAG_DAILY_LILYCOVE_RECEIVED_BERRY, LilycoveCity_EventScript_ReceivedBerry
+	goto_if_set FLAG_LILYCOVE_RECEIVED_BERRY, LilycoveCity_EventScript_ReceivedBerry
 	msgbox LilycoveCity_Text_BerrySuitsYou, MSGBOX_DEFAULT
 	giverandomberry BERRY_ID_CHERI, BERRY_ID_SITRUS
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_DAILY_LILYCOVE_RECEIVED_BERRY
+	setflag FLAG_LILYCOVE_RECEIVED_BERRY
 	msgbox LilycoveCity_Text_BecauseYoureTrainer, MSGBOX_DEFAULT
 	release
 	end

@@ -3,7 +3,6 @@
   "name": "Route125",
   "layout": "LAYOUT_ROUTE125",
   "music": "MUS_ROUTE120",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ROUTE_125",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -162,15 +161,7 @@
       "flag": "FLAG_ITEM_ROUTE_125_BIG_PEARL"
     }
   ],
-  "warp_events": [
-    {
-      "x": 22,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [
     {
@@ -201,5 +192,6 @@
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE4_2"
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }

@@ -3,7 +3,6 @@
   "name": "Route121",
   "layout": "LAYOUT_ROUTE121",
   "music": "MUS_ROUTE120",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ROUTE_121",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -555,6 +554,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route121_EventScript_SafariZoneSign"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route121_EventScript_BeatWinonaSign"
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }

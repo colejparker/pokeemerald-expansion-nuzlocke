@@ -87,7 +87,7 @@ Route120_EventScript_BerryBeauty::
 	lock
 	faceplayer
 	dotimebasedevents
-	goto_if_set FLAG_DAILY_ROUTE_120_RECEIVED_BERRY, Route120_EventScript_ReceivedBerry
+	goto_if_set FLAG_ROUTE_120_RECEIVED_BERRY, Route120_EventScript_ReceivedBerry
 	msgbox Route120_Text_BerriesExpressionOfLoveIsntIt, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, Route120_EventScript_BerryLove
 	call_if_eq VAR_RESULT, NO, Route120_EventScript_BerryNotLove
@@ -133,7 +133,7 @@ Route120_EventScript_GiveIapapaBerry::
 Route120_EventScript_GiveBerry::
 	giveitem VAR_0x8004
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_DAILY_ROUTE_120_RECEIVED_BERRY
+	setflag FLAG_ROUTE_120_RECEIVED_BERRY
 	msgbox Route120_Text_BerryIsRareRaiseItWithCare, MSGBOX_DEFAULT
 	release
 	end

@@ -10,11 +10,11 @@ Route123_BerryMastersHouse_EventScript_BerryMaster::
 	lock
 	faceplayer
 	dotimebasedevents
-	goto_if_set FLAG_DAILY_BERRY_MASTER_RECEIVED_BERRY, Route123_BerryMastersHouse_EventScript_ReceivedBerryToday
+	goto_if_set FLAG_BERRY_MASTER_RECEIVED_BERRY, Route123_BerryMastersHouse_EventScript_ReceivedBerryToday
 	msgbox Route123_BerryMastersHouse_Text_YoureDeservingOfBerry, MSGBOX_DEFAULT
 	giverandomberry BERRY_ID_POMEG, BERRY_ID_NOMEL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_DAILY_BERRY_MASTER_RECEIVED_BERRY
+	setflag FLAG_BERRY_MASTER_RECEIVED_BERRY
 	msgbox Route123_BerryMastersHouse_Text_WhyBeStingyTakeAnother, MSGBOX_DEFAULT
 	giverandomberry BERRY_ID_POMEG, BERRY_ID_NOMEL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -31,7 +31,7 @@ Route123_BerryMastersHouse_EventScript_BerryMastersWife::
 	lock
 	faceplayer
 	dotimebasedevents
-	goto_if_set FLAG_DAILY_BERRY_MASTERS_WIFE, Route123_BerryMastersHouse_EventScript_ReceivedWifeBerryToday
+	goto_if_set FLAG_BERRY_MASTERS_WIFE_ONCE, Route123_BerryMastersHouse_EventScript_ReceivedWifeBerryToday
 	msgbox Route123_BerryMastersHouse_Text_HeardAGoodSayingLately, MSGBOX_DEFAULT
 	setvar VAR_0x8004, EASY_CHAT_TYPE_GOOD_SAYING
 	call Common_ShowEasyChatScreen
@@ -115,7 +115,7 @@ Route123_BerryMastersHouse_EventScript_ReceivedWifeBerryToday::
 	end
 
 Route123_BerryMastersHouse_EventScript_GaveBerry::
-	setflag FLAG_DAILY_BERRY_MASTERS_WIFE
+	setflag FLAG_BERRY_MASTERS_WIFE_ONCE
 	msgbox Route123_BerryMastersHouse_Text_JoyNeverGoesOutOfMyLife, MSGBOX_DEFAULT
 	release
 	end
