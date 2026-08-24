@@ -965,7 +965,7 @@ static void CB2_GiveStarter(void)
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
-    CreateMonWithIVs(&mon, starterMon, 5, Random32(), OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    CreateMonWithIVs(&mon, starterMon, 10, Random32(), OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
     SetBoxMonPerfectIVs(&mon.box, 5);
     CalculateMonStats(&mon);
     GiveMonInitialMoveset(&mon);
