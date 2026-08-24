@@ -3,7 +3,6 @@
   "name": "RustboroCity_Gym",
   "layout": "LAYOUT_RUSTBORO_CITY_GYM",
   "music": "MUS_GYM",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_RUSTBORO_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -72,7 +71,7 @@
       "x": 1,
       "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -115,5 +114,6 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "RustboroCity_Gym_EventScript_RightGymStatue"
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }
