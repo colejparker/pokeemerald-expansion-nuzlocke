@@ -116,7 +116,7 @@
     {
       "graphics_id": "0",
       "x": 1,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -129,7 +129,7 @@
     {
       "graphics_id": "0",
       "x": 2,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -142,7 +142,7 @@
     {
       "graphics_id": "0",
       "x": 3,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -181,7 +181,7 @@
     {
       "graphics_id": "0",
       "x": 10,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -194,7 +194,7 @@
     {
       "graphics_id": "0",
       "x": 11,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -207,7 +207,7 @@
     {
       "graphics_id": "0",
       "x": 12,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
