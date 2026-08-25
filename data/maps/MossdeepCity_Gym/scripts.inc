@@ -638,8 +638,8 @@ MossdeepCity_Gym_Text_TateAndLizaPreRematch:
 	.string "NEAL: We'll show you again and again!$"
 
 MossdeepCity_Gym_Text_TateAndLizaRematchDefeat:
-	.string "CONRAD: You and your POKéMON…\n"
-	.string "NEAL: It's as if you were siblings!$"
+	.string "CONRAD: Ouchie!\n"
+	.string "NEAL: Bears!$"
 
 MossdeepCity_Gym_Text_TateAndLizaPostRematch:
 	.string "CONRAD: You can knock us down,\n"

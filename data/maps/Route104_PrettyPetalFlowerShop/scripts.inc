@@ -80,11 +80,11 @@ Route104_PrettyPetalFlowerShop_EventScript_RandomBerryGirl::
 	lock
 	faceplayer
 	dotimebasedevents
-	goto_if_set FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY, Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry
+	goto_if_set FLAG_FLOWER_SHOP_RECEIVED_BERRY, Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry
 	msgbox Route104_PrettyPetalFlowerShop_Text_ImGrowingFlowers, MSGBOX_DEFAULT
 	giverandomberry BERRY_ID_CHERI, BERRY_ID_PERSIM
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	setflag FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY
+	setflag FLAG_FLOWER_SHOP_RECEIVED_BERRY
 	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
 	release
 	end
