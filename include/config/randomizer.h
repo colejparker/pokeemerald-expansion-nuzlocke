@@ -17,6 +17,9 @@
 // Percentage a random Pokemon can vary from the mon its being based on.
 #define RANDOMIZER_BST_LENIENCY_PERCENT    10
 
+// Minimum base stat total to roll into.
+#define RANDOMIZER_LOW_BST_MAX_FLOOR   250
+
 #define RANDOMIZER_HIGH_BST_FALLBACK   570
 
 // Number of moves in each randomized moveset.

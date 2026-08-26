@@ -514,6 +514,8 @@ u16 GetRandomizedSpecies(enum RandomizerContext context, u32 data1, u32 data2, u
     bst = GetSpeciesBaseStatTotal(species);
     minBst = (bst * (100 - RANDOMIZER_BST_LENIENCY_PERCENT)) / 100;
     maxBst = (bst * (100 + RANDOMIZER_BST_LENIENCY_PERCENT)) / 100;
+    if (maxBst < RANDOMIZER_LOW_BST_MAX_FLOOR)
+        maxBst = RANDOMIZER_LOW_BST_MAX_FLOOR;
 
     GetBstRangeIndices((u16)minBst, (u16)maxBst, &rangeStart, &rangeEnd);
     rangeCount = rangeEnd - rangeStart;
