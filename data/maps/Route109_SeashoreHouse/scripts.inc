@@ -36,11 +36,7 @@ Route109_SeashoreHouse_EventScript_BagFull::
 	end
 
 Route109_SeashoreHouse_EventScript_AlreadyReceivedSodaPop::
-	showmoneybox 0, 0
-	msgbox Route109_SeashoreHouse_Text_WantToBuySodaPop, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route109_SeashoreHouse_EventScript_BuySodaPop
-	msgbox Route109_SeashoreHouse_Text_ThatsTooBad, MSGBOX_DEFAULT
-	hidemoneybox
+	msgbox Route109_SeashoreHouse_Text_AlreadyGaveReward, MSGBOX_DEFAULT
 	release
 	end
 
@@ -126,6 +122,10 @@ Route109_SeashoreHouse_Text_TakeTheseSodaPopBottles:
 Route109_SeashoreHouse_Text_BagFull:
 	.string "Oh, but hey, your BAG's jammed full.\n"
 	.string "I'll hang on to these for you.$"
+
+Route109_SeashoreHouse_Text_AlreadyGaveReward:
+	.string "Those battles were the hottest I've\n"
+	.string "seen! Enjoy that SODA POP!$"
 
 Route109_SeashoreHouse_Text_WantToBuySodaPop:
 	.string "Want to buy some SODA POP?\n"

@@ -911,6 +911,7 @@ static bool32 IsAbilityRandomizable(u16 species, u16 ability)
     case ABILITY_STALL:
     case ABILITY_WIMP_OUT:
     case ABILITY_RUN_AWAY:
+    case ABILITY_BATTLE_BOND:
         return FALSE;
     default:
         return TRUE;
