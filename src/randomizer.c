@@ -1008,6 +1008,9 @@ u16 RandomizeAbility(u16 species, u8 slot, u16 originalAbility)
 
 static bool32 IsMoveEligible(u16 move)
 {
+    if (GetMoveEffect(move) == EFFECT_PLACEHOLDER)
+        return FALSE;
+
     switch (move)
     {
         case MOVE_NONE:
