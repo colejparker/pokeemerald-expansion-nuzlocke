@@ -1338,6 +1338,7 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
     EnforceReservoirMinLevels(&stabMoves, 0);
     EnforceReservoirMinLevels(&nonStabMoves, 1);
 
+    u32 realCount = 0;
     for (slot = 0; slot < RANDOMIZER_MOVESET_SIZE; slot++)
     {
         u16 chosenMove;
@@ -1362,12 +1363,16 @@ const struct LevelUpMove *RandomizeLevelUpLearnset(u16 species, const struct Lev
             break;
         }
 
-        sRandomizedLearnsetBuffer[slot].move = chosenMove;
-        sRandomizedLearnsetBuffer[slot].level = sMovesetLevelCurve[slot];
+        if (chosenMove != MOVE_NONE)
+        {
+            sRandomizedLearnsetBuffer[realCount].move = chosenMove;
+            sRandomizedLearnsetBuffer[realCount].level = sMovesetLevelCurve[slot];
+            realCount++;
+        }
     }
 
-    sRandomizedLearnsetBuffer[RANDOMIZER_MOVESET_SIZE].move = LEVEL_UP_MOVE_END;
-    sRandomizedLearnsetBuffer[RANDOMIZER_MOVESET_SIZE].level = 0;
+    sRandomizedLearnsetBuffer[realCount].move = LEVEL_UP_MOVE_END;
+    sRandomizedLearnsetBuffer[realCount].level = 0;
 
     return sRandomizedLearnsetBuffer;
 }
